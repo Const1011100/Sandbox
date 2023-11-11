@@ -11,6 +11,51 @@ function evenOrOdd(number) {
     return number % 2 === 0 ? 'Even' : 'Odd';
 }
 // Цікаві варіанти з Codewars
-const evenOrOdd = (number) => number % 2 ? "Odd" : 'Even';
+const evenOrOdd_ = (number) => number % 2 ? "Odd" : 'Even';
 // ================================================================================================
+// ================================================================================================
+//**Task №2 Return Negative (8kyu)
+/*
+У цьому простому завданні вам дано число, і ви повинні зробити його від’ємним. Але, може, число вже негативне?
+
+Приклади:
+makeNegative(1);    // return -1
+makeNegative(-5);   // return -5
+makeNegative(0);    // return 0
+makeNegative(0.12); // return -0.12
+
+Примітки:
+Число вже може бути від’ємним, і в цьому випадку зміна не потрібна.
+Нуль (0) не перевіряється на будь-який конкретний знак. Від’ємні нулі не мають математичного сенсу.
+*/
+
+// Мій варіант
+function makeNegative(num) {
+    return num > 0 ? num * -1 : num;
+}
+
+// Цікаві варіанти з Codewars
+function makeNegative_(num) {
+    return -Math.abs(num); // Такий варіант повертає -0. Дивне рішення.
+}
+/*
+Метод Math.abs() возвращает абсолютное значение числа.
+Math.abs("-1"); // 1
+Math.abs(-2); // 2
+Math.abs(null); // 0
+Math.abs(""); // 0
+Math.abs([]); // 0
+Math.abs([2]); // 2
+Math.abs([1, 2]); // NaN
+Math.abs({}); // NaN
+Math.abs("string"); // NaN
+Math.abs(); // NaN
+*/
+
+//
+function makeNegative__(num) {
+    return num < 0 ? num : -num; // Такий варіант повертає -0 :)
+}
+console.log(makeNegative__(0));
+console.log(makeNegative_(0));
 // ================================================================================================
