@@ -59,3 +59,37 @@ function makeNegative__(num) {
 console.log(makeNegative__(0));
 console.log(makeNegative_(0));
 // ================================================================================================
+// ================================================================================================
+//**Task №3 Sum of positive (8kyu)
+/*
+Ви отримуєте масив чисел, повертаєте суму всіх додатніх.
+Приклад: [1,-4,7,12] => 1 + 7 + 12 = 20
+Примітка: якщо немає нічого для додавання, сума за замовченням дорівнює 0.
+*/
+
+// Мій варіант
+function positiveSum(arr) {
+    let sum = arr.reduce(function (accumulator, element) {
+        if (element > 0) {
+            return accumulator + element;
+        }
+        return accumulator;
+    }, 0);
+    return sum;
+}
+
+// Цікаві варіанти з Codewars
+function positiveSum_(arr) {
+    return arr.reduce((a, b) => a + (b > 0 ? b : 0), 0);
+}
+//
+function positiveSum__(arr) {
+    var total = 0;
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i] > 0) {
+            total += arr[i];
+        }
+    }
+    return total;
+}
+// ================================================================================================
