@@ -56,8 +56,6 @@ Math.abs(); // NaN
 function makeNegative__(num) {
     return num < 0 ? num : -num; // Такий варіант повертає -0 :)
 }
-console.log(makeNegative__(0));
-console.log(makeNegative_(0));
 // ================================================================================================
 // ================================================================================================
 //*-Task №3 Sum of positive (8kyu)
@@ -457,7 +455,7 @@ function litres(time) {
 }
 
 // Цікаві варіанти з Codewars
-litres_ = t => ~~(t / 2); // Що означає ~~?
+const litres_ = t => ~~(t / 2); // Що означає ~~?
 //
 function litres__(time) {
     return time >> 1 // Що означає >>?
