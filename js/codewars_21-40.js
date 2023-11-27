@@ -301,7 +301,6 @@ function sum_(numbers) {
 */
 
 // Мій варіант
-
 function invert(array) {
     return array.map((elem) => elem * -1);
 }
@@ -309,6 +308,74 @@ function invert(array) {
 // Цікаві варіанти з Codewars
 function invert_(array) {
     return array.map(x => x === 0 ? x : -x);
+}
+// ================================================================================================
+// ================================================================================================
+//*-Task №35 Simple multiplication (8kyu)
+/*
+У цій ката йдеться про множення даного числа на вісім, якщо воно парне, і на дев’ять в іншому випадку.
+*/
+
+// Мій варіант
+function simpleMultiplication(number) {
+    return number % 2 === 0 ? number * 8 : number * 9;
+}
+
+// Цікаві варіанти з Codewars
+function simpleMultiplication_(n) {
+    return n * (n % 2 ? 9 : 8);
+}
+// ================================================================================================
+// ================================================================================================
+//*-Task №36 Count of positives / sum of negatives (8kyu)
+/*
+Дано масив цілих чисел.
+
+Повертає масив, де перший елемент — це кількість додатних чисел, а другий — сума від’ємних чисел.
+0 не є ні позитивним, ні негативним.
+Якщо введення є порожнім масивом або має значення null, повертає порожній масив.
+Приклад:
+Для введення [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15] ви повинні повернути [10, -65].
+*/
+
+// Мій варіант
+function countPositivesSumNegatives(input) {
+    if (input !== null && input.length > 0) {
+        let countPositive = 0;
+        let sumNegative = 0;
+        for (let i = 0; i < input.length; i++) {
+            if (input[i] > 0) {
+                countPositive++;
+            } else {
+                sumNegative += input[i];
+            }
+        }
+        return [countPositive, sumNegative];
+    } else {
+        return [];
+    }
+}
+
+// Цікаві варіанти з Codewars
+function countPositivesSumNegatives_(input) {
+    return input && input.length ? [input.filter(p => p > 0).length, input.filter(n => n < 0).reduce((a, b) => a + b, 0)] : [];
+}
+//
+function countPositivesSumNegatives__(input) {
+    if (input == null || input.length == 0)
+        return [];
+
+    var positive = 0;
+    var negative = 0;
+
+    for (var i = 0, l = input.length; i < l; ++i) {
+        if (input[i] > 0)
+            ++positive;
+        else
+            negative += input[i];
+    }
+
+    return [positive, negative];
 }
 // ================================================================================================
 // ================================================================================================
