@@ -431,6 +431,71 @@ function fakeBin___(x) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №39 Calculate BMI (8kyu)
+/*
+Напишіть функцію bmi, яка обчислює індекс маси тіла (bmi = вага / зріст2).
+
+якщо bmi <= 18.5 return "Underweight"
+якщо bmi <= 25.0 return "Normal"
+якщо bmi <= 30.0 return "Overweight"
+якщо bmi > 30 return "Obese"
+*/
+
+// Мій варіант
+function bmi(weight, height) {
+    let bmi = weight / (height * height);
+
+    if (bmi <= 18.5) {
+        return "Underweight";
+    } else if (bmi <= 25.0) {
+        return "Normal";
+    } else if (bmi <= 30.0) {
+        return "Overweight";
+    } else {
+        return "Obese";
+    }
+}
+
+// Цікаві варіанти з Codewars
+function bmi_(weight, height) {
+    var bmi = weight / (height * height);
+    return bmi < 18.5 ? "Underweight" : bmi <= 25 ? "Normal" : bmi <= 30 ? "Overweight" : "Obese";
+}
+//
+function bmi__(weight, height) {
+    var formula = (weight / Math.pow(height, 2));
+    switch (true) {
+        case formula <= 18.5:
+            return 'Underweight';
+        case formula <= 25.0:
+            return 'Normal';
+        case formula <= 30:
+            return 'Overweight';
+        default:
+            return 'Obese';
+    }
+}
+// ================================================================================================
+// ================================================================================================
+//*-Task №40 Beginner - Reduce but Grow (8kyu)
+/*
+Дано непорожній масив цілих чисел, повернути результат множення значень у порядку.
+Приклад: [1, 2, 3, 4] => 1 * 2 * 3 * 4 = 24
+*/
+
+// Мій варіант
+function grow(x) {
+    return x.reduce((accum, elem) => {
+        return accum * elem;
+    })
+}
+
+// Цікаві варіанти з Codewars
+const grow_ = x => x.reduce((a, b) => a * b);
+//
+const grow__ = x => eval(x.join("*")); // Специфічне рішення)
+// ================================================================================================
+// ================================================================================================О
 // console.time('timer_1');
 // console.timeEnd('timer_1');
 
