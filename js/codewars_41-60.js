@@ -275,3 +275,68 @@ var max_ = function(list) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №53 Convert a string to an array (8kyu)
+/*
+Напишіть функцію, щоб розділити рядок і перетворити його на масив слів.
+Приклади (Input ==> Output):
+"Robin Singh" ==> ["Robin", "Singh"]
+"I love arrays they are my favorite" ==> ["I", "love", "arrays", "they", "are", "my", "favorite"]
+*/
+
+// Мій варіант
+function stringToArray(string) {
+    return string.split(' ');
+}
+
+// Цікаві варіанти з Codewars
+
+// ================================================================================================
+// ================================================================================================
+//*-Task №54 Rock Paper Scissors! (8kyu)
+/*
+Камінь Ножиці Папір (Rock Paper Scissors)
+Давай грати! Ви повинні повернути, який гравець виграв! У разі нічиєї повернення Draw!.
+
+Приклади:
+"scissors", "paper" --> "Player 1 won!"
+"scissors", "rock" --> "Player 2 won!"
+"paper", "paper" --> "Draw!"
+*/
+
+// Мій варіант
+const rps = (p1, p2) => {
+    // Draw
+    if (p1 === p2) {
+        return 'Draw!';
+    }
+    // Player 1 won!
+    if (p1 === "rock" && p2 === 'scissors' || p1 === "scissors" && p2 === 'paper' || p2 === "rock" && p1 === 'paper') {
+        return 'Player 1 won!';
+    }
+
+    // Player 2 won!
+    if (p2 === "rock" && p1 === 'scissors' || p2 === "scissors" && p1 === 'paper' || p1 === "rock" && p2 === 'paper') {
+        return 'Player 2 won!';
+    }
+};
+
+// Цікаві варіанти з Codewars
+const rps_ = (p1, p2) => {
+    if (p1 === p2) return "Draw!";
+    var rules = { rock: "scissors", paper: "rock", scissors: "paper" };// Дуже сподобалось це рішення!
+    if (p2 === rules[p1]) {
+        return "Player 1 won!";
+    }
+    else {
+        return "Player 2 won!";
+    }
+};
+//
+const rps__ = (p1, p2) => {
+    if (p1 === p2) {
+        return 'Draw!'
+    };
+    return `Player ${/rockscissors|scissorspaper|paperrock/.test(p1 + p2) ? 1 : 2} won!`;
+}
+// ================================================================================================
+// ================================================================================================
