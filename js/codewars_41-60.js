@@ -395,6 +395,69 @@ const points_ = games => games.reduce((output, current) => {
 }, 0)
 // ================================================================================================
 // ================================================================================================
+//*-Task №57 Duck Duck Goose (8kyu)
+/*
+Мета гри «Качка, качка, гусак» — ходити по колу, стукаючи по голові кожного гравця, доки не буде обраний один.
+
+Завдання: задано масив об’єктів Player (масив асоціативних масивів у PHP) та індекс (від 1),
+повернути ім’я вибраного Player (ім’я є властивістю об’єктів Player, наприклад Player.name)
+
+Приклад:
+duck_duck_goose([a, b, c, d], 1) має повернути a.name
+duck_duck_goose([a, b, c, d], 5) має повертати a.name
+duck_duck_goose([a, b, c, d], 4) має повертати d.name
+*/
+
+// Мій варіант
+function duckDuckGoose(players, goose) {
+    let index = (goose - 1) % players.length;
+    return players[index].name;
+}
+
+// Цікаві варіанти з Codewars
+const duckDuckGoose_ = (players, goose) => players[(goose - 1) % players.length].name;
+
+// ================================================================================================
+// ================================================================================================
+//*-Task №58 Find the Remainder (8kyu)
+/*
+Напишіть функцію, яка приймає два цілі числа та повертає залишок від ділення більшого значення на менше.
+Ділення на нуль має повернути NaN.
+Приклади:
+n = 17
+m = 5
+result = 2 (remainder of `17 / 5`)
+
+n = 13
+m = 72
+result = 7 (remainder of `72 / 13`)
+
+n = 0
+m = -1
+result = 0 (remainder of `0 / -1`)
+
+n = 0
+m = 1
+result - division by zero (refer to the specifications on how to handle this in your language)
+*/
+
+// Мій варіант
+function remainder(n, m) {
+    if (n < 0 && m === 0 || n === 0 && m < 0) { return +0 }
+    if (n === 0 || m === 0) { return NaN }
+    if (n >= m) {
+        return n % m;
+    } else {
+        return m % n;
+    }
+}
+
+// Цікаві варіанти з Codewars
+function remainder_(a, b) {
+    return a > b ? a % b : b % a;
+}
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
 
