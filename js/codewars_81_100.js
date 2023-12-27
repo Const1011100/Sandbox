@@ -366,4 +366,67 @@ const humanYearsCatYearsDogYears__ = (humanYears) => {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 292шт
+//*-Task №91 altERnaTIng cAsE <=> ALTerNAtiNG CaSe (8kyu)
+/*
+Визначте String.prototype.toAlternatingCase (або подібну функцію/метод, як-от
+to_alternating_case/toAlternatingCase/ToAlternatingCase у вибраній вами мові; подробиці див.
+у початковому рішенні), щоб кожна мала літера стала великою, а кожна велика – малою.
+Наприклад:
+"hello world".toAlternatingCase() === "HELLO WORLD"
+"HELLO WORLD".toAlternatingCase() === "hello world"
+"hello WORLD".toAlternatingCase() === "HELLO world"
+"HeLLo WoRLD".toAlternatingCase() === "hEllO wOrld"
+"12345".toAlternatingCase()       === "12345"        // Non-alphabetical characters are unaffected
+"1a2b3c4d5e".toAlternatingCase()  === "1A2B3C4D5E"
+"String.prototype.toAlternatingCase".toAlternatingCase() === "sTRING.PROTOTYPE.TOaLTERNATINGcASE"
+
+Як правило, ваша функція/метод має бути чистою, тобто вона не повинна змінювати вихідний рядок.
+*/
+
+// Мій варіант
+String.prototype.toAlternatingCase = function () {
+    let tokensArray = this.split('');
+    let result = tokensArray.map(token => {
+        return token === token.toLowerCase() ? token.toUpperCase() : token.toLowerCase();
+    })
+    return result.join('');
+}
+
+// Цікаві варіанти з Codewars
+String.prototype.toAlternatingCase_ = function () {
+    return this.replace(/[a-z]/gi, e => /[a-z]/.test(e) ? e.toUpperCase() : e.toLowerCase())
+}
+// ================================================================================================
+// ================================================================================================
+//*-Task №92 Is it a palindrome? (8kyu)
+/*
+Напишіть функцію, яка перевіряє, чи заданий рядок (незалежно від регістру) є паліндромом.
+Паліндром — це слово, число, фраза або інша послідовність символів, яка читається як назад, так і
+вперед, наприклад мадам або гоночний автомобіль.
+*/
+
+// Мій варіант
+function isPalindrome(x) {
+    return x.toLowerCase() === x.split('').reverse().join('').toLowerCase();
+}
+
+// Цікаві варіанти з Codewars
+function isPalindrome_(x) {
+    x = x.toLowerCase()
+    let a = 0
+    let b = x.length
+    while (a < b) {
+        if (x[a] != x[b - 1])
+            return false
+        a++
+        b--
+    }
+    return true
+}
+//
+function isPalindrome__(x, str = x.toLowerCase()) {
+    return str === [...str].reverse().join('')
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 290шт
