@@ -20,3 +20,4 @@ target - число.
 // let testRagex = /Dod/i;
 // console.log(testRagex.test(testStr));
 // console.log(testStr.match(testRagex));
+
