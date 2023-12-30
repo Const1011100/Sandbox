@@ -15,8 +15,3 @@ target - число.
 // function hitsTheTarget(array, target) {
     
 // }
-
-// let testStr = 'The dog chased the cat';
-// let testRagex = /Dod/i;
-// console.log(testRagex.test(testStr));
-// console.log(testStr.match(testRagex));
