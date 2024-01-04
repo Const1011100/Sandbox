@@ -15,3 +15,9 @@ target - число.
 // function hitsTheTarget(array, target) {
     
 // }
+
+function f(str, regex) {
+    let reg = new RegExp(`${regex}`);
+    return reg.test(str);
+}
+console.log(f('test', 'i'));
