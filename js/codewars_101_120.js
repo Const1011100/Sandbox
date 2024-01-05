@@ -213,4 +213,72 @@ function move(position, roll) {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 274шт
+//*-Task №109 Unfinished Loop - Bug Fixing #1 (8kyu)
+/*
+Незавершений цикл - виправлення помилки №1
+О ні, Тіммі створив нескінченний цикл! Допоможіть Тіммі знайти та виправити помилку в його
+незавершеному циклі for!
+*/
+
+// Мій варіант
+function createArray(number) {
+    var newArray = [];
+
+    for (var counter = 1; counter <= number; counter++) {
+        newArray.push(counter);
+    }
+
+    return newArray;
+}
+
+// Цікаві варіанти з Codewars
+
+// ================================================================================================
+// ================================================================================================
+//*-Task №110 Filter out the geese (8kyu)
+/*
+Напишіть функцію, яка приймає список рядків як аргумент і повертає відфільтрований список,
+що містить ті самі елементи, але без «гусей».
+
+Гуси — це будь-які рядки в наступному масиві, який попередньо заповнено у вашому рішенні:
+["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"]
+
+Наприклад, якщо цей масив передано як аргумент:
+["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"]
+
+Ваша функція поверне такий масив:
+["Mallard", "Hook Bill", "Crested", "Blue Swedish"]
+
+Елементи у поверненому масиві мають бути в тому самому порядку, що й у початковому масиві,
+переданому вашій функції, хоча й без «гусей». Зверніть увагу, що всі рядки будуть написані в тому
+самому регістрі, що й надані, і деякі елементи можуть повторюватися.
+*/
+
+// Мій варіант
+function gooseFilter(birds) {
+    var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+
+    return birds.filter(function (elem) {
+        for (let i = 0; i < geese.length; i++) {
+            if (elem === geese[i]) {
+                return false;
+            }
+        }
+        return true;
+    })
+};
+
+// Цікаві варіанти з Codewars
+function gooseFilter_(birds) {
+    var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+    return birds.filter(b => !geese.includes(b));
+};
+//
+function gooseFilter__(birds) {
+    var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+    return birds.filter(bird => geese.indexOf(bird) < 0);
+};
+
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 272шт
