@@ -16,8 +16,9 @@ target - число.
     
 // }
 
-function f(str, regex) {
-    let reg = new RegExp(`${regex}`);
-    return reg.test(str);
-}
-console.log(f('test', 'i'));
+// function f(str, regex) {
+//     let reg = new RegExp(`${regex}`);
+//     return reg.test(str);
+// }
+// console.log(f('test', 'i'));
+
