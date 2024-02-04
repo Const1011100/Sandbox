@@ -10,15 +10,5 @@ target - число.
 1. Повертаємо true якщю це можливо або false якщо ні.
 2. Повертаємо масив з разставленними операціями.
 */
-// let nums = [3, 7, 4, 2, 5];
-// let target = 9;
-// function hitsTheTarget(array, target) {
-    
-// }
 
-// function f(str, regex) {
-//     let reg = new RegExp(`${regex}`);
-//     return reg.test(str);
-// }
-// console.log(f('test', 'i'));
 
