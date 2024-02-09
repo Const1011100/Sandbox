@@ -477,4 +477,48 @@ function howManyLightsabersDoYouOwn(name) {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 206шт
+//*-Task №179 Alan Partridge II - Apple Turnover (8kyu)
+/*
+Ваше завдання просте, якщо x у квадраті більше 1000, поверніть 'It's hotter than the sun!!',
+інакше поверніть 'Help yourself to a honeycomb Yorkie for the glovebox.'.
+
+Примітка. Введення буде додатним цілим числом.
+*/
+
+// Мій варіант
+function apple(x) {
+    return x ** 2 > 1000 ? "It's hotter than the sun!!" : "Help yourself to a honeycomb Yorkie for the glovebox.";
+}
+
+// Цікаві варіанти з Codewars
+
+// ================================================================================================
+// ================================================================================================
+//*-Task №180 Surface Area and Volume of a Box (8kyu)
+/*
+Напишіть функцію, яка повертає загальну площу поверхні та об’єм ящика у вигляді масиву: [area, volume]
+*/
+
+// Мій варіант
+function getSize(width, height, depth) {
+    const area = 2 * (width * height + height * depth + width * depth);
+    const volume = width * height * depth;
+    return [area, volume];
+}
+
+// Цікаві варіанти з Codewars
+function getSize_(width, height, depth) {
+    var box = { width: width, height: height, depth: depth };
+    return [getArea(box), getVolume(box)];
+}
+
+function getArea(box) {
+    return (2 * (box.depth * box.height)) + (2 * (box.width * box.height)) + (2 * (box.width * box.depth));
+}
+
+function getVolume(box) {
+    return box.width * box.height * box.depth;
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 204шт
