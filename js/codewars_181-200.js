@@ -430,4 +430,76 @@ function elevator(left, right, call) {
 const elevator_ = (left, right, call) => Math.abs(call - left) < Math.abs(call - right) ? 'left' : 'right';
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 190шт
+//*-Task №195 Find Nearest square number (8kyu)
+/*
+Ваше завдання — знайти найближче квадратне число nearestSq(n) натурального числа n.
+Наприклад, якщо n = 111, то найближчий nearestSq(n) дорівнює 121, оскільки 111 ближче до 121,
+квадрат 11, ніж 100, квадрат 10.
+Якщо n уже є ідеальним квадратом (наприклад, n = 144, n = 81 тощо), вам потрібно просто повернути n.
+*/
+
+// Мій варіант
+function nearestSq(n) {
+    const sqrtN = Math.sqrt(n);
+    const lowerSq = Math.floor(sqrtN) ** 2;
+    const upperSq = Math.ceil(sqrtN) ** 2;
+
+    if (n - lowerSq < upperSq - n) {
+        return lowerSq;
+    } else {
+        return upperSq;
+    }
+}
+
+// Цікаві варіанти з Codewars
+const nearestSq_ = n => Math.pow(Math.round(Math.sqrt(n)), 2);
+// ================================================================================================
+// ================================================================================================
+//*-Task №196 Fundamentals: Return (8kyu)
+/*
+Створіть кілька функцій, які повертатимуть суму, різницю, модуль, добуток, частку та показник степеня відповідно.
+Використовуйте такі назви функцій:
+addition = додавання
+multiply = множити
+division = розділення
+modulus = модуль
+exponential = експонента
+subtraction = різниця
+Примітка. Усі математичні операції будуть: a (операція) b
+*/
+
+// Мій варіант
+function add(a, b) {
+    return a + b;
+}
+
+function divide(a, b) {
+    return a / b;
+}
+
+function multiply(a, b) {
+    return a * b;
+}
+
+function mod(a, b) {
+    return a % b;
+}
+
+function exponent(a, b) {
+    return Math.pow(a, b);
+}
+
+function subt(a, b) {
+    return a - b;
+}
+
+// Цікаві варіанти з Codewars
+const add_ = (a, b) => a + b;
+const subt_ = (a, b) => a - b;
+const divide_ = (a, b) => a / b;
+const multiply_ = (a, b) => a * b;
+const mod_ = (a, b) => a % b;
+const exponent_ = (a, b) => a ** b;
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 188шт
