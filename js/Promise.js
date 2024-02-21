@@ -39,3 +39,8 @@ fetchData()
         console.error(error.message);
     });
 */
+
+
+const alphabet = 'абвгґдеєжзиіїйклмнопрстуфхцчшщьюя'.split('');
+const collatore = new Intl.Collator('ua-UA');
+console.log(alphabet.sort(collatore.compare));
