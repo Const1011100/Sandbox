@@ -116,6 +116,94 @@ Sleigh.prototype.authenticate = function (name, password) {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 155шт
+//*-Task №227 Is there a vowel in there? (8kyu)
+/*
+Дано масив чисел, перевірте, чи є якісь із них кодами символів для голосних нижнього регістру (a, e, i, o, u).
+Якщо вони є, змініть значення масиву на рядок цієї голосної.
+Повернути отриманий масив.
+*/
+
+// Мій варіант
+function isVow(a) {
+    return a.map(num => {
+        if (String.fromCharCode(num) === 'a') {
+            return String.fromCharCode(num);
+        }
+        if (String.fromCharCode(num) === 'e') {
+            return String.fromCharCode(num);
+        }
+        if (String.fromCharCode(num) === 'i') {
+            return String.fromCharCode(num);
+        }
+        if (String.fromCharCode(num) === 'o') {
+            return String.fromCharCode(num);
+        }
+        if (String.fromCharCode(num) === 'u') {
+            return String.fromCharCode(num);
+        }
+        return num;
+    })
+}
+// Цікаві варіанти з Codewars
+function isVow_(a) {
+    for (var i = 0, l = a.length; i < l; ++i) {
+        var char = String.fromCharCode(a[i])
+        if ('aeiou'.indexOf(char) !== -1)
+            a[i] = char;
+    }
+
+    return a;
+}
+//
+const isVow__ = a => a.map(x => 'aeiou'.includes(y = String.fromCharCode(x)) ? y : x);
+// ================================================================================================
+// ================================================================================================
+//*-Task №228  Tip Calculator (8kyu)
+/*
+Виконайте функцію, яка обчислює, скільки вам потрібно дати чайових на основі загальної суми рахунку та послуги.
+Потрібно враховувати такі рейтинги:
+
+Жахливо: чайові 0%
+Погано: чайові 5%
+Добре: чайові 10%
+Чудово: чайові 15%
+Відмінно: чайові 20%
+Оцінка нечутлива до регістру (тому "чудово" = "ЧУДОВО"). Якщо отримано нерозпізнану оцінку, потрібно повернути:
+
+«Рейтинг не розпізнано» в Javascript
+Оскільки ви добра людина, ви завжди округлюєте чайові, незалежно від послуги.
+*/
+
+// Мій варіант
+function calculateTip(amount, rating) {
+    const tipList = {
+        terrible: 0,
+        poor: 0.05,
+        good: 0.1,
+        great: 0.15,
+        excellent: 0.20,
+    }
+    if (!tipList.hasOwnProperty(rating.toLowerCase())) {
+        return "Rating not recognised";
+    }
+    return Math.ceil(amount * tipList[rating.toLowerCase()]);
+}
+// Цікаві варіанти з Codewars
+const TIPS = {
+    "terrible": 0.0,
+    "poor": 0.05,
+    "good": 0.1,
+    "great": 0.15,
+    "excellent": 0.2
+};
+
+const calculateTip_ = (amount, rating) => {
+    rating = rating.toLowerCase();
+
+    return rating in TIPS ? Math.ceil(TIPS[rating] * amount) : "Rating not recognised";
+};
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 153шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
