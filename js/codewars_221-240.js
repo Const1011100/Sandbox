@@ -384,6 +384,47 @@ const solve = (x, y) => x / y;
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 145шт
+//*-Task №237 Leonardo Dicaprio and Oscars (8kyu)
+/*
+Ви повинні написати функцію, яка описує Лео:
+function leo(oscar) {
+
+}
+якщо oscar був (цілим) 88, ви повинні повернути "Leo finally won the oscar! Leo is happy".
+якби Оскару було 86, ви повинні повернути "Not even for Wolf of wallstreet?!"
+якщо це не було 88 або 86 (і нижче 88), ви повинні повернути "When will you give Leo an Oscar?"
+якщо було більше 88, ви повинні повернути "Leo got one already!"
+*/
+
+// Мій варіант
+function leo(oscar) {
+    if (oscar === 86) { return "Not even for Wolf of wallstreet?!" };
+    if (oscar === 88) { return "Leo finally won the oscar! Leo is happy" };
+    if (oscar > 88) { return "Leo got one already!" };
+    return "When will you give Leo an Oscar?";
+}
+// Цікаві варіанти з Codewars
+
+// ================================================================================================
+// ================================================================================================
+//*-Task №238 UEFA EURO 2016 (8kyu)
+/*
+Завершіть функцію uefaEuro2016(), щоб вона повертала рядок, як у прикладах нижче:
+uefaEuro2016(['Germany', 'Ukraine'],[2, 0]) // "At match Germany - Ukraine, Germany won!"
+uefaEuro2016(['Belgium', 'Italy'],[0, 2]) // "At match Belgium - Italy, Italy won!"
+uefaEuro2016(['Portugal', 'Iceland'],[1, 1]) // "At match Portugal - Iceland, teams played draw."
+*/
+
+// Мій варіант
+function uefaEuro2016(teams, scores) {
+    return scores[0] > scores[1] ? `At match ${teams[0]} - ${teams[1]}, ${teams[0]} won!`
+        : scores[0] < scores[1] ? `At match ${teams[0]} - ${teams[1]}, ${teams[1]} won!`
+        : `At match ${teams[0]} - ${teams[1]}, teams played draw.`;
+}
+// Цікаві варіанти з Codewars
+
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 143шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
