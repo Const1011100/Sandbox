@@ -138,3 +138,59 @@ function guessBlue(blueStart, redStart, bluePulled, redPulled) {
 
 // ================================================================================================
 // ================================================================================================
+//*-Task №247 Return to Sanity (8kyu)
+/*
+Ця функція має повертати об’єкт, але вона не виконує те, що задумано. Що не так?
+*/
+
+// Мій варіант
+function mystery() {
+    var results = { sanity: 'Hello' };
+    return results;
+}
+
+// Цікаві варіанти з Codewars
+
+// ================================================================================================
+// ================================================================================================
+//*-Task №248 For UFC Fans (Total Beginners): Conor McGregor vs George Saint Pierre (8kyu)
+/*
+Це ката для початківців, особливо для шанувальників UFC/MMA.
+
+Це бій між двома легендами: Конор Макгрегор проти Джорджа Сен-П’єра в Медісон Сквер Гарден.
+Лише один боєць залишиться стояти, а після бою в інтерв'ю Джо Рогану переможець зробить свою
+легендарну заяву. Ваше завдання – повернути правильне твердження залежно від переможця!
+
+Якщо переможцем стане Джордж Сен-П’єр, він, очевидно, скаже:
+"I am not impressed by your performance.".
+
+Якщо переможцем стане Конор МакГрегор, він, безсумнівно, скаже:
+"I'd like to take this chance to apologize.. To absolutely NOBODY!"
+
+Примітка
+Ім’я може відрізнятися за регістром, наприклад, це може бути «George Saint Pierre» або
+«geOrGe saiNT pieRRE». Ваше рішення має розглядати обидва як одне й те саме (незалежно від регістру).
+*/
+
+// Мій варіант
+var quote = function (fighter) {
+    const winner = fighter.toLowerCase();
+    switch (winner) {
+        case 'conor mcgregor':
+            return "I'd like to take this chance to apologize.. To absolutely NOBODY!";
+
+        case 'george saint pierre':
+            return "I am not impressed by your performance.";
+    }
+};
+
+// Цікаві варіанти з Codewars
+var quote_ = function (fighter) {
+    switch (fighter.toLowerCase()) {
+        case 'conor mcgregor': return "I'd like to take this chance to apologize.. To absolutely NOBODY!";
+        case 'george saint pierre': return "I am not impressed by your performance.";
+        default: 'Who are you?'
+    }
+};
+// ================================================================================================
+// ================================================================================================
