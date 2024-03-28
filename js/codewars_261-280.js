@@ -349,6 +349,90 @@ function evil(n) {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 110шт
+//*-Task №273 Training JS #11: loop statement --break,continue (8kyu)
+/*
+Кодування у функції grabDoll. функція приймає 1 параметр: dolls. це рядковий масив, список деяких ляльок.
+Вам потрібні ляльки траверсу за допомогою циклу for.
+Якщо елемент «Hello Kitty» або «Barbie doll», ви повинні помістити його в сумку (сумка — це масив, я визначив у функції);
+якщо це інші рядки, ми повинні використовувати продовження, пропустити його.
+
+Коли в мішку є три елементи, мішок повний. Ви повинні використовувати break jump out the loop;
+Якщо мішок неповний, потрібно обійти ляльок до останнього елемента.
+
+Поверніть сумку після завершення циклу for.
+Ви повинні використовувати for, break і continue у своєму коді. інакше ваше рішення може не пройти цю ката.
+*/
+
+// Мій варіант
+function grabDoll(dolls) {
+    var bag = [];
+    for (let i = 0; i < dolls.length; i++) {
+        if (bag.langth < 3) { continue };
+        if (bag.length === 3) { break };
+        if (dolls[i] === "Hello Kitty" || dolls[i] === "Barbie doll") {
+            bag.push(dolls[i]);
+        }
+    }
+    return bag;
+}
+// Цікаві варіанти з Codewars
+function grabDoll_(dolls) {
+    var bag = [];
+    for (var i = 0; i < dolls.length; i++) {
+        if (dolls[i] === "Hello Kitty" || dolls[i] === "Barbie doll")
+            bag.push(dolls[i]);
+        else
+            continue;
+        if (bag.length === 3) break;
+    }
+    return bag;
+}
+// ================================================================================================
+// ================================================================================================
+//*-Task №274 Fuel Calculator: Total Cost (8kyu)
+/*
+У цьому ката вам доведеться написати функцію, яка приймає літри та ціну за літр (у доларах) як аргументи.
+При покупці 2 або більше літрів надається знижка 5 центів за літр,
+при покупці 4 і більше літрів – 10 центів за літр,
+і так кожні два літри, до максимальної знижки 25 центів за літр.
+Але загальна знижка на літр не може перевищувати 25 центів.
+Поверніть загальну вартість, округлену до 2 знаків після коми.
+Також ви можете здогадатися, що від’ємних або нечислових вводів не буде.
+*/
+
+// Мій варіант
+function fuelPrice(litres, pricePerLitre) {
+    let discount = 0;
+    if (litres >= 10) {
+        discount = 0.25;
+    } else if (litres >= 8) {
+        discount = 0.20;
+    } else if (litres >= 6) {
+        discount = 0.15;
+    } else if (litres >= 4) {
+        discount = 0.10;
+    } else if (litres >= 2) {
+        discount = 0.05;
+    }
+    return Number((litres * (pricePerLitre - discount)).toFixed(2));
+}
+// Цікаві варіанти з Codewars
+function fuelPrice_(litres, pricePerLiter) {
+    for (var i = 2; i <= 10; i += 2) { //discount loop
+        if (litres >= i) {
+            pricePerLiter -= 0.05;
+        }
+    }
+    return Math.round(litres * pricePerLiter * 100) / 100;;
+}
+//
+function fuelPrice__(litres, pricePerLiter) {
+    var discount = Math.min(Math.floor(litres / 2) * 0.05, 0.25);
+    var price = litres * (pricePerLiter - discount);
+    return Math.round(price * 100) / 100;
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 108шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
