@@ -73,6 +73,68 @@ function yearDays_(year) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 100шт
+//*-Task №283 Grasshopper - Object syntax debug (8kyu)
+/*
+Створюючи гру типу zork, ви створюєте об’єкт кімнат. На жаль, гра не працює.
+Знайдіть усі помилки в об’єкті кімнат, щоб ваша гра знову запрацювала.
+*/
+
+// Мій варіант
+var rooms = {
+    first: {
+        description: 'This is the first room',
+        items: {
+            chair: 'The old chair looks comfortable',
+            lamp: 'This lamp looks ancient'
+        }
+    },
+    second: {
+        description: 'This is the second room',
+        items: {
+            couch: 'This couch looks like it would hurt your back',
+            table: 'On the table there is an unopened bottle of water'
+        }
+    }
+}
+// Цікаві варіанти з Codewars
+
+// ================================================================================================
+// ================================================================================================
+//*-Task №284 Barking mad (8kyu)
+/*
+Навчіть Снупі та Скубі Ду гавкати за допомогою методів об’єктів.
+Наразі лише Снупі може гавкати, а не Скубі Ду.
+snoopy.bark(); // return "Woof"
+scoobydoo.bark(); // undefined
+Використовуйте прототипи методів, щоб дозволити всім собакам гавкати.
+*/
+
+// Мій варіант
+class Dog {
+    constructor(breed) {
+        this.breed = breed;
+    }
+    bark() {
+        return "Woof";
+    }
+}
+
+let snoopy = new Dog("Beagle");
+let scoobydoo = new Dog("Great Dane");
+// Цікаві варіанти з Codewars
+function Dog_(breed) {
+    this.breed = breed;
+}
+
+var snoopy_ = new Dog_("Beagle");
+
+Dog_.prototype.bark = function () {
+    return "Woof";
+};
+
+var scoobydoo_ = new Dog_("Great Dane");
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 98шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
