@@ -135,6 +135,51 @@ Dog_.prototype.bark = function () {
 var scoobydoo_ = new Dog_("Great Dane");
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 98шт
+//*-Task №285 Merging sorted integer arrays (without duplicates) (8kyu)
+/*
+Напишіть функцію, яка об’єднує два відсортовані масиви в один. Масиви містять лише цілі числа.
+Крім того, кінцевий результат має бути відсортований і не мати дублікатів.
+*/
+
+// Мій варіант
+function mergeArrays(a, b) {
+    const newArr = a.concat(b);
+    const uniclesNum = [];
+    for (let i = 0; i < newArr.length; i++) {
+        if (!uniclesNum.includes(newArr[i])) {
+            uniclesNum.push(newArr[i]);
+        }
+    }
+    const sortedArr = uniclesNum.sort((a, b) => { return a - b });
+    return sortedArr;
+}
+// Цікаві варіанти з Codewars
+function mergeArrays_(a, b) {
+    return [...new Set(a.concat(b))].sort((a, b) => a - b);
+}
+//
+function mergeArrays__(a, b) {
+    // your code here
+    const array = [...a, ...b].sort((a, b) => a - b)
+    const answer = array.filter((item, index) => array.indexOf(item) === index)
+
+    return answer
+}
+// ================================================================================================
+// ================================================================================================
+//*-Task №286 Push a hash/an object into array (8kyu)
+/*
+Ви намагаєтеся помістити об’єкт у javascript в масив, але він завжди повертає помилку,
+вирішіть її та зробіть це якомога простіше!
+*/
+
+// Мій варіант
+const items = []
+items.push({ a: "b", c: "d" });
+// Цікаві варіанти з Codewars
+
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 96шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
