@@ -421,6 +421,73 @@ rooms["room3"] = room3;
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 86шт
+//*-Task №297 Training JS #17: Methods of String object--indexOf(), lastIndexOf() and search() (8kyu)
+/*
+Кодування у функції firstToLast, функція приймає 2 параметри: str і c. str — це рядок. c є символом.
+Поверніть проміжок між першою позицією c і останньою позицією c.
+Якщо в str багато символів c, має повертати додатне ціле число;
+Якщо в str є лише один c, має повернути 0;
+Якщо в str немає c, має повернути -1. Пошук не повинен ігнорувати справу.
+firstToLast("ababc","a") should return 2(2-0)
+firstToLast("ababc","c") should return 0(4-4)
+firstToLast("ababc","d") should return -1
+*/
+
+// Мій варіант
+function firstToLast(str, c) {
+    str = str.toLowerCase();
+    c = c.toLowerCase();
+
+    const firstIndex = str.indexOf(c);
+    if (firstIndex === -1) {
+        return -1;
+    }
+    const lastIndex = str.lastIndexOf(c);
+    return lastIndex - firstIndex;
+}
+// Цікаві варіанти з Codewars
+function firstToLast_(str, c) {
+    var first = str.indexOf(c), last = str.lastIndexOf(c);
+    return first == -1 ? -1 : last - first;
+}
+// ================================================================================================
+// ================================================================================================
+//*-Task №298 Find the Slope (8kyu)
+/*
+Дано масив із 4 цілих чисел
+[a,b,c,d], що представляє дві точки (a, b) і (c, d), повертає рядкове представлення нахилу лінії,
+що з’єднує ці дві точки.
+
+Для невизначеного нахилу (поділ на 0) поверніть undefined.
+Зауважте, що "undefined" чутливий до регістру.
+    a:x1
+    b:y1
+    c:x2
+    d:y2
+Припустимо, що [a,b,c,d] і відповідь є цілими числами (без плаваючих чисел!).
+*/
+
+// Мій варіант
+function slope(points) {
+    const a = points[0];
+    const b = points[1];
+    const c = points[2];
+    const d = points[3];
+
+    if (c - a === 0) {
+        return "undefined";
+    }
+
+    const slope = (d - b) / (c - a);
+    return slope.toString();
+}
+// Цікаві варіанти з Codewars
+function slope_([x1, y1, x2, y2]) {
+    let slope = (y2 - y1) / (x2 - x1);
+    return Number.isFinite(slope) ? `${slope}` : 'undefined';
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 84шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
