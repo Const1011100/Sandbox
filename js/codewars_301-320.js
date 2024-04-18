@@ -253,6 +253,74 @@ function whoseMove_(lastPlayer, win) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 70шт
+//*-Task №313 Logical calculator (8kyu)
+/*
+Маючи масив логічних значень і логічний оператор, повернути логічний результат на основі послідовного
+застосування оператора до значень у масиві.
+*/
+
+// Мій варіант
+function logicalCalc(array, op) {
+    let result = array[0];
+    for (let i = 1; i < array.length; i++) {
+        if (op === "AND") {
+            result = result && array[i];
+        } else if (op === "OR") {
+            result = result || array[i];
+        } else if (op === "XOR") {
+            result = result !== array[i];
+        }
+    }
+    return result;
+}
+// Цікаві варіанти з Codewars
+var ops = {
+    'AND': (a, b) => a && b,
+    'OR': (a, b) => a || b,
+    'XOR': (a, b) => a !== b
+}
+
+function logicalCalc(array, op) {
+    return array.reduce(ops[op]);
+}
+// ================================================================================================
+// ================================================================================================
+//*-Task №314 Return Two Highest Values in List (8kyu)
+/*
+У цій ката ваше завдання — повернути два різні найвищі значення в списку. Якщо є менше 2 унікальних
+значень, поверніть якомога більше з них.
+Результат також слід упорядкувати від найбільшого до найменшого.
+[4, 10, 10, 9]  =>  [10, 9]
+[1, 1, 1]  =>  [1]
+[]  =>  []
+*/
+
+// Мій варіант
+function twoHighest(arr) {
+    if (arr.length <= 1) { return arr };
+
+    const sortedArr = arr.sort((a, b) => { return b - a });
+    const result = [sortedArr[0]];
+    for(let i = 1; i < sortedArr.length; i++) {
+        if(result[0] !== sortedArr[i]) {
+            result.push(sortedArr[i]);
+            break;
+        }
+    }
+
+    return result;
+}
+// Цікаві варіанти з Codewars
+function twoHighest_(arr) {
+    return [...new Set(arr)].sort((a, b) => b - a).slice(0, 2)
+}
+//
+const twoHighest__ = a => a
+    .filter((e, i) => i === a.lastIndexOf(e))
+    .sort((x, y) => y - x)
+    .slice(0, 2);
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 68шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
