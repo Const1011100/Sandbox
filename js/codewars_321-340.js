@@ -268,13 +268,72 @@ function animals_(heads, legs) {
     const cows = legs / 2 - heads;
     const chickens = heads - cows;
 
-    if (legs & 1 || chickens > heads || cows > heads)
+    if (legs && 1 || chickens > heads || cows > heads)
         return "No solutions";
     else
         return [chickens, cows];
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 54шт
+//*-Task №329 Enumerable Magic #20 - Cascading Subsets (8kyu)
+/*
+Створіть метод each_cons, який приймає список і число n і повертає каскадні підмножини списку розміром n, наприклад:
+each_cons([1,2,3,4], 2) => [[1,2], [2,3], [3,4]]
+each_cons([1,2,3,4], 3) => [[1,2,3],[2,3,4]]
+Як бачите, списки каскадні; тобто вони перекриваються, але ніколи не порушуються.
+*/
+
+// Мій варіант
+function eachCons(array, n) {
+    const result = [];
+    for (let i = 0; i <= array.length - n; i++) {
+        const subArray = array.slice(i, i + n);
+        result.push(subArray);
+    }
+    return result;
+}
+
+// Цікаві варіанти з Codewars
+function eachCons_(array, n) {
+    let res = [];
+    for (let i = 0; i < array.length; i++) {
+        res.push(array.slice(i, i + n));
+    }
+    return res.filter(e => e.length === n);
+}
+//
+function eachCons__(array, n) {
+    return array.map((x, y) => array.slice(y, y + n)).filter(x => x.length == n)
+}
+// ================================================================================================
+// ================================================================================================
+//*-Task №330 Training JS #29: methods of arrayObject---concat() and join() (8kyu)
+/*
+Кодування у функції bigToSmall. функція приймає 1 параметр arr(2D масив чисел).
+Ваше завдання: Перш за все, зверніться до наведеного вище прикладу, плоский вихід до одновимірного масиву.
+А потім відсортуйте масив у порядку спадання.
+Нарешті, використовуйте роздільник ">", щоб з'єднати елементи в рядок.
+Не скаржтеся на ситуацію, ніби 1>1 нерозумно, це просто роздільник.
+Деякі приклади:
+bigToSmall([[1,2],[3,4],[5,6]]) should return "6>5>4>3>2>1"
+bigToSmall([[1,3,5],[2,4,6]]) should return "6>5>4>3>2>1"
+bigToSmall([[1,1],[1],[1,1]]) should return "1>1>1>1>1"
+*/
+
+// Мій варіант
+function bigToSmall(arr) {
+    const oneArr = arr.reduce((accum, elem) => {
+        return accum = accum.concat(elem);
+    })
+    const result = oneArr.sort((a, b) => { return b - a }).join('>');
+    return result;
+}
+// Цікаві варіанти з Codewars
+function bigToSmall_(arr) {
+    return [].concat(...arr).sort((a, b) => b - a).join('>');
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 52шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
