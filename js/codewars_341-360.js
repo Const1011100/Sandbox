@@ -163,6 +163,84 @@ function circleCircumference(circle) {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 36шт
+//*-Task №347 Generate user links (8kyu)
+/*
+Створення посилань користувачів
+Ваше завдання — створити посилання користувача для URL-адреси, вам буде надано ім’я користувача, і
+ви повинні повернути дійсне посилання.
+
+приклад
+generate_link('matt c')
+http://www.codewars.com/users/matt%20c
+*/
+
+// Мій варіант
+function generateLink(username) {
+    const encodedUsername = encodeURIComponent(username);
+    return "http://www.codewars.com/users/" + encodedUsername;
+}
+
+// Цікаві варіанти з Codewars
+function generateLink_(user) {
+    var url = 'http://www.codewars.com/users/';
+    var Obj = {
+        ' ': '%20',
+        ';': '%3B',
+        "`": '%60',
+        '"': '%22',
+        '/': '%2F',
+        '+': '%2B',
+        ',': '%2C',
+        '^': '%5E',
+        '|': '%7C',
+        '?': '%3F',
+        '#': '%23',
+        '$': '%24',
+        '&': '%26',
+        '}': '%7D',
+        ':': '%3A',
+        '{': '%7B',
+        ']': '%5D',
+        '[': '%5B',
+        '@': '%40',
+        '<': '%3C',
+        '>': '%3E',
+    }
+    user = user.replace(/%/g, '%25');
+    for (var i = 0; i < user.length; i++) {
+        for (var key in Obj) {
+            if (user[i] == key) { user = user.replace(user[i], Obj[key]); }
+        }
+    }
+    return url + user;
+}
+// ================================================================================================
+// ================================================================================================
+//*-Task №348 Implement Array.prototype.filter() (8kyu)
+/*
+Ми хочемо реалізувати функцію Array.prototype.filter(), як і існуючу Array.prototype.filter().
+Ще одна подібна функція — _.filter() у underscore.js і lodash.js.
+
+Використання буде досить простим, наприклад:
+[1, 2, 3, 4, 5].filter(num => num > 3) == [4, 5]
+
+Звичайно, існуюча функція Array.prototype.filter() була невизначеною для цілей цього Kata.
+*/
+
+// Мій варіант
+Array.prototype.filter_ = function (callback) {
+    const filteredArray = [];
+    for (let i = 0; i < this.length; i++) {
+        if (callback(this[i], i, this)) {
+            filteredArray.push(this[i]);
+        }
+    }
+    return filteredArray;
+}
+// Цікаві варіанти з Codewars
+
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 34шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
