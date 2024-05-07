@@ -241,6 +241,74 @@ Array.prototype.filter_ = function (callback) {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 34шт
+//*-Task №349 Lexical this (8kyu)
+/*
+Лексичні це
+Доповніть об’єкт Person, виконавши функцію FillFriends, щоб заповнити масив _friends для об’єкта person.
+Вихід
+Поверніть об’єкт person із заповненими функціями Name, Friends і FillFriends, які заповнять вхідні дані
+у властивість Friends.
+*/
+
+// Мій варіант
+var Person = function () {
+    var person = {
+        _name: "Leroy",
+        _friends: [],
+        fillFriends(f) {
+            this._friends.push(...f);
+        }
+    }
+    return person;
+}
+// Цікаві варіанти з Codewars
+var Person_ = function () {
+    var person = {
+        _name: "Leroy",
+        _friends: [],
+        fillFriends(f) { this._friends = f; }
+    }
+    return person;
+}
+// ================================================================================================
+// ================================================================================================
+//*-Task №350 Hello Happy Codevarrior! (8kyu)
+/*
+Здається, жоден із цих варіантів коду не пам’ятає його власне ім’я!
+Чи могли б ви допомогти?
+var albert = new Warrior("Al")
+var boris  = new Warrior("Boris")
+
+albert.toString() --> "Hi! my name's Boris" <-- ohoh..
+*/
+
+// Мій варіант
+function Warrior(n) {
+    this.n = n;
+}
+
+Warrior.prototype.name = function (n) {
+    if (n) this.n = n;
+    return this.n;
+}
+
+Warrior.prototype.toString = function () {
+    return "Hi! my name's " + this.n;
+}
+// Цікаві варіанти з Codewars
+function Warrior_(n) {
+    var name = n;
+    this.name = function (n) {
+        if (n) name = n;
+        return name;
+    }
+}
+
+Warrior.prototype.toString = function () {
+    return "Hi! my name's " + this.name();
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 32шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
