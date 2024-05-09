@@ -362,6 +362,88 @@ class Solution {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 30шт
+//*-Task №353 Training JS #13: Number object and its properties (8kyu)
+/*
+Кодування у функції whatNumberIsIt. функція приймає 1 параметр:n. це число.
+Щоб судити про число n. Якщо n є однією з п’яти наведених вище констант, поверніть один із цих рядків:
+"Input number is Number.MAX_VALUE"
+"Input number is Number.MIN_VALUE"
+"Input number is Number.NaN"
+"Input number is Number.NEGATIVE_INFINITY"
+"Input number is Number.POSITIVE_INFINITY"
+
+Інші значення мають повертати «Введене число — ххх». xxx означає це число.
+Наприклад:
+whatNumberIsIt(1/0) should return "Input number is Number.POSITIVE_INFINITY"
+whatNumberIsIt(100) should return "Input number is 100"
+
+Вам потрібно подумати про те, як правильно й ефективно оцінити це, і не забувайте про isNaN().
+*/
+
+// Мій варіант
+function whatNumberIsIt(n) {
+    if(isNaN(n)) { return 'Input number is Number.NaN'};
+    if(n === Number.POSITIVE_INFINITY) { return 'Input number is Number.POSITIVE_INFINITY'};
+    if(n === Number.NEGATIVE_INFINITY) { return 'Input number is Number.NEGATIVE_INFINITY'};
+    if(n === Number.MAX_VALUE) { return 'Input number is Number.MAX_VALUE'};
+    if(n === Number.MIN_VALUE) { return 'Input number is Number.MIN_VALUE'};
+    return `Input number is ${n}`;
+}
+// Цікаві варіанти з Codewars
+function whatNumberIsIt_(n) {
+    const CHOICES = Object.getOwnPropertyNames(Number);
+    let choice = CHOICES.filter(a => n === Number[a]).join('');
+    return `Input number is ${(choice ? `Number.${choice}` : isNaN(n) ? 'Number.NaN' : n)}`;
+}
+// ================================================================================================
+// ================================================================================================
+//*-Task №354 Neutralisation (8kyu)
+/*
+Дано два рядки, що складаються з + і -, повернути новий рядок, який показує, як два рядки взаємодіють
+таким чином:
+
+Коли позитив і позитив взаємодіють, вони залишаються позитивними.
+Коли негатив і негатив взаємодіють, вони залишаються негативними.
+Але коли негатив і позитив взаємодіють, вони стають нейтральними та відображаються як число 0.
+("+-+", "+--") ➞ "+-0"
+# Compare the first characters of each string, then the next in turn.
+# "+" against a "+" returns another "+".
+# "-" against a "-" returns another "-".
+# "+" against a "-" returns "0".
+# Return the string of characters.
+
+Приклад:
+("--++--", "++--++") ➞ "000000"
+("-+-+-+", "-+-+-+") ➞ "-+-+-+"
+("-++-", "-+-+") ➞ "-+00"
+*/
+
+// Мій варіант
+function neutralise(s1, s2) {
+    const result = [];
+    const arr1 = s1.split('');
+    const arr2 = s2.split('');
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] === arr2[i]) {
+            result.push(arr1[i])
+        } else {
+            result.push(0);
+        }
+    }
+    return result.join('');
+}
+// Цікаві варіанти з Codewars
+function neutralise_(s1, s2) {
+    let res = "";
+    for (let i = 0; i < s1.length; i++) {
+        res += s1[i] !== s2[i] ? "0" : s1[i];
+    }
+    return res;
+}
+//
+const neutralise__ = (a, b) => a.split('').map((el, i) => el === b[i] ? el : 0).join('');
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 28шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
