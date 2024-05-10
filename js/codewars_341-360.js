@@ -444,6 +444,89 @@ function neutralise_(s1, s2) {
 const neutralise__ = (a, b) => a.split('').map((el, i) => el === b[i] ? el : 0).join('');
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 28шт
+//*-Task №355 For Twins: 2. Math operations (8kyu)
+/*
+Фокусник у метро показав вам трюк, він поклав крижану цеглину в пляшку, щоб вразити вас.
+Довжина і ширина цегли рівні, утворюючи квадрат; його висота може бути різною. Просто заради розваги,
+а також щоб справити враження на фокусника та оточуючих, ви вирішили обчислити об’єм цегли.
+Напишіть функцію iceBrickVolume, яка прийматиме ці параметри:
+radius - радіус пляшки (завжди > 0);
+bottleLength - загальна довжина пляшки (завжди > 0);
+rimLength - довжина від верху пляшки до цегли (завжди < bottleLength);
+
+І поверніть об’єм крижаної цеглинки, який чарівнику вдалося помістити в пляшку.
+
+Примітка:
+Усі вхідні дані є цілими числами. Припускайте відсутність нерівностей на прямокутній цеглі.
+Ви можете припустити, що пляшка має форму циліндра. Цегла не може поміститися всередину обода.
+Крижана цегла, поміщена в пляшку, є найбільшим можливим прямокутним кубиком, який насправді міг
+поміститися у внутрішній об’єм.
+
+Приклад_1:
+radius = 1
+bottle_length = 10
+rim_length = 2
+
+volume = 16
+
+Приклад_2:
+radius = 5
+bottle_length = 30
+rim_length = 7
+
+volume = 1150
+*/
+
+// Мій варіант
+function iceBrickVolume(radius, bottleLength, rimLength) {
+    const brickLength = bottleLength - rimLength;
+    const brickDepth = radius * 2;
+    const brickHeight = radius;
+
+    return brickLength * brickDepth * brickHeight;
+}
+
+// Цікаві варіанти з Codewars
+const iceBrickVolume_ = (radius, bottleLength, rimLength) => radius * radius * (bottleLength - rimLength) * 2;
+// ================================================================================================
+// ================================================================================================
+//*-Task №356 Geometry Basics: Circle Area in 2D (8kyu)
+/*
+Ця серія ката познайомить вас з основами виконання геометрії за допомогою комп’ютера.
+
+Напишіть функцію CircleArea/CircleArea, яка приймає об’єкт Circle та обчислює площу цього кола.
+
+Клас Circle можна побачити нижче:
+// Represents a Circle where center is a Point and radius is a Number
+class Circle {
+  constructor(center, radius) { 
+    this.center = center; 
+    this.radius = radius;
+  }
+}
+
+А клас Point можна побачити нижче:
+// Represents a Point where x and y are Numbers
+class Point {
+  constructor (x,y) { 
+    this.x = x;
+    this.y = y; 
+  }
+}
+
+Тести округлюють відповіді до 6 знаків після коми.
+*/
+
+// Мій варіант
+function circleArea(circle) {
+    return Number((Math.PI * (circle.radius ** 2)).toFixed(6));
+}
+// Цікаві варіанти з Codewars
+function circleArea_(circle) {
+    return Math.PI * circle.radius ** 2
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 26шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
