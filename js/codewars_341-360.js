@@ -592,6 +592,108 @@ function addExtra(listOfNumbers) {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 24шт
+//*-Task №359 SpeedCode #3 × Fun with ES6 Classes #5 - Dogs and Classes (8kyu)
+/*
+Мета
+Для вас попередньо завантажено клас Dog:
+class Dog {
+  constructor(name, age, gender, species, size, master, loyal) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+    this.species = species;
+    this.legs = 4;
+    this.size = size;
+    this.master = master;
+    this.loyal = loyal;
+  }
+}
+Потім вам надається лабрадор робочого класу як ваш початковий код.
+class Labrador {
+  constructor(name, age, gender, master) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+    this.species = "Labrador";
+    this.legs = 4;
+    this.size = "Large";
+    this.master = master;
+    this.loyal = true;
+  }
+}
+Скоротіть його так, щоб він відповідав суворим вимогам до кількості символів для цього ката.
+Швидко дістаньте таймер і готуйтеся вимірювати час. Ви готові? Готуйся, збирайся, ВПЕРЕД!!! :D
+*/
+
+// Мій варіант
+class Labrador {
+    constructor(name, age, gender, master) {
+        Object.assign(this, { name, age, gender, master });
+        this.species = "Labrador";
+        this.legs = 4;
+        this.size = "Large";
+        this.loyal = true;
+    }
+}
+// Цікаві варіанти з Codewars
+class Labrador_ extends Dog {
+    constructor(name, age, gender, master) {
+        super(name, age, gender, "Labrador", "Large", master, true);
+    }
+}
+// ================================================================================================
+// ================================================================================================
+//*-Task №360 Fun with ES6 Classes #1 - People, people, people (8kyu)
+/*
+Розваги з класами ES6 №1 - Люди, люди, люди
+Час розваги ООП!
+Визначте клас Person із такими властивостями:
+
+Конструктор, який приймає 4 аргументи:
+firstName/FirstName (за замовчуванням — «John», якщо не встановлено),
+LastName/LastName (за замовчуванням — «Doe», якщо не встановлено),
+age/Age (за замовчуванням — 0, якщо не встановлено) і
+gender/Gender (за умовчанням встановлено "Чоловічий", якщо не встановлено).
+Їх слід зберігати в this.firstName/this.FirstName, this.lastName/this.LastName, this.age/this.Age і this.gender/this.Gender відповідно.
+Метод sayFullName/SayFullName, який не приймає аргументів і повертає повне ім’я (наприклад, «Джон Доу»)
+Клас/статичний метод greetExtraTerrestrials/GreetExtraTerrestrials, який приймає один параметр raceName
+і повертає «Ласкаво просимо на планету Земля raceName».
+Наприклад, якщо назва раси «Марсіани», вона повинна містити «Ласкаво просимо на планету Земля, марсіани»
+Ви можете використовувати будь-який дійсний синтаксис, який вам подобається;
+однак настійно рекомендується виконати цю Kata, використовуючи синтаксис і функції ES6.
+
+весело провести час! :D
+*/
+
+// Мій варіант
+class Person {
+    constructor(firstName = 'John', lastName = 'Doe', age = 0, gender = 'Male') {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.gender = gender;
+    }
+    sayFullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+    static greetExtraTerrestrials(raceName) {
+        return `Welcome to Planet Earth ${raceName}`
+    }
+}
+// Цікаві варіанти з Codewars
+class Person_ {
+    constructor(firstName = 'John', lastName = 'Doe', age = 0, gender = 'Male') {
+        Object.assign(this, { firstName, lastName, age, gender });
+    }
+    sayFullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+    static greetExtraTerrestrials(raceName) {
+        return `Welcome to Planet Earth ${raceName}`;
+    }
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 22шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
