@@ -364,6 +364,62 @@ function bloodAlcoholContent_(drinks, weight, sex, time) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 10шт
+//*-Task №373 Configure package json for a node application (8kyu)
+/*
+Ваше завдання
+Створіть конфігурацію package.json і призначте її константі конфігурації, щоб її можна було перевірити.
+Щоб передати kata, вам потрібно лише те, що потрібно для справжнього файлу пакета.
+*/
+
+// Мій варіант
+const configuration = {
+    "name": "my-awesome-package",
+    "version": "1.0.0",
+    "description": "A simple description of my awesome package",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Const1011100",
+    "license": "UNLICENSED"
+};
+
+// Цікаві варіанти з Codewars
+const configuration_ = {
+    "name": "your-pack-name",
+    "version": "1.2.5"
+};
+// ================================================================================================
+// ================================================================================================
+//*-Task №374 Training JS #34: methods of Math---pow() sqrt() and cbrt() (8kyu)
+/*
+Завдання
+Кодування у функції cutCube. функція приймає 2 параметри: обсяг і n. об'єм - це об'єм куба.
+Якщо ми розріжемо куб на n блоків. визначте, будь ласка, чи є довжина куба цілим числом.
+повернути true або false.
+*/
+
+// Мій варіант
+function cutCube(volume, n) {
+    function isPerfectCube(num) {
+        let root = Math.cbrt(num);
+        return Math.round(root) ** 3 === num;
+    }
+
+    if (!isPerfectCube(volume) || !isPerfectCube(n)) { return false };
+
+    if (volume % n !== 0) { return false };
+
+    let smallCubeVolume = volume / n;
+    return isPerfectCube(smallCubeVolume);
+}
+
+// Цікаві варіанти з Codewars
+function cutCube_(volume, n) {
+    return !(Math.cbrt(n) % 1) && !(Math.cbrt(volume / n) % 1);
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 8шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
