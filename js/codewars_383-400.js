@@ -19,7 +19,9 @@ function getCount(str) {
     return allMatches;
 }
 // Цікаві варіанти з Codewars
-
+function getCount_(str) {
+    return (str.match(/[aeiou]/ig) || []).length;
+}
 // ================================================================================================
 // ================================================================================================
 //*-Task №384 Disemvowel Trolls (7kyu)
@@ -53,6 +55,10 @@ function disemvowel_(str) {
         .filter(char => !vowels.includes(char))
         .join('');
 }
+//
+function disemvowel__(str) {
+    return str.replace(/[aeiou]/gi, '');
+}
 // ================================================================================================
 // ================================================================================================
 //*-Task №385 Square Every Digit (7kyu)
@@ -74,7 +80,9 @@ function squareDigits(num) {
     return +newNumber;
 }
 // Цікаві варіанти з Codewars
-
+function squareDigits_(num) {
+    return Number(('' + num).split('').map(function (val) { return val * val; }).join(''));
+}
 // ================================================================================================
 // ================================================================================================
 //*-Task №386 Highest and Lowest (7kyu)
@@ -100,7 +108,10 @@ function highAndLow(numbers) {
     return `${maxNum} ${minNum}`;
 }
 // Цікаві варіанти з Codewars
-
+function highAndLow_(numbers) {
+    numbers = numbers.split(' ');
+    return `${Math.max(...numbers)} ${Math.min(...numbers)}`;
+}
 // ================================================================================================
 // ================================================================================================
 //*-Task №387 Descending Order (7kyu)
@@ -126,7 +137,9 @@ function descendingOrder(n) {
     return Number(result);
 }
 // Цікаві варіанти з Codewars
-
+function descendingOrder_(n) {
+    return parseInt(String(n).split('').sort().reverse().join(''))
+}
 // ================================================================================================
 // ================================================================================================
 //*-Task №388 List Filtering (7kyu)
@@ -147,6 +160,44 @@ function filter_list(l) {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1965шт
+//*-Task №389 Get the Middle Character (7kyu)
+/*
+Вам дадуть слово. Ваше завдання - повернути середній символ слова. Якщо довжина слова непарна,
+поверніть середній символ. Якщо довжина слова парна, поверніть 2 середніх символи.
+Приклади:
+Kata.getMiddle("test") should return "es"
+Kata.getMiddle("testing") should return "t"
+Kata.getMiddle("middle") should return "dd"
+Kata.getMiddle("A") should return "A"
+
+Введення
+Слово (рядок) довжиною 0 < str < 1000 (у javascript ви можете отримати трохи більше 1000 у деяких тестах
+через помилку в тестах). Тестувати для цього не потрібно. Це лише для того, щоб сказати вам, що вам
+не потрібно турбуватися про те, що час очікування вашого рішення закінчиться.
+
+Вихід
+Середній символ(и) слова, представленого у вигляді рядка.
+*/
+
+// Мій варіант
+function getMiddle(s) {
+    const size = s.length;
+    if (size % 2 === 0) { return `${s[size / 2 - 1]}${s[size / 2]}` };
+    return `${s[Math.floor(size / 2)]}`;
+}
+// Цікаві варіанти з Codewars
+function getMiddle_(s) {
+    return s.substr(Math.ceil(s.length / 2 - 1), s.length % 2 === 0 ? 2 : 1);
+}
+//
+function getMiddle__(s) {
+    var middle = s.length / 2;
+    return (s.length % 2)
+        ? s.charAt(Math.floor(middle))
+        : s.slice(middle - 1, middle + 1);
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1964шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
