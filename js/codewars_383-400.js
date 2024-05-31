@@ -198,6 +198,33 @@ function getMiddle__(s) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1964шт
+//*-Task №390 Mumbling (7kyu)
+/*
+Цього разу ні історії, ні теорії. Наведені нижче приклади показують, як написати функцію accum:
+Приклади:
+accum("abcd") -> "A-Bb-Ccc-Dddd"
+accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+accum("cwAt") -> "C-Ww-Aaa-Tttt"
+Параметр accum — це рядок, який містить лише літери з a..z та A..Z.
+*/
+
+// Мій варіант
+function accum(inputString) {
+    const lowerCaseLetters = inputString.toLowerCase().split('');
+    const accumulatedStrings = [];
+    for (let i = 0; i < lowerCaseLetters.length; i++) {
+        accumulatedStrings.push(''.padStart(i + 1, lowerCaseLetters[i]));
+    }
+    const capitalizedStrings = accumulatedStrings.map((elem) => { return elem[0].toUpperCase() + elem.slice(1) })
+    const resultFinal = capitalizedStrings.join('-');
+    return resultFinal;
+}
+// Цікаві варіанти з Codewars
+function accum_(s) {
+    return s.split('').map((c, i) => (c.toUpperCase() + c.toLowerCase().repeat(i))).join('-');
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1963шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
