@@ -287,6 +287,36 @@ function isIsogram__(str) {
 
 // ================================================================================================
 // ================================================================================================
+//*-Task №392 Exes and Ohs (7kyu)
+/*
+Перевірте, чи містить рядок однакову кількість «х» і «о». Метод має повертати логічне значення та
+бути нечутливим до регістру. Рядок може містити будь-який символ.
+
+Приклади введення/виведення:
+XO("ooxx") => true
+XO("xooxx") => false
+XO("ooxXm") => true
+XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+XO("zzoo") => false
+*/
+
+// Мій варіант
+function XO(str) {
+    let x = 0;
+    let o = 0;
+    const lettersArray = str.toLowerCase().split('');
+    lettersArray.forEach(letter => {
+        if (letter === 'x') { x++ };
+        if (letter === 'o') { o++ };
+    });
+    return x === o;
+}
+// Цікаві варіанти з Codewars
+function XO_(str) {
+    return str.toLowerCase().split('x').length === str.toLowerCase().split('o').length;
+}
+// ================================================================================================
+// ================================================================================================
 //*-залишилось 1961шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
