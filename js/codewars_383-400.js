@@ -317,6 +317,39 @@ function XO_(str) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1961шт
+//*-Task №393 Jaden Casing Strings (7kyu)
+/*
+Джейден Сміт, син Уілла Сміта, є зіркою таких фільмів, як «Дитина-каратист» (2010) і «Після Землі» (2013).
+Джейден також відомий своєю філософією, яку він висловлює через Twitter. Коли він пише в Twitter,
+він відомий тим, що майже завжди пише кожне слово з великої літери. Для простоти вам доведеться
+писати кожне слово з великої літери, перевірте, як очікуються скорочення, у прикладі нижче.
+
+Ваше завдання — перетворити рядки так, як їх написав би Джейден Сміт. Рядки є справжніми цитатами
+Джейдена Сміта, але вони не написані великими літерами так, як він їх спочатку ввів.
+Приклад:
+Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
+Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+*/
+
+// Мій варіант
+String.prototype.toJadenCase = function () {
+    const words = this.toLowerCase().split(' ');
+    const capitalizedWords = words.map(word => {
+        return word[0].toUpperCase() + word.slice(1);
+    })
+    const result = capitalizedWords.join(' ').trim();
+    return result;
+};
+// Цікаві варіанти з Codewars
+String.prototype.toJadenCase_ = function () {
+    return this.split(' ').map(item => item[0].toUpperCase() + item.slice(1)).join(' ')
+};
+//
+String.prototype.toJadenCase__ = function () {
+    return this.replace(/(^|\s)[a-z]/g, function (x) { return x.toUpperCase(); });
+};
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1960шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
