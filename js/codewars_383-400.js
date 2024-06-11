@@ -519,6 +519,37 @@ function friend(friends) {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1956шт
+//*-Task №400 Two to One (7kyu)
+/*
+Візьміть 2 рядки s1 і s2, що містять лише літери від a до z.
+Повертає новий відсортований рядок, найдовший із можливих, що містить різні літери
+(кожна взята лише один раз) із s1 або s2.
+
+Приклади:
+a = "xyaabbbccccdefww"
+b = "xxxxyyyyabklmopq"
+longest(a, b) -> "abcdefklmopqwxy"
+
+a = "abcdefghijklmnopqrstuvwxyz"
+longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
+*/
+
+// Мій варіант
+function longest(s1, s2) {
+    const array = s1.split('').concat(s2.split(''));
+    const uniqueLetters = new Set(array);
+    const result = [];
+    uniqueLetters.forEach(letter => result.push(letter));
+    return result.sort().join('');
+}
+// Цікаві варіанти з Codewars
+const longest_ = (s1, s2) => [...new Set(s1 + s2)].sort().join('');
+//
+function longest__(s1, s2) {
+    return Array.from(new Set(s1 + s2)).sort().join('');
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1955шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
