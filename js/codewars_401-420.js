@@ -192,6 +192,47 @@ function isTriangle_(a, b, c) {
 var isTriangle__ = (a, b, c) => Math.max(a, b, c) < (a + b + c) / 2;
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1949шт
+//*-Task №408 Sum of odd numbers (7kyu)
+/*
+Дано трикутник послідовних непарних чисел:
+             1
+          3     5
+       7     9    11
+   13    15    17    19
+21    23    25    27    29
+...
+Обчисліть суму чисел у n-му рядку цього трикутника (починаючи з індексу 1), наприклад: (Вхід --> Вихід)
+1 -->  1
+2 --> 3 + 5 = 8
+*/
+
+// Мій варіант
+function rowSumOddNumbers(n) {
+    const nums = [1];
+    let lengthNums = 0;
+
+    for (let i = 1; i <= n; i++) {
+        lengthNums += i;
+    }
+
+    for (let i = 0; i < lengthNums - 1; i++) {
+        nums.push(nums[i] + 2);
+    }
+
+    const resultArr = nums.slice(-n);
+    const result = resultArr.reduce((sum, num) => { return sum + num });
+    return result;
+}
+// Цікаві варіанти з Codewars
+function rowSumOddNumbers_(n) {
+    return Math.pow(n, 3);
+}
+//
+function rowSumOddNumbers__(n) {
+    return n * n * n;
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1948шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
