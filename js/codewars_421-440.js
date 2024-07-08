@@ -246,6 +246,76 @@ function arithmetic_(a, b, operator) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №427 Building blocks (7kyu)
+/*
+Напишіть клас Block, який створює блок (Duh..)
+
+Вимоги
+Конструктор повинен прийняти масив як аргумент, він міститиме 3 цілі числа у формі
+[ширина, довжина, висота], з яких має бути створений блок.
+
+Визначте ці методи:
+`getWidth()` return the width of the `Block`
+`getLength()` return the length of the `Block`
+`getHeight()` return the height of the `Block`
+`getVolume()` return the volume of the `Block`
+`getSurfaceArea()` return the surface area of the `Block`
+
+Приклад:
+let b = new Block([2,4,6]) -> creates a `Block` object with a width of `2` a length of `4` and a height of `6`
+b.getWidth() // -> 2
+b.getLength() // -> 4
+b.getHeight() // -> 6
+b.getVolume() // -> 48
+b.getSurfaceArea() // -> 88
+
+Примітка: перевірка помилок не потрібна
+Будь-який відгук буде дуже вдячний
+*/
+
+// Мій варіант
+class Block {
+    constructor(parameters) {
+        this._width = parameters[0];
+        this._length = parameters[1];
+        this._height = parameters[2];
+    }
+
+    getWidth() {
+        return this._width;
+    }
+    getLength() {
+        return this._length;
+    }
+    getHeight() {
+        return this._height;
+    }
+    getVolume() {
+        return this._width * this._height * this._length;
+    }
+    getSurfaceArea() {
+        return 2 * (this._width * this._length + this._length * this._height + this._height * this._width);
+    }
+}
+// Цікаві варіанти з Codewars
+class Block_ {
+    constructor(data) {
+        [this.w, this.l, this.h] = data;
+    }
+    getWidth() { return this.w }
+    getLength() { return this.l }
+    getHeight() { return this.h }
+    getVolume() {
+        let { l, w, h } = this;
+        return w * l * h;
+    }
+    getSurfaceArea() {
+        let { l, w, h } = this;
+        return 2 * (l * w + l * h + w * h);
+    }
+}
+// ================================================================================================
+// ================================================================================================
 //*-залишилось 1935шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
