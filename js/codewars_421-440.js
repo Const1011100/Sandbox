@@ -410,6 +410,49 @@ const sequenceSum_ = (begin, end, step) => {
 };
 // ================================================================================================
 // ================================================================================================
+//*-Task №431 Round up to the next multiple of 5 (7kyu)
+/*
+Якщо ввести ціле число, чи можна округлити його до наступного (тобто «більшого або рівного») кратного 5?
+Приклади:
+input:    output:
+0    ->   0
+2    ->   5
+3    ->   5
+12   ->   15
+21   ->   25
+30   ->   30
+-2   ->   0
+-5   ->   -5
+etc.
+
+Введенням може бути будь-яке додатне або від’ємне ціле число (включно з 0).
+Ви можете припустити, що всі вхідні дані є дійсними цілими числами.
+*/
+
+// Мій варіант
+function roundToNext5(n) {
+    return Math.ceil(n / 5) * 5;
+}
+
+// Цікаві варіанти з Codewars
+function roundToNext5_(n) {
+    // How much there is until the next multiple of 5
+    const nToCeil5 = 5 - n % 5;
+    // How much there is until the prev multiple of 5
+    const nToFloor5 = n % 5;
+
+    // If the number is already multiple of 5 just return it
+    if (nToCeil5 == 5) return n;
+
+    // For positive numbers just ceil it
+    if (n > 0) return n + nToCeil5;
+
+    // For negative numbers just floor it
+    return n - nToFloor5;
+
+}
+// ================================================================================================
+// ================================================================================================
 //*-залишилось 1933шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
