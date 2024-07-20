@@ -616,6 +616,83 @@ var isAnagram = function (test, original) {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1925шт
+//*-Task №439 Two fighters, one winner. (7kyu)
+/*
+Створіть функцію, яка повертає ім'я переможця в бою між двома бійцями.
+
+Кожен боєць по черзі атакує іншого, і перемагає той, хто вб’є іншого першим.
+Смерть визначається як стан здоров’я <= 0.
+
+Кожен боєць буде об’єктом. Дивіться клас Fighter нижче вибраною мовою.
+І здоров’я, і damagePerAttack будуть цілими числами, більшими за 0. Ви можете змінити об’єкти Fighter.
+Ваша функція також отримує третій аргумент, рядок, з іменем бійця, який атакує першим.
+
+Приклад:
+declare_winner(Fighter("Лью", 10, 2), Fighter("Гаррі", 5, 4), "Лью") => "Лью"
+
+Лью нападає на Гаррі; Тепер у Гаррі 3 здоров'я.
+Гаррі нападає на Лью; Тепер у Лью 6 очок здоров’я.
+Лью нападає на Гаррі; Гаррі тепер має 1 здоров'я.
+Гаррі нападає на Лью; Тепер у Лью 2 здоров’я.
+Лью атакує Гаррі: Гаррі тепер має -1 здоров'я і мертвий. Лью перемагає.
+
+function Fighter(name, health, damagePerAttack) {
+        this.name = name;
+        this.health = health;
+        this.damagePerAttack = damagePerAttack;
+        this.toString = function() { return this.name; }
+}
+*/
+
+// Мій варіант
+function declareWinner(fighter1, fighter2, firstAttacker) {
+    if (firstAttacker === fighter1.name) {
+        while (fighter1.health > 0 && fighter2.health > 0) {
+            fighter2.health -= fighter1.damagePerAttack;
+            if (fighter2.health <= 0) { return fighter1.name };
+
+            fighter1.health -= fighter2.damagePerAttack;
+            if (fighter1.health <= 0) { return fighter2.name };
+        }
+    } else {
+        while (fighter1.health > 0 && fighter2.health > 0) {
+            fighter1.health -= fighter2.damagePerAttack;
+            if (fighter1.health <= 0) { return fighter2.name };
+
+            fighter2.health -= fighter1.damagePerAttack;
+            if (fighter2.health <= 0) { return fighter1.name };
+        }
+    }
+}
+
+// Цікаві варіанти з Codewars
+function declareWinner_(fighter1, fighter2, firstAttacker) {
+    var fac1 = Math.ceil(fighter1.health / fighter2.damagePerAttack);
+    var fac2 = Math.ceil(fighter2.health / fighter1.damagePerAttack);
+    if (fac1 < fac2) {
+        return fighter2.name;
+    } else if (fac2 < fac1) {
+        return fighter1.name;
+    } else {
+        return firstAttacker;
+    }
+}
+//
+function declareWinner__(fighter1, fighter2, firstAttacker) {
+    while (fighter1.health > 0 && fighter2.health > 0) {
+        fighter2.health -= fighter1.damagePerAttack;
+        fighter1.health -= fighter2.damagePerAttack;
+    }
+
+    if (fighter1.health <= 0 && fighter2.health <= 0)
+        return firstAttacker;
+    else if (fighter1.health <= 0)
+        return fighter2.name;
+    else
+        return fighter1.name;
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1924шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
