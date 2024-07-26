@@ -123,6 +123,36 @@ function solve_(s) {
 const solve__ = s => s.replace(/[A-Z]/g,'').length < s.length/2 ? s.toUpperCase() : s.toLowerCase()
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1920шт
+//*-Task №445 Form The Minimum (7kyu)
+/*
+Дано список цифр, поверніть найменше число, яке можна сформувати з цих цифр,
+використовуючи цифри лише один раз (ігноруйте дублікати).
+
+Примітки:
+До функції будуть передані лише додатні цілі числа (> 0), жодних негативних або нулів.
+Вхід >> Вихід Приклади
+minValue ([1, 3, 1])  ==> return (13)
+minValue([5, 7, 5, 9, 7])  ==> return (579)
+minValue([1, 9, 3, 1, 7, 4, 6, 6, 7]) return  ==> (134679)
+*/
+
+// Мій варіант
+function minValue(values) {
+    const uniqueNumbersObj = new Set(values)
+    const uniqueNumbersArray = Array.from(uniqueNumbersObj);
+    return Number(uniqueNumbersArray.sort((a, b) => a - b).join(''));
+}
+// Цікаві варіанти з Codewars
+function minValue_(values) {
+    let arr = Array.from(new Set(values))
+    return parseInt(arr.sort().join(''))
+}
+//
+function minValue__(values) {
+    return Number(Array.from(new Set(values)).sort().join(''))
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1918шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
