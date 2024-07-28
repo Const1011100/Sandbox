@@ -183,6 +183,70 @@ function maxMultiple(divisor, bound) {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1917шт
+//*-Task №447 Fun with ES6 Classes #2 - Animals and Inheritance (7kyu)
+/*
+Для вас у цій Каті попередньо завантажено клас Animal:
+class Animal {
+  constructor(name, age, legs, species, status) {
+    this.name = name;
+    this.age = age;
+    this.legs = legs;
+    this.species = species;
+    this.status = status;
+  }
+  introduce() {
+    return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+  }
+}
+
+Визначте наступні класи, які успадковуються від Animal.
+
+І. Акула
+Функція-конструктор для Shark має приймати загалом 3 аргументи в такому порядку: ім’я, вік, статус.
+Усі акули повинні мати кількість ніг 0 (оскільки вони, очевидно, не мають ніг) і повинні мати вид "акули".
+
+II. кішка
+Функція-конструктор для Cat повинна приймати ті ж 3 аргументи, що і для Shark: ім’я, вік, статус.
+Коти завжди повинні мати кількість ніг 4 і вид "кішка".
+
+Крім того, метод введення/представлення для Cat має бути ідентичним оригіналу,
+за винятком того, що має бути рівно 2 пробіли та слова "Мяу-мяу!" після фрази. Наприклад:
+var example = new Cat("Example", 10, "Happy");
+example.introduce() === "Hello, my name is Example and I am 10 years old.  Meow meow!"; // Notice the TWO spaces - very important
+
+III. Пес
+Конструктор Dog повинен приймати 4 аргументи у вказаному порядку: ім'я, вік, статус, господар.
+master - це ім'я господаря собаки, яке буде рядком. Крім того, собаки повинні мати 4 ноги і вид «собака».
+
+Собаки мають ідентичний метод впровадження/представлення, як і будь-яка інша тварина, але вони мають
+власний метод під назвою greetMaster/GreetMaster, який не приймає аргументів і повертає «Hello (insert_master_name_here)»
+(звичайно, не літеральний рядок, але замініть (insert_master_name_here) на ім'я господаря собаки).
+*/
+
+// Мій варіант
+class Cat extends Animal {
+    constructor(name, age, status) {
+        super(name, age, 4, 'cat', status);
+    }
+    introduce() {
+        return `Hello, my name is ${this.name} and I am ${this.age} years old.  Meow meow!`;
+    }
+}
+
+class Dog extends Animal {
+    constructor(name, age, status, master) {
+        super(name, age, 4, 'dog', status);
+        this.master = master;
+    }
+
+    greetMaster() {
+        return `Hello ${this.master}`;
+    }
+}
+// Цікаві варіанти з Codewars
+
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1916шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
