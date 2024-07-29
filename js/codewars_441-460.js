@@ -247,6 +247,76 @@ class Dog extends Animal {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1916шт
+//*-Task №448 What a "Classy" Song (7kyu)
+/*
+Ваше завдання — створити клас під назвою Song.
+Нова пісня матиме два параметри: назву та виконавця.
+const mountMoose = new Song('Mount Moose', 'The Snazzy Moose');
+mountMoose.title => 'Mount Moose'
+mountMoose.artist => 'The Snazzy Moose'
+
+Вам також доведеться створити екземпляр методу під назвою howMany().
+
+Метод бере участь у групі людей, які слухали пісню того дня. На виході має бути кількість нових слухачів,
+які пісня отримала в той день із усіх слухачів. Імена слід трактувати без урахування регістру,
+тобто "Іван" - це те саме, що "іван".
+
+приклад
+const mountMoose = new Song('Mount Moose', 'The Snazzy Moose');
+
+// day 1 (or test 1)
+mountMoose.howMany(['John', 'Fred', 'BOb', 'carl', 'RyAn']); => 5
+// Це все нові, оскільки вони перші слухачі.
+
+// day 2
+mountMoose.howMany(['JoHn', 'Luke', 'AmAndA']); => 2
+// Люк і Аманда новачки, Джон уже слухав це напередодні
+
+Крім того, якщо одна й та сама особа слухала це більше одного разу на день, її слід рахувати лише один раз.
+приклад
+const mountMoose = new Song('Mount Moose', 'The Snazzy Moose');
+
+// day 1
+mountMoose.howMany(['John', 'joHN', 'carl']); => 2
+*/
+
+// Мій варіант
+class Song {
+    constructor(title, artist) {
+        this.title = title;
+        this.artist = artist;
+        this.listeners = new Set();
+    }
+
+    howMany(listenersToday) {
+        const lowercaseListeners = new Set(listenersToday.map(listener => listener.toLowerCase()));
+        let newListenersCount = 0;
+        lowercaseListeners.forEach(listener => {
+            if (!this.listeners.has(listener)) {
+                newListenersCount++;
+                this.listeners.add(listener);
+            }
+        });
+
+        return newListenersCount;
+    }
+}
+
+// Цікаві варіанти з Codewars
+class Song_ {
+    constructor(title, artist) {
+        this.title = title;
+        this.artist = artist;
+        this.listener = new Set()
+    };
+    howMany(people) {
+        let oldSize = this.listener.size;
+        people.map(p => this.listener.add(p.toLowerCase()));
+        return this.listener.size - oldSize;
+    }
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1915шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
