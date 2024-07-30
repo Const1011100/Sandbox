@@ -317,6 +317,50 @@ class Song_ {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1915шт
+//*-Task №449 Fun with ES6 Classes #3 - Cuboids, Cubes and Getters (7kyu)
+/*
+Дайте визначення наступним класам.
+
+І. Cuboid
+Конструктор об’єкта для класу Cuboid повинен отримати рівно три аргументи в такому порядку:
+length, width, height і зберегти ці три значення в this.length, this.width і this.height відповідно.
+
+Тоді клас Cuboid повинен мати геттер surfaceArea, який повертає площу поверхні кубоїда,
+і геттер volume, який повертає об’єм кубоїда.
+
+II. Cube
+клас Cube є підкласом класу Cuboid. Функція-конструктор Cube має отримувати лише один аргумент,
+його довжину, і використовувати передане значення для встановлення this.length, this.width і this.height.
+
+Підказка: зробіть виклик super, передаючи правильні аргументи, щоб полегшити життя ;)
+*/
+
+// Мій варіант
+class Cuboid {
+    constructor(length, width, height) {
+        this.length = length;
+        this.width = width;
+        this.height = height;
+    }
+
+    get surfaceArea() {
+        return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);;
+    }
+
+    get volume() {
+        return this.length * this.width * this.height;
+    }
+}
+class Cube extends Cuboid {
+    constructor(length) {
+        super(length, length, length);
+    }
+}
+
+// Цікаві варіанти з Codewars
+
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1914шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
