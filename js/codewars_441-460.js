@@ -361,6 +361,79 @@ class Cube extends Cuboid {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1914шт
+//*-Task №450 Thinkful - Object Drills: Quarks (7kyu)
+/*
+Ви моделюєте взаємодію між великою кількістю кварків і вирішили створити клас Quark,
+щоб ви могли генерувати власні об’єкти кварків.
+Кварки є фундаментальними частинками і єдиними фундаментальними частинками, які відчувають усі
+чотири фундаментальні сили.
+
+Ваше завдання
+Ваш клас Quark повинен дозволяти вам створювати кварки будь-якого допустимого кольору
+(«червоний», «синій» і «зелений») і будь-якого допустимого смаку («вгору», «вниз», «дивний», «чарівний», «верхній» 'і 'внизу').
+
+Кожен кварк має те саме баріонове число (BaryonNumber у C#): 1/3.
+Кожен кварк повинен мати метод .interact(), який дозволяє будь-якому кварку взаємодіяти з іншим
+кварком за допомогою сильної сили. Коли два кварки взаємодіють, вони обмінюються кольорами.
+
+приклад
+>>> q1 = Quark("red", "up")
+>>> q1.color
+"red"
+>>> q1.flavor
+"up"
+>>> q2 = Quark("blue", "strange")
+>>> q2.color
+"blue"
+>>> q2.baryon_number
+0.3333333333333333
+>>> q1.interact(q2)
+>>> q1.color
+"blue"
+>>> q2.color
+"red"
+*/
+
+// Мій варіант
+class Quark {
+    constructor(color, flavor) {
+        this.color = color;
+        this.flavor = flavor;
+        this.baryon_number = 1 / 3;
+    }
+
+    static isValidColor(color) {
+        return ['red', 'blue', 'green'].includes(color);
+    }
+
+    static isValidFlavor(flavor) {
+        return ['up', 'down', 'strange', 'charm', 'top', 'bottom'].includes(flavor);
+    }
+
+    interact(otherQuark) {
+        if (!(otherQuark instanceof Quark)) {
+            throw new Error('Interaction must be with another Quark object.');
+        }
+
+        const tempColor = this.color;
+        this.color = otherQuark.color;
+        otherQuark.color = tempColor;
+    }
+}
+
+// Цікаві варіанти з Codewars
+class Quark_ {
+    constructor(color, flavor) {
+        this.color = color
+        this.flavor = flavor
+        this.baryon_number = 1 / 3
+    }
+    interact(other) {
+        [this.color, other.color] = [other.color, this.color]
+    }
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1913шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
