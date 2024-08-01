@@ -434,6 +434,43 @@ class Quark_ {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1913шт
+//*-Task №451 avaScript class-like objects (7kyu)
+/*
+Для цієї вправи вам слід створити об’єкт на зразок класу JavaScript під назвою «Animal»,
+який приймає аргументи «name» і «type». Він повинен мати метод toString, який повертає зрозумілий
+рядок із зазначенням переданої інформації аргументу. Він також повинен дозволяти установку властивості name.
+
+Нижче наведено приклад того, як використовуватиметься кінцевий код і якими мають бути очікувані
+значення, що повертаються:
+var dog = new Animal('Max', 'dog');
+dog.toString(); // should return 'Max is a dog'
+dog.type; // should == 'dog'
+dog.name; // should == 'Max'
+dog.name = 'Lassie'; // should set name to 'Lassie'
+*/
+
+// Мій варіант
+class Animal {
+    constructor(name, type) {
+        this.name = name;
+        this.type = type;
+    }
+
+    toString() {
+        return `${this.name} is a ${this.type}`;
+    }
+}
+
+// Цікаві варіанти з Codewars
+var Animal_ = function (name, type) {
+    this.name = name;
+    this.type = type;
+}
+Animal_.prototype.toString = function () {
+    return this.name + ' is a ' + this.type;
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1912шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
