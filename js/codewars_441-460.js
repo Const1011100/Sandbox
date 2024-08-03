@@ -491,6 +491,51 @@ function Counter() {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1911шт
+//*-Task №453 SantaClausable Interface (7kyu)
+/*
+Ви, мабуть, знаєте, що в Javascript немає поняття інтерфейсів. Існує лише концепція успадкування,
+але ви не можете припустити, що певний метод або властивість існує лише тому, що воно існує в
+батьківському прототипі/класі. Ми хочемо з'ясувати, чи відповідає даний об'єкт вимогам для реалізації
+інтерфейсу «SantaClausable». Нам потрібно реалізувати метод, який перевіряє цей інтерфейс.
+
+Правила
+Інтерфейс SantaClausable реалізовано, якщо для об’єкта визначено всі наступні методи:
+sayHoHoHo()
+distributeGifts()
+goDownTheChimney()
+
+Приклад
+var santa = {
+    sayHoHoHo: function() { console.log('Ho Ho Ho!') },
+    distributeGifts: function() { console.log('Gifts for all!'); },
+    goDownTheChimney: function() { console.log('*whoosh*'); }
+};
+
+var notSanta = {
+    sayHoHoHo: function() { console.log('Oink Oink!') }
+    // no distributeGifts() and no goDownTheChimney()
+};
+
+isSantaClausable(santa); // must return TRUE
+isSantaClausable(notSanta); // must return FALSE
+*/
+
+// Мій варіант
+function isSantaClausable(obj) {
+    return (
+        typeof obj.sayHoHoHo === 'function' &&
+        typeof obj.distributeGifts === 'function' &&
+        typeof obj.goDownTheChimney === 'function'
+    );
+}
+// Цікаві варіанти з Codewars
+function isSantaClausable_(obj) {
+    return ['sayHoHoHo', 'distributeGifts', 'goDownTheChimney'].every(function (methodName) {
+        return typeof obj[methodName] == 'function';
+    });
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1910шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
