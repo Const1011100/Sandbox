@@ -556,6 +556,45 @@ String.prototype.myNewMethod = function () {
 String.prototype.myNewMethod = String.prototype.toUpperCase;
 // ================================================================================================
 // ================================================================================================
+//*-Task №455 Double value every next call (7kyu)
+/*
+Ця ката стосується статичного методу, який має повертати різні значення.
+При першому виклику воно повинно бути 1, при другому та інших - воно повинно бути подвійним від
+попереднього значення.
+Подивіться тести, щоб отримати більше прикладів, удачі :)
+*/
+
+// Мій варіант
+class Class {
+    static getNumber() {
+        this.counter;
+        if (!this.counter) {
+            return this.counter = 1;
+        } else {
+            return this.counter *= 2;
+        }
+        return this.counter;
+    }
+}
+// Цікаві варіанти з Codewars
+class Class_ {
+    static number = 1
+
+    static getNumber() {
+        const currentVal = Class_.number;
+        Class_.number *= 2;
+        return currentVal;
+    }
+}
+//
+class Class__ {
+    static #last = -1;
+    static getNumber() {
+        return Math.pow(2, ++Class__.#last);
+    }
+}
+// ================================================================================================
+// ================================================================================================
 //*-залишилось 1909шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
