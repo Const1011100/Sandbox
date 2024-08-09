@@ -667,7 +667,7 @@ const myFunction_ = () => ({
 });
 // ================================================================================================
 // ================================================================================================
-//*-Task №458 (7kyu)
+//*-Task №458 Singleton Pattern (7kyu)
 /*
 У розробці програмного забезпечення шаблон singleton — це шаблон проектування, який обмежує
 створення екземпляра класу одним об’єктом. Це корисно, коли для координації дій у системі потрібен
@@ -701,6 +701,59 @@ var Singleton_ = function () {
 };
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1905шт
+//*-Task №458 Honey to the Bee (7kyu)
+/*
+Дізнайтеся, чому кількість меду у вулику не збільшується.
+*/
+
+// Мій варіант (Подивився відповідь)
+function Bee(capacity, hive) {
+    this.capacity = capacity;
+    this.hive = hive;
+}
+
+function Hive() {
+    this.pollen = 100;
+}
+
+Hive.prototype.addPollen = function (pollen) {
+    this.pollen += pollen;
+}
+
+Hive.prototype.getPollen = function () {
+    return this.pollen;
+}
+
+Bee.prototype.unloadPollen = function () {
+    this.hive.addPollen(this.capacity); // добавив this до hive.addPollen
+}
+
+// Цікаві варіанти з Codewars
+class Bee {
+    constructor(capacity, hive) {
+        Object.assign(this, { capacity, hive });
+    }
+
+    unloadPollen() {
+        this.hive.addPollen(this.capacity);
+    }
+}
+
+class Hive {
+    constructor() {
+        this.pollen = 100;
+    }
+
+    addPollen(pollen) {
+        this.pollen += pollen;
+    }
+
+    getPollen() {
+        return this.pollen;
+    }
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1904шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
