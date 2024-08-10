@@ -754,6 +754,51 @@ class Hive {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1904шт
+//*-Task №459 Super Class Extensions (7kyu)
+/*
+Ваше завдання полягає в тому, щоб виконати клас Cat, який розширює Animal, ми також хочемо
+використовувати оригінальний метод speak, тому ви повинні використовувати метод super, щоб метод speak
+для Cat тепер повертав, наприклад. 'Mr Whiskers makes a noise, Mr Whiskers goes meow.'.
+*/
+
+// Мій варіант (Подивився відповідь)
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    speak() {
+        return this.name + ' makes a noise, ';
+    }
+}
+
+class Cat extends Animal {
+    constructor(name) {
+        super(name)
+    }
+    speak() {
+        return `${this.name} makes a noise, ${this.name} goes meow.`;
+    }
+}
+
+// Цікаві варіанти з Codewars
+class Animal_ {
+    constructor(name) {
+        this.name = name;
+    }
+
+    speak() {
+        return this.name + ' makes a noise, ';
+    }
+}
+
+class Cat_ extends Animal_ {
+    speak() {
+        return super.speak() + this.name + ' goes meow.';
+    }
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1903шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
