@@ -799,6 +799,60 @@ class Cat_ extends Animal_ {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1903шт
+//*-Task №460 Static privacy (7kyu)
+/*
+Я написав клас Class із приватною статичною властивістю foo та геттером для його отримання:
+class Class {
+  static #foo = 42;
+
+  static get foo() {
+    return this.#foo;
+  }
+}
+Class.foo; // 42
+
+Однак, коли я створюю підклас класу, який успадковує клас, код порушується:
+class Subclass extends Class {}
+Subclass.foo; // Error !
+
+Ви можете виправити код?
+
+Змініть Class, щоб Subclass.foo працював правильно.
+Це також має працювати для будь-якого рівня успадкування від Class, наприклад. з:
+class Deepclass extends Subclass {}
+Deepclass.foo; // should return 42
+*/
+
+// Мій варіант (Подивився відповідь)
+class Class {
+    static #foo = 42;
+
+    static get foo() {
+        return Class.#foo;
+    }
+}
+// Цікаві варіанти з Codewars
+class Class {
+    static #foo = 42;
+
+    static get foo() {
+        return this.hasOwnProperty('foo') ? this.#foo : Class.#foo;
+    }
+}
+//
+class Class {
+    static #foo = 42;
+    static test = this.#foo;
+    static get foo() {
+        return this.test;
+    }
+}
+class Subclass extends Class {
+
+}
+
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1902шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
