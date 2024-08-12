@@ -826,30 +826,21 @@ Deepclass.foo; // should return 42
 // Мій варіант (Подивився відповідь)
 class Class {
     static #foo = 42;
-
-    static get foo() {
-        return Class.#foo;
-    }
-}
-// Цікаві варіанти з Codewars
-class Class {
-    static #foo = 42;
-
-    static get foo() {
-        return this.hasOwnProperty('foo') ? this.#foo : Class.#foo;
-    }
-}
-//
-class Class {
-    static #foo = 42;
     static test = this.#foo;
     static get foo() {
         return this.test;
     }
 }
-class Subclass extends Class {
 
-}
+// Цікаві варіанти з Codewars
+// class Class {
+//     static #foo = 42;
+//     static = this.#foo;
+
+//     static get foo() {
+//         return Class.#foo;
+//     }
+// }
 
 // ================================================================================================
 // ================================================================================================
