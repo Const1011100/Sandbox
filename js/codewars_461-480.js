@@ -85,6 +85,39 @@ function scoreboard_(whoAteWhat) {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1900шт
+//*-Task №463 Capitalize first letter of a string (7kyu)
+/*
+Зробіть першу літеру рядка великою
+Напишіть функцію capitalize(), яка робить першу літеру (якщо є) заданого рядка великою. Наприклад:
+
+Input                                                           Output
+string                                                          String
+hello World                                                     Hello World
+i love codewars                                                 I love codewars
+This sentence is already capitalized                            This sentence is already capitalized
+0123the first character of this sentence is not a letter        0123the first character of this sentence is not a letter
+
+JavaScript: розширте прототип String за допомогою методу capitalize(), щоб ви могли викликати його в
+рядку так: "string".capitalize(). Дізнайтеся про успадкування та ланцюг прототипів.
+Крім того, вбудовані рядкові методи toUpperCase() і toLowerCase() вимкнено для цього Kata.
+*/
+
+// Мій варіант (Подивився відповідь)
+String.prototype.capitalize = function () {
+    let charCode = this.charCodeAt(0);
+    if (charCode >= 97 && charCode <= 122) {
+        charCode -= 32;
+    }
+    const bigLetter = String.fromCharCode(charCode);
+    return this.replace(this[0], bigLetter);
+}
+
+// Цікаві варіанти з Codewars
+String.prototype.capitalize_ = function () {
+    return this.replace(/^[a-z]/, c => String.fromCharCode(c.charCodeAt(0) - 32));
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1899шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
