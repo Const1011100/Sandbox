@@ -118,6 +118,50 @@ String.prototype.capitalize_ = function () {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1899шт
+//*-Task №464 Make Class (7kyu)
+/*
+Мені не подобається писати такі уроки:
+function Animal(name,species,age,health,weight,color) {
+    this.name = name;
+    this.species = species;
+    this.age = age;
+    this.health = health;
+    this.weight = weight;
+    this.color = color;
+}
+
+Дайте мені повноваження створити такий подібний клас:
+const Animal = makeClass("name","species","age","health","weight","color");
+*/
+
+// Мій варіант (Подивився відповідь)
+function makeClass(...properties) {
+    return class MyClass {
+        constructor(...values) {
+            for(let i = 0; i < properties.length; i++) {
+                this[properties[i]] = values[i];
+            }
+        }
+    }
+}
+
+// Цікаві варіанти з Codewars
+function makeClass_(...properties) {
+    return class {
+        constructor(...props) {
+            properties.forEach((prop, index) => {
+                this[prop] = props[index]
+            })
+        }
+    }
+}
+//
+const makeClass__ = (...keys) =>
+    function (...values) {
+        keys.forEach((val, idx) => this[val] = values[idx]);
+    }
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1898шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
