@@ -440,6 +440,69 @@ function flattenAndSort_(array) {
 const flattenAndSort__ = (array) => array.flat().sort((a, b) => a - b);
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1891шт
+//*-Task №473 Factory Functions #1 - Creating profile for people (7kyu)
+/*
+Визначте фабричну функцію person (так, усі малі літери), яка приймає такі параметри в такому порядку:
+firstName
+lastName
+age
+gender
+employed
+occupation
+married
+
+Назви ключів об'єкта повинні збігатися з назвами параметрів, згаданих вище.
+Об’єкт повинен (тоді) також мати такі методи:
+sayName - має повернути повне ім’я особи (наприклад, {firstName: "John", lastName: "Doe"} => "John Doe"
+// коли викликається метод sayName())
+introduce – це має повернути рядок такого формату: "Hello, my name is FULL_NAME.  I am AGE years old.  I am a GENDER.".
+
+ВАЖЛИВО: для методу introduce() особи кожне речення відокремлюється від наступного рівно ДВОМА пробілами.
+*/
+
+// Мій варіант
+function person(firstName, lastName, age, gender, employed, occupation, married) {
+    const obj = {
+        firstName: firstName,
+        lastName: lastName,
+        age: age,
+        gender: gender,
+        employed: employed,
+        occupation: occupation,
+        married: married,
+        sayName() { return `${this.firstName} ${this.lastName}` },
+        introduce() { return `Hello, my name is ${this.sayName()}.  I am ${this.age} years old.  I am a ${this.gender}.` },
+    }
+
+    return obj;
+}
+
+// Цікаві варіанти з Codewars
+function person_(firstName, lastName, age, gender, employed, occupation, married) {
+    return {
+        firstName,
+        lastName,
+        age,
+        gender,
+        employed,
+        occupation,
+        married,
+        sayName() {
+            return `${firstName} ${lastName}`;
+        },
+        introduce() {
+            return `Hello, my name is ${this.sayName()}.  I am ${this.age} years old.  I am a ${this.gender}.`;
+        }
+    };
+}
+//
+const person__ = (firstName, lastName, age, gender, employed, occupation, married) => {
+    const sayName = _ => firstName + ' ' + lastName
+    const introduce = _ => `Hello, my name is ${sayName()}.  I am ${age} years old.  I am a ${gender}.`
+    return { firstName, lastName, age, gender, employed, occupation, married, sayName, introduce }
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1890шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
