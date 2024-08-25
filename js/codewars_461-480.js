@@ -503,6 +503,48 @@ const person__ = (firstName, lastName, age, gender, employed, occupation, marrie
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №474 Factory Functions #2 - Inheritance and Object Composition (7kyu)
+/*
+Визначте функцію constructionWorker, яка «успадковує» функцію person, як показано в Огляді, і
+приймає наступні параметри в такому порядку: firstName, lastName, age, gender, married, boss.
+Ключі повернутого об’єкта мають бути ідентичними назві параметрів, згаданих вище. Крім того,
+будівельник завжди працює, тому для параметра зайнято має бути встановлено значення true.
+Їхня професія також природно «будівельник».
+
+На додаток до всього, constructionWorker повинен мати метод sayBossName, який повертає рядок
+такого формату: 'My boss is called BOSS_NAME and is a very nice person!' де BOSS_NAME – це ім’я
+начальника зазначеного будівельника.
+*/
+
+// Мій варіант
+function constructionWorker(firstName, lastName, age, gender, married, boss) {
+    const personObj = person(firstName, lastName, age, gender, married);
+    personObj.boss = boss;
+    personObj.employed = true;
+    personObj.occupation = 'construction worker';
+    personObj.married = married;
+
+    personObj.sayBossName = function () { return `My boss is called ${this.boss} and is a very nice person!` };
+    return personObj;
+}
+
+// Цікаві варіанти з Codewars
+function constructionWorker_(firstName, lastName, age, gender, married, boss) {
+    var w = person(firstName, lastName, age, gender, true, 'construction worker', married);
+    w.boss = boss;
+    w.sayBossName = function () {
+        return `My boss is called ${this.boss} and is a very nice person!`;
+    };
+    return w;
+}
+//
+const constructionWorker__ = (firstName, lastName, age, gender, married, boss) => ({
+    ...person(firstName, lastName, age, gender, true, "construction worker", married),
+    boss,
+    sayBossName: () => `My boss is called ${boss} and is a very nice person!`
+})
+// ================================================================================================
+// ================================================================================================
 //*-залишилось 1890шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
