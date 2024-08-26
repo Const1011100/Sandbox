@@ -545,6 +545,63 @@ const constructionWorker__ = (firstName, lastName, age, gender, married, boss) =
 })
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1890шт
+//*-Task №475 SpeedCode #1 - Getters and Setters in Object Literals (7kyu)
+/*
+Визначте змінну person, яка зберігає літерал об’єкта. Літерал об’єкта повинен мати такі властивості:
+firstName of "Jane"
+lastName of "Doe"
+
+Тоді літерал об’єкта повинен мати геттер і сеттер під назвою fullName, які повертають і аналізують
+повне ім’я особи відповідно. Повне ім’я визначається таким чином: якщо ім’я – «Джейн»,
+а прізвище – «Доу», то повне ім’я – «Джейн Доу» і навпаки. Ви можете вважати, що всі повні імена дійсні
+під час їх аналізу.
+
+Вийміть таймер і готуйтеся. Готуйся, збирайся, ВПЕРЕД!!! :D
+*/
+
+// Мій варіант
+const person = {
+    firstName:'Jane',
+    lastName:'Doe',
+
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    },
+
+    set fullName(name) {
+        let [firstN, lastN] = name.split(' ');
+        this.firstName = firstN;
+        this.lastName = lastN;
+    }
+}
+
+// Цікаві варіанти з Codewars
+const person_ = {
+    firstName: 'Jane',
+    lastName: 'Doe',
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    },
+    set fullName(name) {
+        let [firstName, lastName] = name.split(' ');
+        Object.assign(this, { firstName, lastName });
+    }
+};
+//
+// Ready, get set, GO!!! :D
+var person___ = {
+    firstName: "Jane",
+    lastName: "Doe",
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    },
+    set fullName(name) {
+        this.firstName = name.split(" ")[0];
+        this.lastName = name.split(" ")[1];
+    }
+};
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1889шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
