@@ -602,6 +602,78 @@ var person___ = {
 };
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1889шт
+//*-Task №476 Statistics - Fundamentals (7kyu)
+/*
+Створіть клас DataSet, який має такі властивості та методи:
+
+data - містить масив даних
+mean – містить значення середнього середнього даних
+variance  – містить значення дисперсії даних
+stdDeviation – містить стандартне відхилення даних
+setMean() – функція, яка обчислює середнє, оновлює this.mean і повертає значення середнього
+setVar() - встановлює/скидає дисперсію та стандартне відхилення набору даних і повертає дисперсію
+Наприклад, якщо я ініціюю DataSet з такими даними:
+var myData = new DataSet(1,2,3,4,5,6,7);
+... наступні властивості будуть встановлені автоматично:
+myData.data === [1,2,3,4,5,6,7];
+myData.mean === 4
+myData.variance === 4
+myData.stdDeviation === 2
+
+Крім того, якщо я потім зміню деякі записи в myData.data, а потім викликаю функції setMean() і setVar(),
+середнє значення, стандартне відхилення та дисперсію даних мають бути перераховані, а значення нового
+середнього та дисперсії повернуто.
+*/
+
+// Мій варіант (подивився відповідь)
+class DataSet {
+    constructor(...data) {
+        this.data = data;
+        this.setMean();
+        this.setVar();
+    }
+
+    setMean() {
+        this.mean = this.data.reduce((a, b) => a + b, 0) / this.data.length;
+        return this.mean;
+    }
+
+    setVar() {
+        this.variance = this.data
+            .map(n => Math.pow(n - this.mean, 2))
+            .reduce((a, b) => a + b, 0) / this.data.length;
+        this.stdDeviation = Math.sqrt(this.variance);
+        return this.variance;
+    }
+}
+
+// Цікаві варіанти з Codewars
+class DataSet_ {
+    constructor(...data) {
+        this.data = data;
+    }
+    get mean() {
+        let maine = 0;
+        this.data.forEach((e) => (maine += e));
+        return maine / this.data.length;
+    }
+    get variance() {
+        let vari = 0;
+        this.data.forEach((e) => (vari += (e - this.mean) ** 2));
+        return vari / this.data.length;
+    }
+    get stdDeviation() {
+        return Math.sqrt(this.variance);
+    }
+    setMean() {
+        return this.mean;
+    }
+    setVar() {
+        return this.variance;
+    }
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1888шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
