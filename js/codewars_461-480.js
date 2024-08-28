@@ -674,6 +674,39 @@ class DataSet_ {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1888шт
+//*-Task №477 Help Grinch steal Christmas from JS programmers (7kyu)
+/*
+Грінч хоче зіпсувати Різдво програмістам на JavaScript. Для цього він розробив пекельний план:
+забруднити їхній прототип Date, щоб Різдва ніколи не було.
+Він хоче змінити метод getDate of Date так, щоб він повертав 26 для об’єктів Date,
+які представляють 25 грудня, але працювали правильно для всіх інших днів року.
+
+Однак Грінч не знає, як це зробити. Чи можете ви йому допомогти?
+*/
+
+// Мій варіант
+const originalGetDate = Date.prototype.getDate;
+
+Date.prototype.getDate = function () {
+    if (this.getMonth() === 11 && originalGetDate.call(this) === 25) {
+        return 26;
+    }
+    return originalGetDate.call(this);
+};
+
+// Цікаві варіанти з Codewars
+Date.prototype.getDate = function getGrinchDate() {
+    let [day, month, date] = this.toString().split(" ");
+    return month == 'Dec' && date == 25 ? 26 : +date;
+};
+//
+Date.prototype.getDate = function getGrinchDate() {
+    const month = this.getMonth()
+    const date = this.getUTCDate()
+    return month == 11 && date == 25 ? 26 : date
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1887шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
