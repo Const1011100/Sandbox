@@ -305,6 +305,27 @@ Math.min = function (...x) { return x.sort((a, b) => a - b)[0]; }
 Math.pow = function (x, y) { var rs = 1; while (y--) rs *= x; return rs; }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1881шт
+//*-Task №488 Remove duplicate words (7kyu)
+/*
+Ваше завдання — видалити всі повторювані слова з рядка, залишивши лише окремі (перші) слова.
+Приклад:
+
+Вхід:
+'alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta'
+
+Вихід:
+'alpha beta gamma delta'
+*/
+
+// Мій варіант
+function removeDuplicateWords(s) {
+    return Array.from(new Set(s.split(' '))).join(' ');
+}
+
+// Цікаві варіанти з Codewars
+const removeDuplicateWords_ = str => str.replace(/\s(\w+)\b(?<=\b\1\b.*\1)/g, '');
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1880шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
