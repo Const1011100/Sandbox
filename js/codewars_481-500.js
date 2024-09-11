@@ -401,6 +401,37 @@ function rowWeights_(array) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1878шт
+//*-Task №491 The Coupon Code (7kyu)
+/*
+Розповідь
+Ваш інтернет-магазин любить роздавати купони для особливих випадків.
+Деякі клієнти намагаються обдурити систему, ввівши недійсні коди або використовуючи прострочені купони.
+
+Завдання
+Напишіть функцію під назвою checkCoupon, яка перевіряє, що код купона дійсний і не минув.
+
+Купон не діє на наступний день ПІСЛЯ закінчення терміну дії.
+Усі дати будуть передані як рядки в такому форматі: «ДАТА МІСЯЦЯ, РІК».
+
+Приклади:
+checkCoupon("123", "123", "July 9, 2015", "July 9, 2015")  ===  true
+checkCoupon("123", "123", "July 9, 2015", "July 2, 2015")  ===  false
+*/
+
+// Мій варіант
+function checkCoupon(enteredCode, correctCode, currentDateStr, expirationDateStr) {
+    let currentDate = new Date(currentDateStr);
+    let expirationDate = new Date(expirationDateStr);
+
+    return enteredCode === correctCode && currentDate <= expirationDate;
+}
+
+// Цікаві варіанти з Codewars
+function checkCoupon_(enteredCode, correctCode, currentDate, expirationDate) {
+    return enteredCode === correctCode && Date.parse(expirationDate) >= Date.parse(currentDate)
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1877шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
