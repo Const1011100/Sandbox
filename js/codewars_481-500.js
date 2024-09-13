@@ -461,6 +461,43 @@ function factorial__(n) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1876шт
+//*-Task №493 Maximum Length Difference (7kyu)
+/*
+Вам надано два масиви рядків a1 і a2. Кожен рядок складається з літер від a до z.
+Нехай x — будь-який рядок у першому масиві, а y — будь-який рядок у другому масиві.
+
+Знайти max(abs(length(x) − length(y))). Якщо a1 та/або a2 порожні, поверніть -1.
+
+Приклад:
+a1 = ["hoqq", "bbllkw", "oox", "ejjuyyy", "plmiis", "xxxzgpsssa", "xxwwkktt", "znnnnfqknaz", "qqquuhii", "dvvvwz"]
+a2 = ["cccooommaaqqoxii", "gggqaffhhh", "tttoowwwmmww"]
+mxdiflg(a1, a2) --> 13
+
+Баш нота:
+вхід: 2 рядки з підрядками, розділеними символом ,
+вихід: число у вигляді рядка
+*/
+
+// Мій варіант
+function mxdiflg(a1, a2) {
+    if (a1.length === 0 || a2.length === 0) { return -1 };
+
+    const maxLenA1 = Math.max(...a1.map(str => str.length));
+    const minLenA1 = Math.min(...a1.map(str => str.length));
+    const maxLenA2 = Math.max(...a2.map(str => str.length));
+    const minLenA2 = Math.min(...a2.map(str => str.length));
+
+    return Math.max(Math.abs(maxLenA1 - minLenA2), Math.abs(maxLenA2 - minLenA1));
+}
+// Цікаві варіанти з Codewars
+function mxdiflg(a1, a2) {
+    if (a1.length === 0 || a2.length === 0) return -1
+    let l1 = a1.map(str => str.length)
+    let l2 = a2.map(str => str.length)
+    return Math.max(Math.max(...l1) - Math.min(...l2), Math.max(...l2) - Math.min(...l1))
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1875шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
