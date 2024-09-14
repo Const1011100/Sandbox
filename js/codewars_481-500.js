@@ -68,11 +68,12 @@ class Game {
 
 class Player {
     constructor(name = "Player") {
-        this.name = typeof name === 'string' && name.trim() !== '' ? name : "Player";
-        this.health = 100.00;
+        this.name =
+            typeof name === "string" && name.trim() !== "" ? name : "Player";
+        this.health = 100.0;
         this.position = { x: 0, y: 0 };
-        this.damage = 10.00;
-        this.luck = 1.00;
+        this.damage = 10.0;
+        this.luck = 1.0;
     }
 }
 
@@ -98,12 +99,12 @@ class Game {
 }
 
 class Player {
-    constructor(name = 'Player') {
-        this.name = typeof (name) !== 'string' || name == '' ? 'Player' : name;
-        this.health = 100.00;
+    constructor(name = "Player") {
+        this.name = typeof name !== "string" || name == "" ? "Player" : name;
+        this.health = 100.0;
         this.position = { x: 0, y: 0 };
-        this.damage = 10.00;
-        this.luck = 1.00;
+        this.damage = 10.0;
+        this.luck = 1.0;
     }
 }
 
@@ -131,8 +132,8 @@ class Map {
 
 // Мій варіант
 function capitalize(s) {
-    let odd = '';
-    let even = '';
+    let odd = "";
+    let even = "";
 
     for (let i = 0; i < s.length; i++) {
         if (i % 2 === 0) {
@@ -149,10 +150,16 @@ function capitalize(s) {
 
 // Цікаві варіанти з Codewars
 function capitalize_(s) {
-    const odd = s.split("").map((l, i) => i % 2 !== 0 ? l.toUpperCase() : l).join("");
-    const even = s.split("").map((l, i) => i % 2 === 0 ? l.toUpperCase() : l).join("");
+    const odd = s
+        .split("")
+        .map((l, i) => (i % 2 !== 0 ? l.toUpperCase() : l))
+        .join("");
+    const even = s
+        .split("")
+        .map((l, i) => (i % 2 === 0 ? l.toUpperCase() : l))
+        .join("");
     return [even, odd];
-};
+}
 // ================================================================================================
 // ================================================================================================
 //*-Task №483  (7kyu)
@@ -195,7 +202,8 @@ function inAscOrder__(arr) {
     return arr.every((_, i) => i == 0 || arr[i] > arr[i - 1]);
 }
 //
-const inAscOrder___ = arr => arr.join('') === arr.sort((a, b) => a - b).join('');
+const inAscOrder___ = (arr) =>
+    arr.join("") === arr.sort((a, b) => a - b).join("");
 // ================================================================================================
 // ================================================================================================
 //*-Task №484 Leap Years (7kyu)
@@ -235,7 +243,7 @@ function isLeapYear_(year) {
 
 // Мій варіант
 function noOdds(values) {
-    return values.filter(num => num % 2 === 0);
+    return values.filter((num) => num % 2 === 0);
 }
 // Цікаві варіанти з Codewars
 
@@ -287,22 +295,30 @@ Math.pow(x,y) (ви можете припустити, що експонента
 */
 
 // Мій варіант (Подивився рішення)
-Math.ceil = x => x % 1 ? -~x : x;
-Math.floor = x => ~~x
-Math.round = x => ~~(x + 0.5);
-Math.abs = x => x < 0 ? -x : x;
-Math.max = (...xs) => xs.reduce((a, b) => a < b ? b : a);
-Math.min = (...xs) => xs.reduce((a, b) => a < b ? a : b);
+Math.ceil = (x) => (x % 1 ? -~x : x);
+Math.floor = (x) => ~~x;
+Math.round = (x) => ~~(x + 0.5);
+Math.abs = (x) => (x < 0 ? -x : x);
+Math.max = (...xs) => xs.reduce((a, b) => (a < b ? b : a));
+Math.min = (...xs) => xs.reduce((a, b) => (a < b ? a : b));
 Math.pow = (x, y) => x ** y;
 
 // Цікаві варіанти з Codewars
-Math.ceil = x => x % 1 == 0 ? x : x - x % 1 + 1;
-Math.floor = x => x - x % 1;
-Math.round = x => x % 1 == 0 ? x : x - x % 1 + (x % 1 >= .5 ? 1 : 0);
-Math.abs = x => x < 0 ? -x : x;
-Math.max = function (...x) { return x.sort((a, b) => b - a)[0]; }
-Math.min = function (...x) { return x.sort((a, b) => a - b)[0]; }
-Math.pow = function (x, y) { var rs = 1; while (y--) rs *= x; return rs; }
+Math.ceil = (x) => (x % 1 == 0 ? x : x - (x % 1) + 1);
+Math.floor = (x) => x - (x % 1);
+Math.round = (x) => (x % 1 == 0 ? x : x - (x % 1) + (x % 1 >= 0.5 ? 1 : 0));
+Math.abs = (x) => (x < 0 ? -x : x);
+Math.max = function (...x) {
+    return x.sort((a, b) => b - a)[0];
+};
+Math.min = function (...x) {
+    return x.sort((a, b) => a - b)[0];
+};
+Math.pow = function (x, y) {
+    var rs = 1;
+    while (y--) rs *= x;
+    return rs;
+};
 // ================================================================================================
 // ================================================================================================
 //*-Task №488 Remove duplicate words (7kyu)
@@ -319,11 +335,12 @@ Math.pow = function (x, y) { var rs = 1; while (y--) rs *= x; return rs; }
 
 // Мій варіант
 function removeDuplicateWords(s) {
-    return Array.from(new Set(s.split(' '))).join(' ');
+    return Array.from(new Set(s.split(" "))).join(" ");
 }
 
 // Цікаві варіанти з Codewars
-const removeDuplicateWords_ = str => str.replace(/\s(\w+)\b(?<=\b\1\b.*\1)/g, '');
+const removeDuplicateWords_ = (str) =>
+    str.replace(/\s(\w+)\b(?<=\b\1\b.*\1)/g, "");
 // ================================================================================================
 // ================================================================================================
 //*-Task №489 Largest 5 digit number in a series (7kyu)
@@ -358,8 +375,8 @@ function solution(digits) {
 
 // Цікаві варіанти з Codewars
 function solution_(digits) {
-    let numbers = digits.match(new RegExp(/9\d{4}/, "g"))
-    return Math.max.apply(0, numbers)
+    let numbers = digits.match(new RegExp(/9\d{4}/, "g"));
+    return Math.max.apply(0, numbers);
 }
 // ================================================================================================
 // ================================================================================================
@@ -384,18 +401,24 @@ rowWeights([80])  ==>  return (80, 0)
 
 // Мій варіант
 function rowWeights(array) {
-    return array.reduce(([teamWeight_1, teamWeight_2], weight, index) => {
-        return index % 2 === 0
-            ? [teamWeight_1 + weight, teamWeight_2]
-            : [teamWeight_1, teamWeight_2 + weight]
-        }, [0, 0]
+    return array.reduce(
+        ([teamWeight_1, teamWeight_2], weight, index) => {
+            return index % 2 === 0
+                ? [teamWeight_1 + weight, teamWeight_2]
+                : [teamWeight_1, teamWeight_2 + weight];
+        },
+        [0, 0]
     );
 }
 
 // Цікаві варіанти з Codewars
 function rowWeights_(array) {
-    let t1 = array.filter((x, i) => i % 2 == 0).reduce((a, item) => a + item, 0);
-    let t2 = array.filter((x, i) => i % 2 != 0).reduce((a, item) => a + item, 0);
+    let t1 = array
+        .filter((x, i) => i % 2 == 0)
+        .reduce((a, item) => a + item, 0);
+    let t2 = array
+        .filter((x, i) => i % 2 != 0)
+        .reduce((a, item) => a + item, 0);
 
     return [t1, t2];
 }
@@ -419,7 +442,12 @@ checkCoupon("123", "123", "July 9, 2015", "July 2, 2015")  ===  false
 */
 
 // Мій варіант
-function checkCoupon(enteredCode, correctCode, currentDateStr, expirationDateStr) {
+function checkCoupon(
+    enteredCode,
+    correctCode,
+    currentDateStr,
+    expirationDateStr
+) {
     let currentDate = new Date(currentDateStr);
     let expirationDate = new Date(expirationDateStr);
 
@@ -428,7 +456,10 @@ function checkCoupon(enteredCode, correctCode, currentDateStr, expirationDateStr
 
 // Цікаві варіанти з Codewars
 function checkCoupon_(enteredCode, correctCode, currentDate, expirationDate) {
-    return enteredCode === correctCode && Date.parse(expirationDate) >= Date.parse(currentDate)
+    return (
+        enteredCode === correctCode &&
+        Date.parse(expirationDate) >= Date.parse(currentDate)
+    );
 }
 // ================================================================================================
 // ================================================================================================
@@ -447,7 +478,7 @@ function factorial(n) {
 }
 
 // Цікаві варіанти з Codewars
-const factorial_ = n => n ? factorial_(n - 1) * n : 1;
+const factorial_ = (n) => (n ? factorial_(n - 1) * n : 1);
 //
 function factorial__(n) {
     let answer = 1;
@@ -480,24 +511,55 @@ mxdiflg(a1, a2) --> 13
 
 // Мій варіант
 function mxdiflg(a1, a2) {
-    if (a1.length === 0 || a2.length === 0) { return -1 };
+    if (a1.length === 0 || a2.length === 0) {
+        return -1;
+    }
 
-    const maxLenA1 = Math.max(...a1.map(str => str.length));
-    const minLenA1 = Math.min(...a1.map(str => str.length));
-    const maxLenA2 = Math.max(...a2.map(str => str.length));
-    const minLenA2 = Math.min(...a2.map(str => str.length));
+    const maxLenA1 = Math.max(...a1.map((str) => str.length));
+    const minLenA1 = Math.min(...a1.map((str) => str.length));
+    const maxLenA2 = Math.max(...a2.map((str) => str.length));
+    const minLenA2 = Math.min(...a2.map((str) => str.length));
 
-    return Math.max(Math.abs(maxLenA1 - minLenA2), Math.abs(maxLenA2 - minLenA1));
+    return Math.max(
+        Math.abs(maxLenA1 - minLenA2),
+        Math.abs(maxLenA2 - minLenA1)
+    );
 }
 // Цікаві варіанти з Codewars
 function mxdiflg(a1, a2) {
-    if (a1.length === 0 || a2.length === 0) return -1
-    let l1 = a1.map(str => str.length)
-    let l2 = a2.map(str => str.length)
-    return Math.max(Math.max(...l1) - Math.min(...l2), Math.max(...l2) - Math.min(...l1))
+    if (a1.length === 0 || a2.length === 0) return -1;
+    let l1 = a1.map((str) => str.length);
+    let l2 = a2.map((str) => str.length);
+    return Math.max(
+        Math.max(...l1) - Math.min(...l2),
+        Math.max(...l2) - Math.min(...l1)
+    );
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1875шт
+//*-Task №494 Largest pair sum in array (7kyu)
+/*
+Дано послідовність чисел, знайдіть найбільшу суму пари в цій послідовності.
+
+Наприклад:
+[10, 14, 2, 23, 19] -->  42 (= 23 + 19)
+[99, 2, 2, 23, 19]  --> 122 (= 99 + 23)
+Вхідна послідовність містить мінімум два елементи, і кожен елемент є цілим числом.
+*/
+
+// Мій варіант
+function largestPairSum(numbers) {
+    const sortedNumbers = numbers.sort((a, b) => b - a);
+    return sortedNumbers[0] + sortedNumbers[1];
+}
+
+// Цікаві варіанти з Codewars
+function largestPairSum_(numbers) {
+    var [a, b] = numbers.sort((a, b) => b - a);
+    return a + b;
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1874шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
