@@ -586,6 +586,47 @@ const evenNumbers_ = (array, number) =>
     array.filter((item) => item % 2 === 0).slice(-number);
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1873шт
+//*-Task №496 (7kyu)
+/*
+Вам буде надано масив об’єктів, що представляють дані про розробників,
+які зареєструвалися для участі в зустрічі програмістів, яку ви організовуєте вперше.
+
+Ваше завдання — повернути кількість розробників JavaScript з Європи.
+
+Наприклад, наведено такий список:
+var list1 = [
+  { firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'JavaScript' },
+  { firstName: 'Maia', lastName: 'S.', country: 'Tahiti', continent: 'Oceania', age: 28, language: 'JavaScript' },
+  { firstName: 'Shufen', lastName: 'L.', country: 'Taiwan', continent: 'Asia', age: 35, language: 'HTML' },
+  { firstName: 'Sumayah', lastName: 'M.', country: 'Tajikistan', continent: 'Asia', age: 30, language: 'CSS' }
+];
+ваша функція має повертати номер 1.
+
+Якщо немає розробників JavaScript з Європи, то ваша функція має повернути 0.
+
+Примітки:
+
+Формат рядків завжди буде 'Europe' та 'JavaScript'.
+Усі дані завжди будуть дійсними та єдиними, як у прикладі вище.
+*/
+
+// Мій варіант
+function countDevelopers(list) {
+    return list.reduce((counter, dev) => {
+        if (dev.continent === "Europe" && dev.language === "JavaScript") {
+            counter += 1;
+        }
+        return counter;
+    }, 0);
+}
+// Цікаві варіанти з Codewars
+function countDevelopers_(list) {
+    return list.filter(
+        (x) => x.continent == "Europe" && x.language == "JavaScript"
+    ).length;
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1872шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
