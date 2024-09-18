@@ -67,9 +67,9 @@ class Game {
 }
 
 class Player {
-    constructor(name = "Player") {
+    constructor(name = 'Player') {
         this.name =
-            typeof name === "string" && name.trim() !== "" ? name : "Player";
+            typeof name === 'string' && name.trim() !== '' ? name : 'Player';
         this.health = 100.0;
         this.position = { x: 0, y: 0 };
         this.damage = 10.0;
@@ -99,8 +99,8 @@ class Game {
 }
 
 class Player {
-    constructor(name = "Player") {
-        this.name = typeof name !== "string" || name == "" ? "Player" : name;
+    constructor(name = 'Player') {
+        this.name = typeof name !== 'string' || name == '' ? 'Player' : name;
         this.health = 100.0;
         this.position = { x: 0, y: 0 };
         this.damage = 10.0;
@@ -132,8 +132,8 @@ class Map {
 
 // Мій варіант
 function capitalize(s) {
-    let odd = "";
-    let even = "";
+    let odd = '';
+    let even = '';
 
     for (let i = 0; i < s.length; i++) {
         if (i % 2 === 0) {
@@ -151,13 +151,13 @@ function capitalize(s) {
 // Цікаві варіанти з Codewars
 function capitalize_(s) {
     const odd = s
-        .split("")
+        .split('')
         .map((l, i) => (i % 2 !== 0 ? l.toUpperCase() : l))
-        .join("");
+        .join('');
     const even = s
-        .split("")
+        .split('')
         .map((l, i) => (i % 2 === 0 ? l.toUpperCase() : l))
-        .join("");
+        .join('');
     return [even, odd];
 }
 // ================================================================================================
@@ -203,7 +203,7 @@ function inAscOrder__(arr) {
 }
 //
 const inAscOrder___ = (arr) =>
-    arr.join("") === arr.sort((a, b) => a - b).join("");
+    arr.join('') === arr.sort((a, b) => a - b).join('');
 // ================================================================================================
 // ================================================================================================
 //*-Task №484 Leap Years (7kyu)
@@ -335,12 +335,12 @@ Math.pow = function (x, y) {
 
 // Мій варіант
 function removeDuplicateWords(s) {
-    return Array.from(new Set(s.split(" "))).join(" ");
+    return Array.from(new Set(s.split(' '))).join(' ');
 }
 
 // Цікаві варіанти з Codewars
 const removeDuplicateWords_ = (str) =>
-    str.replace(/\s(\w+)\b(?<=\b\1\b.*\1)/g, "");
+    str.replace(/\s(\w+)\b(?<=\b\1\b.*\1)/g, '');
 // ================================================================================================
 // ================================================================================================
 //*-Task №489 Largest 5 digit number in a series (7kyu)
@@ -375,7 +375,7 @@ function solution(digits) {
 
 // Цікаві варіанти з Codewars
 function solution_(digits) {
-    let numbers = digits.match(new RegExp(/9\d{4}/, "g"));
+    let numbers = digits.match(new RegExp(/9\d{4}/, 'g'));
     return Math.max.apply(0, numbers);
 }
 // ================================================================================================
@@ -613,7 +613,7 @@ var list1 = [
 // Мій варіант
 function countDevelopers(list) {
     return list.reduce((counter, dev) => {
-        if (dev.continent === "Europe" && dev.language === "JavaScript") {
+        if (dev.continent === 'Europe' && dev.language === 'JavaScript') {
             counter += 1;
         }
         return counter;
@@ -622,7 +622,7 @@ function countDevelopers(list) {
 // Цікаві варіанти з Codewars
 function countDevelopers_(list) {
     return list.filter(
-        (x) => x.continent == "Europe" && x.language == "JavaScript"
+        (x) => x.continent == 'Europe' && x.language == 'JavaScript'
     ).length;
 }
 // ================================================================================================
@@ -643,11 +643,43 @@ function countDevelopers_(list) {
 // Мій варіант
 function wordsToMarks(string) {
     return string
-        .split("")
+        .split('')
         .reduce((sum, num) => (sum += num.charCodeAt(0) - 96), 0);
 }
 // Цікаві варіанти з Codewars
 
+// ================================================================================================
+// ================================================================================================
+//*-Task №498 (7kyu)
+/*
+Завершіть метод, який приймає масив цілих чисел і повертає одне з наступного:
+
+"yes, ascending" - якщо числа в масиві відсортовані в порядку зростання
+"yes, descending" - якщо числа в масиві відсортовані в порядку спадання
+"no"" - інакше
+Ви можете припустити, що масив завжди буде дійсним і завжди буде одна правильна відповідь.
+*/
+
+// Мій варіант
+function isSortedAndHow(array) {
+    const input = [...array].toString();
+    const ascending = array.sort((a, b) => a - b).toString();
+    const descending = array.sort((a, b) => b - a).toString();
+
+    return input === ascending
+        ? 'yes, ascending'
+        : input === descending
+        ? 'yes, descending'
+        : 'no';
+}
+// Цікаві варіанти з Codewars
+function isSortedAndHow_(arr) {
+    return arr.every((x, i) => i == 0 || arr[i] >= arr[i - 1])
+        ? 'yes, ascending'
+        : arr.every((x, i) => i == 0 || arr[i] <= arr[i - 1])
+        ? 'yes, descending'
+        : 'no';
+}
 // ================================================================================================
 // ================================================================================================
 //*-залишилось 1872шт
