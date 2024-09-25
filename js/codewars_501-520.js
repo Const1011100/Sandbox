@@ -198,6 +198,38 @@ function fizzbuzz_(n) {
 var fizzify = fizzbuzz_;
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1868шт
+//*-Task №505 Maximum Product (7kyu)
+/*
+Дано масив цілих чисел. Знайдіть максимальний добуток, отриманий множенням 2 сусідніх чисел у масиві.
+
+Примітки
+Розмір масиву/списку становить принаймні 2.
+Номери масивів/списків можуть бути сумішшю позитивних, негативних, а також нулів.
+adjacentElementsProduct([1, 2, 3]); ==> return 6
+adjacentElementsProduct([9, 5, 10, 2, 24, -1, -48]); ==> return 50
+adjacentElementsProduct([-23, 4, -5, 99, -27, 329, -2, 7, -921])  ==>  return -14
+*/
+
+// Мій варіант
+function adjacentElementsProduct(array) {
+    return array.reduce((result, num, index, arr) => {
+        if (num * arr[index + 1] > result) {
+            return (result = num * arr[index + 1]);
+        } else {
+            return result;
+        }
+    }, -Infinity);
+}
+// Цікаві варіанти з Codewars
+function adjacentElementsProduct_(array) {
+    let newArr = [];
+    for (i = 0; i < array.length - 1; i++) {
+        newArr.push(array[i] * array[i + 1]);
+    }
+    return Math.max(...newArr);
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1867шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
