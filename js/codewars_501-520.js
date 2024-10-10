@@ -617,6 +617,54 @@ var FilterString_ = function (value) {
 };
 // ================================================================================================
 // ================================================================================================
+//*-Task №520 Coding Meetup #2 - Higher-Order Functions Series - Greet developers (7kyu)
+/*
+Вам буде надано масив об’єктів, що представляють дані про розробників, які зареєструвалися для участі
+в наступній зустрічі програмістів, яку ви організовуєте.
+
+Ваше завдання полягає в тому, щоб повернути масив, у якому кожен об’єкт матиме нову властивість
+«greeting» із таким значенням рядка:
+Hi < firstName here >, what do you like the most about < language here >?
+
+Наприклад, задано наступний масив введення:
+var list1 = [
+  { firstName: 'Sofia', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java' },
+  { firstName: 'Lukas', lastName: 'X.', country: 'Croatia', continent: 'Europe', age: 35, language: 'Python' },
+  { firstName: 'Madison', lastName: 'U.', country: 'United States', continent: 'Americas', age: 32, language: 'Ruby' } 
+];
+ваша функція має повернути такий масив:
+[
+  { firstName: 'Sofia', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java',
+    greeting: 'Hi Sofia, what do you like the most about Java?'
+  },
+  { firstName: 'Lukas', lastName: 'X.', country: 'Croatia', continent: 'Europe', age: 35, language: 'Python',
+    greeting: 'Hi Lukas, what do you like the most about Python?'
+  },
+  { firstName: 'Madison', lastName: 'U.', country: 'United States', continent: 'Americas', age: 32, language: 'Ruby',
+    greeting: 'Hi Madison, what do you like the most about Ruby?'
+  } 
+];
+
+Примітки:
+Порядок властивостей в об’єктах не має значення.
+Вхідний масив завжди буде дійсним і відформатованим, як у прикладі вище.
+*/
+
+// Мій варіант
+function greetDevelopers(list) {
+    return list.map((obj) => {
+        obj.greeting = `Hi ${obj.firstName}, what do you like the most about ${obj.language}?`;
+        return obj;
+    });
+}
+// Цікаві варіанти з Codewars
+const greetDevelopers_ = (list) =>
+    list.map((dev) => ({
+        ...dev,
+        greeting: `Hi ${dev.firstName}, what do you like the most about ${dev.language}?`,
+    }));
+// ================================================================================================
+// ================================================================================================
 //*-залишилось 1853шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
