@@ -165,6 +165,49 @@ const min__ = (arr, toReturn) =>
     toReturn === 'value' ? Math.min(...arr) : arr.indexOf(Math.min(...arr));
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1848шт
+//*-Task №526 Parts of a list (7kyu)
+/*
+Напишіть функцію partlist, яка надає всі способи розділення списку (масиву) принаймні з двох елементів на дві непорожні частини.
+
+Кожні дві непорожні частини будуть у парі (або масиві для мов без кортежів або структури C - C: див. Приклади тестів - )
+Кожна частина буде в рядку
+Елементи пари повинні бути в тому ж порядку, що й у вихідному масиві.
+Приклади повернень різними мовами:
+a = ["az", "toto", "picaro", "zone", "kiwi"] -->
+[["az", "toto picaro zone kiwi"], ["az toto", "picaro zone kiwi"], ["az toto picaro", "zone kiwi"], ["az toto picaro zone", "kiwi"]] 
+or
+ a = {"az", "toto", "picaro", "zone", "kiwi"} -->
+{{"az", "toto picaro zone kiwi"}, {"az toto", "picaro zone kiwi"}, {"az toto picaro", "zone kiwi"}, {"az toto picaro zone", "kiwi"}}
+or
+a = ["az", "toto", "picaro", "zone", "kiwi"] -->
+[("az", "toto picaro zone kiwi"), ("az toto", "picaro zone kiwi"), ("az toto picaro", "zone kiwi"), ("az toto picaro zone", "kiwi")]
+or 
+a = [|"az", "toto", "picaro", "zone", "kiwi"|] -->
+[("az", "toto picaro zone kiwi"), ("az toto", "picaro zone kiwi"), ("az toto picaro", "zone kiwi"), ("az toto picaro zone", "kiwi")]
+or
+a = ["az", "toto", "picaro", "zone", "kiwi"] -->
+"(az, toto picaro zone kiwi)(az toto, picaro zone kiwi)(az toto picaro, zone kiwi)(az toto picaro zone, kiwi)"
+Примітка
+Ви можете переглянути інші приклади для кожної мови в розділі «Ваші тестові приклади»
+*/
+
+// Мій варіант
+function partlist(arr) {
+    let result = [];
+
+    for (let i = 1; i < arr.length; i++) {
+        let part1 = arr.slice(0, i).join(' ');
+        let part2 = arr.slice(i).join(' ');
+        result.push([part1, part2]);
+    }
+
+    return result;
+}
+// Цікаві варіанти з Codewars
+var partlist_ = (a) =>
+    a.map((v, i) => [a.slice(0, i).join(' '), a.slice(i).join(' ')]).slice(1);
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1847шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
