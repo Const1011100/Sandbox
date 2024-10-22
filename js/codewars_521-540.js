@@ -327,6 +327,36 @@ function solve(arr) {
 const solve_ = (arr) => [...new Set(arr.reverse())].reverse();
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1842шт
+//*-Task №532 (7kyu)
+/*
+Напишіть функцію reverse, яка обертає список.
+(спеціальні вбудовані функції вимкнено)
+*/
+
+// Мій варіант
+const reverse = function (array) {
+    const reverse = [];
+    for (let i = 0; i < array.length; i++) {
+        reverse.unshift(array[i]);
+    }
+    return reverse;
+};
+// Цікаві варіанти з Codewars
+const reverse_ = function (array) {
+    var newArr = [];
+    for (var i = array.length - 1; i >= 0; i--) {
+        newArr.push(array[i]);
+    }
+    return newArr;
+};
+//
+const reverse__ = function (array) {
+    return array.reduceRight(function (a, v) {
+        return a.push(v), a;
+    }, []);
+};
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1841шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
