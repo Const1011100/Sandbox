@@ -485,6 +485,36 @@ function squares_(x, n) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1838шт
+//*-Task №538 Simple string characters (7kyu)
+/*
+У цій ката вам буде надано рядок, і вашим завданням буде повернути список int із зазначенням
+кількості великих літер, малих літер, чисел і спеціальних символів (усе інше), як показано нижче.
+
+Порядок: великі літери, малі літери, цифри та спеціальні символи.
+
+"*'&ABCDabcde12345" --> [ 4, 5, 5, 3 ]
+*/
+
+// Мій варіант
+function solve(s) {
+    const upperCaseCount = (s.match(/[A-Z]/g) || []).length;
+    const lowerCaseCount = (s.match(/[a-z]/g) || []).length;
+    const digitCount = (s.match(/[0-9]/g) || []).length;
+    const specialCharCount =
+        s.length - upperCaseCount - lowerCaseCount - digitCount;
+
+    return [upperCaseCount, lowerCaseCount, digitCount, specialCharCount];
+}
+// Цікаві варіанти з Codewars
+const solve__ = (x) => {
+    let u = x.match(/[A-Z]/g) || [];
+    let d = x.match(/[a-z]/g) || [];
+    let n = x.match(/[0-9]/g) || [];
+    let s = x.match(/[^A-Z0-9]/gi) || [];
+    return [u.length, d.length, n.length, s.length];
+};
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1837шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
