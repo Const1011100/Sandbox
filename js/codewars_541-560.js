@@ -108,6 +108,44 @@ function halvingSum_(n) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №544 Ordered Count of Characters (7kyu)
+/*
+Підрахуйте кількість входжень кожного символу та поверніть його як список масивів у порядку появи.
+Для порожнього результату повернення порожгій масив.
+
+приклад:
+orderedCount("abracadabra") == [['a', 5], ['b', 2], ['r', 2], ['c', 1], ['d', 1]]
+*/
+
+// Мій варіант
+function orderedCount(text) {
+    const result = [];
+    const counts = {};
+
+    for (const char of text) {
+        if (counts[char] === undefined) {
+            counts[char] = 1;
+            result.push([char, 1]);
+        } else {
+            counts[char]++;
+            result.find((entry) => entry[0] === char)[1] = counts[char];
+        }
+    }
+
+    return result;
+}
+// Цікаві варіанти з Codewars
+const orderedCount_ = (s) =>
+    Array.from(
+        s
+            .split('')
+            .reduce((m, k) => m.set(k, m.has(k) ? m.get(k) + 1 : 1), new Map())
+    );
+//
+const orderedCount__ = (str) =>
+    [...new Set([...str])].map((char) => [char, str.split(char).length - 1]);
+// ================================================================================================
+// ================================================================================================
 //*-залишилось 1834шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
