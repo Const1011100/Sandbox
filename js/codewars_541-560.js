@@ -201,6 +201,79 @@ function capitalize_(s, arr) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1832шт
+//*-Task №547 Basic Calculator (7kyu)
+/*
+Напишіть функцію під назвою Calculation, яка приймає 3 значення. Перше і третє значення є числами.
+Друге значення – символ. Якщо символ «+», «-», «*» або «/», функція поверне результат відповідної
+математичної функції для двох чисел. Якщо рядок не є одним із указаних символів, функція має повернути
+значення null.
+
+calculate (2,"+", 4); //Повинен повернути 6
+calculate (6,"-", 1,5); //Повинен повернути 4.5
+calculate (-4,"*", 8); //Повинен повернути -32
+calculate (49,"/", -7); //Повинен повернути -7
+calculate(8,"m", 2); //Повинен повернути null
+calculate(4,"/",0) //має повернути null
+Майте на увазі, ви не можете ділити на нуль. Якщо зроблено спробу поділити на нуль,
+повернути значення null.
+*/
+
+// Мій варіант
+function calculate(num1, operation, num2) {
+    const operations = {
+        '+': num1 + num2,
+        '-': num1 - num2,
+        '*': num1 * num2,
+        '/': num1 / num2,
+    };
+    if (!operations.hasOwnProperty(operation)) {
+        return null;
+    }
+    if (operation === '/' && num2 === 0) {
+        return null;
+    }
+    return operations[operation];
+}
+// Цікаві варіанти з Codewars
+function calculate_(num1, operation, num2) {
+    var ops = {
+        '+': function (x, y) {
+            return x + y;
+        },
+        '-': function (x, y) {
+            return x - y;
+        },
+        '*': function (x, y) {
+            return x * y;
+        },
+        '/': function (x, y) {
+            return y === 0 ? null : x / y;
+        },
+    };
+    return (
+        ops[operation] ||
+        function () {
+            return null;
+        }
+    )(num1, num2);
+}
+//
+function calculate__(a, o, b) {
+    switch (o) {
+        case '+':
+            return a + b;
+        case '-':
+            return a - b;
+        case '*':
+            return a * b;
+        case '/':
+            return b === 0 ? null : a / b;
+        default:
+            return null;
+    }
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1831шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
