@@ -339,6 +339,65 @@ function unluckyDays_(year) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1829шт
+//*-Task №548 Moves in squared strings (I) (7kyu)
+/*
+Ця ката є першою з чотирьох послідовних ката про «струни в квадраті».
+
+Вам надається рядок з n рядків, кожен підрядок має n символів: наприклад:
+
+s = "abcd\nefgh\nijkl\nmnop"
+
+Ми вивчимо деякі перетворення цього квадрата струн.
+
+Вертикальне дзеркало: vertMirror
+vertMirror(s) => "dcba\nhgfe\nlkji\nponm"
+Горизонтальне дзеркало: horMirror
+horMirror(s) => "mnop\nijkl\nefgh\nabcd"
+або надруковано:
+vertical mirror   |horizontal mirror   
+abcd --> dcba     |abcd --> mnop 
+efgh     hgfe     |efgh     ijkl 
+ijkl     lkji     |ijkl     efgh 
+mnop     ponm     |mnop     abcd 
+
+завдання:
+Запишіть ці дві функції
+і
+
+функція високого порядку oper(fct, s) де
+
+fct — це функція однієї змінної f для застосування до рядка s (fct буде одним із vertMirror, horMirror)
+
+приклади:
+s = "abcd\nefgh\nijkl\nmnop"
+oper(vert_mirror, s) => "dcba\nhgfe\nlkji\nponm"
+oper(hor_mirror, s) => "mnop\nijkl\nefgh\nabcd"
+
+Вхідні рядки відокремлені символом , а не \n. Вихідні рядки мають бути розділені \r замість \n. Див. «Зразки тестів».
+*/
+
+// Мій варіант
+function vertMirror(strng) {
+    return strng
+        .split('\n')
+        .map((line) => line.split('').reverse().join(''))
+        .join('\n');
+}
+
+function horMirror(strng) {
+    return strng.split('\n').reverse().join('\n');
+}
+
+function oper(fct, s) {
+    return fct(s);
+}
+// Цікаві варіанти з Codewars
+const vertMirror_ = (s) => s.map((s) => [...s].reverse().join(''));
+const horMirror_ = (s) => s.reverse();
+
+const oper_ = (fct, s) => fct(s.split('\n')).join('\n');
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1828шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
