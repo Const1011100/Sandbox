@@ -714,6 +714,49 @@ function overTheRoad_(address, n) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1820шт
+//*-Task №557 Coding Meetup #4 - Higher-Order Functions Series - Find the first Python developer(7kyu)
+/*
+Вам буде надано масив об’єктів, що представляють дані про розробників, які зареєструвалися для
+участі в наступній зустрічі програмістів, яку ви організовуєте.
+Список упорядковано відповідно до того, хто зареєструвався першим.
+
+Ваше завдання — повернути один із наступних рядків:
+
+< firstName тут >, < країна тут > першого розробника Python, який зареєструвався; або
+Не буде розробників Python, якщо жоден розробник Python не зареєструвався.
+Наприклад, задано наступний масив введення:
+var list1 = [
+  { firstName: 'Mark', lastName: 'G.', country: 'Scotland', continent: 'Europe', age: 22, language: 'JavaScript' },
+  { firstName: 'Victoria', lastName: 'T.', country: 'Puerto Rico', continent: 'Americas', age: 30, language: 'Python' },
+  { firstName: 'Emma', lastName: 'B.', country: 'Norway', continent: 'Europe', age: 19, language: 'Clojure' }
+];
+
+ваша функція має повернути Вікторію, Пуерто-Ріко.
+
+Примітки:
+Вхідний масив завжди буде дійсним і відформатованим, як у прикладі вище.
+*/
+
+// Мій варіант
+function getFirstPython(list) {
+    let result = 'There will be no Python developers';
+    for (let i = 0; i < list.length; i++) {
+        if (list[i].language === 'Python') {
+            result = `${list[i].firstName}, ${list[i].country}`;
+            break;
+        }
+    }
+    return result;
+}
+// Цікаві варіанти з Codewars
+function getFirstPython_(list) {
+    const dev = list.find((x) => x.language === 'Python');
+    return dev
+        ? `${dev.firstName}, ${dev.country}`
+        : 'There will be no Python developers';
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1819шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
