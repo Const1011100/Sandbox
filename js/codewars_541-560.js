@@ -807,6 +807,56 @@ function strong_(n) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1816шт
+//*-Task №559 Alphabetical Addition (7kyu)
+/*
+Ваше завдання скласти букви до однієї літери.
+
+Функції буде надано змінну кількість аргументів, кожен з яких є літерою для додавання.
+
+Примітки:
+Букви завжди будуть малими.
+Літери можуть переповнюватися (див. передостанній приклад опису)
+Якщо букви не вказано, функція має повернути 'z'
+
+приклади:
+addLetters('a', 'b', 'c') = 'f'
+addLetters('a', 'b') = 'c'
+addLetters('z') = 'z'
+addLetters('z', 'a') = 'a'
+addLetters('y', 'c', 'b') = 'd' // notice the letters overflowing
+addLetters() = 'z'
+*/
+
+// Мій варіант
+function addLetters(...letters) {
+    // Якщо аргументи відсутні, повертаємо 'z'
+    if (letters.length === 0) return 'z';
+
+    // Отримуємо код кожної літери, додаємо і використовуємо модуль 26
+    const total = letters.reduce(
+        (sum, letter) => sum + (letter.charCodeAt(0) - 96),
+        0
+    );
+
+    // Перетворюємо результат назад у літеру, враховуючи переповнення
+    const result = ((total - 1) % 26) + 1; // Отримуємо значення в діапазоні 1–26
+    return String.fromCharCode(result + 96); // Перетворюємо назад у літеру
+}
+// Цікаві варіанти з Codewars
+function addLetters_(...letters) {
+    return String.fromCharCode(
+        ((letters.reduce((a, b) => a + b.charCodeAt(0) - 96, 0) + 25) % 26) + 97
+    );
+}
+//
+var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+function addLetters__(...letters) {
+    var sum = 25;
+    for (var letter of letters) sum += alphabet.indexOf(letter) + 1;
+    return alphabet[sum % 26];
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1815шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
