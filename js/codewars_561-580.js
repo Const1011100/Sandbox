@@ -198,6 +198,31 @@ function numbers(...args) {
 const numbers_ = (...arr) => arr.every((x) => typeof x === 'number');
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1807шт
+//*-Task №568 The old switcheroo (7kyu)
+/*
+Напишіть функцію vowel2index(str)
+яка приймає рядок і замінює всі голосні [a,e,i,o,u] їхніми відповідними позиціями в цьому рядку.
+наприклад:
+vowel2index('this is my string') == 'th3s 6s my str15ng'
+vowel2index('Codewars is the best site in the world') == 'C2d4w6rs 10s th15 b18st s23t25 27n th32 w35rld'
+vowel2index('') == ''
+*/
+
+// Мій варіант
+function vowel2index(str) {
+    const vowels = 'aeiouAEIOU';
+
+    return str
+        .split('')
+        .map((char, index) => (vowels.includes(char) ? index + 1 : char))
+        .join('');
+}
+// Цікаві варіанти з Codewars
+function vowel2index_(str) {
+    return str.replace(/[aeiou]/gi, (m, i) => i + 1);
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1806шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
