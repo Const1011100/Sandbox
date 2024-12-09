@@ -439,6 +439,46 @@ let longestWord_ = (s) =>
     s.split(' ').reduceRight((a, b) => (b.length > a.length ? b : a));
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1799шт
+//*-Task №578 Find Count of Most Frequent Item in an Array (7kyu)
+/*
+Виконайте функцію, щоб знайти кількість найчастіших елементів масиву.
+Ви можете припустити, що вхідні дані є масивом цілих чисел. Для порожнього масиву поверніть 0
+
+вхідний масив: [3, -1, -1, -1, 2, 3, -1, 3, -1, 2, 4, 9, 3]
+вихід: 5
+Найчастішим числом у масиві є -1 і воно зустрічається 5 разів.
+*/
+
+// Мій варіант
+function mostFrequentItemCount(arr) {
+    if (arr.length === 0) return 0;
+
+    const frequencyMap = {};
+    let maxFrequency = 0;
+
+    for (const num of arr) {
+        frequencyMap[num] =
+            frequencyMap[num] === undefined ? 1 : frequencyMap[num] + 1;
+        maxFrequency < frequencyMap[num]
+            ? (maxFrequency = frequencyMap[num])
+            : maxFrequency;
+    }
+    return maxFrequency;
+}
+// Цікаві варіанти з Codewars
+function mostFrequentItemCount_(collection) {
+    if (collection.length === 0) return 0;
+
+    var count = Object.create(null);
+
+    collection.forEach((item) => {
+        count[item] = (count[item] || 0) + 1;
+    });
+
+    return Math.max(...Object.values(count));
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1798шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
