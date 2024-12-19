@@ -207,8 +207,32 @@ function consecutive_(arr) {
     }
     return count;
 }
+//*-Task №588 Product Of Maximums Of Array (Array Series #2) (7kyu)
+/*
+Дано масив [] цілих чисел. Знайдіть добуток k максимальних чисел.
+
+Розмір масиву становить принаймні 3 .
+Числа масиву будуть сумішшю позитивних, негативних і нулів
+Може статися повторення чисел у масиві.
+maxProduct ({4, 3, 5}, 2) ==>  return (20) // 5 * 4 = 20
+maxProduct ({8, 10 , 9, 7}, 3) ==>  return (720) // 5 * 4 = 20 // 8 * 9 * 10 = 72
+maxProduct ({10, 3, -1, -27} , 3)  return (-30) // 10 * 3 * -1 = -30
+*/
+
+// Мій варіант
+function maxProduct(numbers, size) {
+    return numbers
+        .sort((a, b) => b - a)
+        .slice(0, size)
+        .reduce((result, num) => (result *= num));
+}
+// Цікаві варіанти з Codewars
+const maxProduct_ = (numbers, size) =>
+    numbers
+        .sort((a, b) => b - a)
+        .reduce((pre, val, idx) => (idx < size ? pre * val : pre));
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1791шт
+//*-залишилось 1790шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
