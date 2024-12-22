@@ -287,6 +287,53 @@ function vaporcode_(string) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1788шт
+//*-Task №590 Debug Basic Calculator (7kyu)
+/*
+Налагодити функцію під назвою Calculator, яка приймає 3 значення. Перше і третє значення є числами.
+Друге значення – символ. Якщо символ «+», «-», «*» або «/», функція поверне результат відповідної
+математичної функції для двох чисел. Якщо рядок не є одним із указаних символів, функція має
+повернути значення null.
+calculate(2,"+", 4); //Should return 6
+calculate(6,"-", 1.5); //Should return 4.5
+calculate(-4,"*", 8); //Should return -32
+calculate(49,"/", -7); //Should return -7
+calculate(8,"m", 2); //Should return null
+calculate(4,"/",0) //should return null
+*/
+
+// Мій варіант
+var calculate = function calculate(a, o, b) {
+    if (o === '+') {
+        return a + b;
+    } else if (o === '-') {
+        return a - b;
+    } else if (o === '/') {
+        if (b === 0) {
+            return null; // Ділення на 0
+        }
+        return a / b;
+    } else if (o === '*') {
+        return a * b;
+    }
+    return null;
+};
+// Цікаві варіанти з Codewars
+const calculate = (a, op, b) => {
+    switch (op) {
+        case '+':
+            return a + b;
+        case '-':
+            return a - b;
+        case '*':
+            return a * b;
+        case '/':
+            return b ? a / b : null;
+    }
+
+    return null;
+};
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1787шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
