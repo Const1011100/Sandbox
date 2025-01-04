@@ -9,17 +9,17 @@ flatten([[[1,2,3]]]) // => [[1,2,3]]
 
 // Мій варіант
 var flatten = function (array) {
-    return array.flat(1).map((elem) => {
-        return isNaN(Number(elem)) || Array.isArray(elem) ? elem : Number(elem);
-    });
+  return array.flat(1).map((elem) => {
+    return isNaN(Number(elem)) || Array.isArray(elem) ? elem : Number(elem);
+  });
 };
 // Цікаві варіанти з Codewars
 var flatten_ = function (lol) {
-    return [].concat.apply([], lol);
+  return [].concat.apply([], lol);
 };
 //
 var flatten__ = function (array) {
-    return array.flat();
+  return array.flat();
 };
 //
 const flatten___ = (array) => [].concat(...array);
@@ -37,30 +37,30 @@ const flatten___ = (array) => [].concat(...array);
 
 // Мій варіант
 function solve(n) {
-    if (n % 10 !== 0) {
-        return -1;
+  if (n % 10 !== 0) {
+    return -1;
+  }
+  const denominations = [500, 200, 100, 50, 20, 10];
+  let banknotes = 0;
+  for (let denom of denominations) {
+    let temp = Math.floor(n / denom);
+    banknotes += temp;
+    n -= temp * denom;
+    if (n === 0) {
+      break;
     }
-    const denominations = [500, 200, 100, 50, 20, 10];
-    let banknotes = 0;
-    for (let denom of denominations) {
-        let temp = Math.floor(n / denom);
-        banknotes += temp;
-        n -= temp * denom;
-        if (n === 0) {
-            break;
-        }
-    }
-    return banknotes;
+  }
+  return banknotes;
 }
 
 // Цікаві варіанти з Codewars
 function solve(n) {
-    if (n % 10) return -1;
-    return [500, 200, 100, 50, 20, 10].reduce((s, v) => {
-        let ans = (n / v) | 0;
-        n %= v;
-        return s + ans;
-    }, 0);
+  if (n % 10) return -1;
+  return [500, 200, 100, 50, 20, 10].reduce((s, v) => {
+    let ans = (n / v) | 0;
+    n %= v;
+    return s + ans;
+  }, 0);
 }
 // ================================================================================================
 // ================================================================================================
@@ -76,7 +76,7 @@ function solve(n) {
 Натисніть кнопку 'Train', щоб почати, і будьте обережні з лапками.
 */
 function quotable(name, quote) {
-    return `${name} said: "${quote}"`;
+  return `${name} said: "${quote}"`;
 }
 // Мій варіант
 const quotable_ = (name, quote) => `${name} said: "${quote}"`;
@@ -92,14 +92,14 @@ const quotable_ = (name, quote) => `${name} said: "${quote}"`;
 
 // Мій варіант
 var data = [
-    { name: 'Joe', age: 20 },
-    { name: 'Bill', age: 30 },
-    { name: 'Kate', age: 23 },
+  { name: 'Joe', age: 20 },
+  { name: 'Bill', age: 30 },
+  { name: 'Kate', age: 23 },
 ];
 function getNames(data) {
-    return data.map(function (item) {
-        return item.name;
-    });
+  return data.map(function (item) {
+    return item.name;
+  });
 }
 // Цікаві варіанти з Codewars
 
@@ -119,21 +119,21 @@ getLargerNumbers(arr1, arr2); // Returns [23, 64, 53, 17, 88]
 
 // Мій варіант
 function getLargerNumbers(a, b) {
-    const result = [];
-    for (let i = 0; i < a.length; i++) {
-        a[i] > b[i] ? result.push(a[i]) : result.push(b[i]);
-    }
-    return result;
+  const result = [];
+  for (let i = 0; i < a.length; i++) {
+    a[i] > b[i] ? result.push(a[i]) : result.push(b[i]);
+  }
+  return result;
 }
 // Цікаві варіанти з Codewars
 function getLargerNumbers_(a, b) {
-    var newArray = [];
+  var newArray = [];
 
-    for (i = 0; i < a.length; i++) {
-        newArray.push(Math.max(a[i], b[i]));
-    }
+  for (i = 0; i < a.length; i++) {
+    newArray.push(Math.max(a[i], b[i]));
+  }
 
-    return newArray;
+  return newArray;
 }
 // ================================================================================================
 // ================================================================================================
@@ -154,20 +154,20 @@ function getLargerNumbers_(a, b) {
 
 // Мій варіант
 function getMissingElement(superImportantArray) {
-    const n = superImportantArray.length;
-    const expectedSum = (n * (n + 1)) / 2; // Сума чисел від 0 до n
-    const actualSum = superImportantArray.reduce((sum, num) => sum + num, 0); // Сума чисел у масиві
-    return expectedSum - actualSum; // Різниця дає пропущений елемент
+  const n = superImportantArray.length;
+  const expectedSum = (n * (n + 1)) / 2; // Сума чисел від 0 до n
+  const actualSum = superImportantArray.reduce((sum, num) => sum + num, 0); // Сума чисел у масиві
+  return expectedSum - actualSum; // Різниця дає пропущений елемент
 }
 // Цікаві варіанти з Codewars
 function getMissingElement_(a) {
-    for (let i = 0; i < 10; i++) if (!a.includes(i)) return i;
+  for (let i = 0; i < 10; i++) if (!a.includes(i)) return i;
 }
 //
 function getMissingElement__(superImportantArray) {
-    for (i = 0; i < 10; i++) {
-        if (superImportantArray.indexOf(i) === -1) return i;
-    }
+  for (i = 0; i < 10; i++) {
+    if (superImportantArray.indexOf(i) === -1) return i;
+  }
 }
 // ================================================================================================
 // ================================================================================================
@@ -189,23 +189,23 @@ function getMissingElement__(superImportantArray) {
 
 // Мій варіант
 function consecutive(array) {
-    return array.length > 1
-        ? Math.max(...array) - Math.min(...array) - array.length + 1
-        : 0;
+  return array.length > 1
+    ? Math.max(...array) - Math.min(...array) - array.length + 1
+    : 0;
 }
 // Цікаві варіанти з Codewars
 function consecutive_(arr) {
-    var sorted = arr.sort(function (a, b) {
-        return a - b;
-    });
-    var count = 0;
-    for (var i = 0; i < sorted.length - 1; i++) {
-        var diff = sorted[i + 1] - sorted[i];
-        if (diff > 1) {
-            count += diff - 1;
-        }
+  var sorted = arr.sort(function (a, b) {
+    return a - b;
+  });
+  var count = 0;
+  for (var i = 0; i < sorted.length - 1; i++) {
+    var diff = sorted[i + 1] - sorted[i];
+    if (diff > 1) {
+      count += diff - 1;
     }
-    return count;
+  }
+  return count;
 }
 //*-Task №588 Product Of Maximums Of Array (Array Series #2) (7kyu)
 /*
@@ -221,16 +221,16 @@ maxProduct ({10, 3, -1, -27} , 3)  return (-30) // 10 * 3 * -1 = -30
 
 // Мій варіант
 function maxProduct(numbers, size) {
-    return numbers
-        .sort((a, b) => b - a)
-        .slice(0, size)
-        .reduce((result, num) => (result *= num));
+  return numbers
+    .sort((a, b) => b - a)
+    .slice(0, size)
+    .reduce((result, num) => (result *= num));
 }
 // Цікаві варіанти з Codewars
 const maxProduct_ = (numbers, size) =>
-    numbers
-        .sort((a, b) => b - a)
-        .reduce((pre, val, idx) => (idx < size ? pre * val : pre));
+  numbers
+    .sort((a, b) => b - a)
+    .reduce((pre, val, idx) => (idx < size ? pre * val : pre));
 // ================================================================================================
 // ================================================================================================
 //*-Task №589 Double Every Other (7kyu)
@@ -245,14 +245,14 @@ const maxProduct_ = (numbers, size) =>
 
 // Мій варіант
 function doubleEveryOther(a) {
-    return a.map((num, index) => (index % 2 !== 0 ? num * 2 : num));
+  return a.map((num, index) => (index % 2 !== 0 ? num * 2 : num));
 }
 // Цікаві варіанти з Codewars
 function doubleEveryOther_(a) {
-    for (let i = 1; i < a.length; i += 2) {
-        a[i] *= 2;
-    }
-    return a;
+  for (let i = 1; i < a.length; i += 2) {
+    a[i] *= 2;
+  }
+  return a;
 }
 // ================================================================================================
 // ================================================================================================
@@ -270,20 +270,20 @@ function doubleEveryOther_(a) {
 
 // Мій варіант
 function vaporcode(string) {
-    return string
-        .split('')
-        .filter((l) => {
-            if (l !== ' ') {
-                return l;
-            }
-        })
-        .map((l) => ` ${l.toUpperCase()} `)
-        .join('')
-        .trim();
+  return string
+    .split('')
+    .filter((l) => {
+      if (l !== ' ') {
+        return l;
+      }
+    })
+    .map((l) => ` ${l.toUpperCase()} `)
+    .join('')
+    .trim();
 }
 // Цікаві варіанти з Codewars
 function vaporcode_(string) {
-    return string.toUpperCase().split(' ').join('').split('').join('  ');
+  return string.toUpperCase().split(' ').join('').split('').join('  ');
 }
 // ================================================================================================
 // ================================================================================================
@@ -303,34 +303,34 @@ calculate(4,"/",0) //should return null
 
 // Мій варіант
 var calculate = function calculate(a, o, b) {
-    if (o === '+') {
-        return a + b;
-    } else if (o === '-') {
-        return a - b;
-    } else if (o === '/') {
-        if (b === 0) {
-            return null; // Ділення на 0
-        }
-        return a / b;
-    } else if (o === '*') {
-        return a * b;
+  if (o === '+') {
+    return a + b;
+  } else if (o === '-') {
+    return a - b;
+  } else if (o === '/') {
+    if (b === 0) {
+      return null; // Ділення на 0
     }
-    return null;
+    return a / b;
+  } else if (o === '*') {
+    return a * b;
+  }
+  return null;
 };
 // Цікаві варіанти з Codewars
 const calculate = (a, op, b) => {
-    switch (op) {
-        case '+':
-            return a + b;
-        case '-':
-            return a - b;
-        case '*':
-            return a * b;
-        case '/':
-            return b ? a / b : null;
-    }
+  switch (op) {
+    case '+':
+      return a + b;
+    case '-':
+      return a - b;
+    case '*':
+      return a * b;
+    case '/':
+      return b ? a / b : null;
+  }
 
-    return null;
+  return null;
 };
 // ================================================================================================
 // ================================================================================================
@@ -344,13 +344,13 @@ const calculate = (a, op, b) => {
 
 // Мій варіант
 function multi(arr) {
-    return arr.reduce((result, num) => (result *= num));
+  return arr.reduce((result, num) => (result *= num));
 }
 function add(arr) {
-    return arr.reduce((result, num) => (result += num));
+  return arr.reduce((result, num) => (result += num));
 }
 function reverse(str) {
-    return str.split('').reverse().join('');
+  return str.split('').reverse().join('');
 }
 // Цікаві варіанти з Codewars
 
@@ -377,7 +377,7 @@ Output: "You're awesome! timmy!"
 
 // Мій варіант
 function filterWords(phrase) {
-    return phrase.replace(/(bad|mean|ugly|horrible|hideous)/gi, 'awesome');
+  return phrase.replace(/(bad|mean|ugly|horrible|hideous)/gi, 'awesome');
 }
 // Цікаві варіанти з Codewars
 
@@ -391,14 +391,14 @@ function filterWords(phrase) {
 
 // Мій варіант
 var FilterNumbers = function (str) {
-    return str.replace(/[0-9]/gi, '');
+  return str.replace(/[0-9]/gi, '');
 };
 // Цікаві варіанти з Codewars
 var FilterNumbers_ = function (str) {
-    return str
-        .split('')
-        .filter((c) => isNaN(c))
-        .join('');
+  return str
+    .split('')
+    .filter((c) => isNaN(c))
+    .join('');
 };
 // ================================================================================================
 // ================================================================================================
@@ -410,14 +410,14 @@ var FilterNumbers_ = function (str) {
 
 // Мій варіант
 var sortArray = function (value) {
-    return value
-        .split('')
-        .sort((c, p) => c - p)
-        .join('');
+  return value
+    .split('')
+    .sort((c, p) => c - p)
+    .join('');
 };
 // Цікаві варіанти з Codewars
 var sortArray_ = function (value) {
-    return value.split('').sort().join('');
+  return value.split('').sort().join('');
 };
 // ================================================================================================
 // ================================================================================================
@@ -434,23 +434,23 @@ samurai.strike(ninja, 3);
 
 // Мій варіант
 var Warrior = function (name) {
-    this.name = name;
-    this.health = 100;
+  this.name = name;
+  this.health = 100;
 };
 
 Warrior.prototype.strike = function (enemy, swings) {
-    enemy.health = Math.max(0, enemy.health - swings * 10);
+  enemy.health = Math.max(0, enemy.health - swings * 10);
 };
 // Цікаві варіанти з Codewars
 class Warrior {
-    constructor(name) {
-        this.name = name;
-        this.health = 100;
-    }
+  constructor(name) {
+    this.name = name;
+    this.health = 100;
+  }
 
-    strike(enemy, swings) {
-        enemy.health = Math.max(0, enemy.health - swings * 10);
-    }
+  strike(enemy, swings) {
+    enemy.health = Math.max(0, enemy.health - swings * 10);
+  }
 }
 // ================================================================================================
 // ================================================================================================
@@ -468,39 +468,39 @@ myList.add(0).add(1)
 
 // Мій варіант
 class List {
-    constructor(type) {
-        this.type = type;
-        this.items = [];
-    }
+  constructor(type) {
+    this.type = type;
+    this.items = [];
+  }
 
-    get count() {
-        return this.items.length;
-    }
+  get count() {
+    return this.items.length;
+  }
 
-    add(item) {
-        if (typeof item != this.type)
-            return `This item is not of type: ${this.type}`;
+  add(item) {
+    if (typeof item != this.type)
+      return `This item is not of type: ${this.type}`;
 
-        this.items.push(item);
-        return this;
-    }
+    this.items.push(item);
+    return this;
+  }
 }
 // Цікаві варіанти з Codewars
 class List_ {
-    constructor(type) {
-        this.type = type;
-        this.items = [];
-        this.count = 0;
-    }
+  constructor(type) {
+    this.type = type;
+    this.items = [];
+    this.count = 0;
+  }
 
-    add(item) {
-        if (typeof item != this.type)
-            return `This item is not of type: ${this.type}`;
+  add(item) {
+    if (typeof item != this.type)
+      return `This item is not of type: ${this.type}`;
 
-        this.items.push(item);
-        this.count++;
-        return this;
-    }
+    this.items.push(item);
+    this.count++;
+    return this;
+  }
 }
 // ================================================================================================
 // ================================================================================================
@@ -516,15 +516,15 @@ class List_ {
 
 // Мій варіант
 function facRecursion(value) {
-    if (value < 0) {
-        return 0;
-    }
+  if (value < 0) {
+    return 0;
+  }
 
-    if (value === 1 || value === 0) {
-        return 1;
-    }
+  if (value === 1 || value === 0) {
+    return 1;
+  }
 
-    return value * facRecursion(value - 1);
+  return value * facRecursion(value - 1);
 }
 // Цікаві варіанти з Codewars
 
@@ -542,7 +542,7 @@ parseNumbers(['-1','0','1']) // should return [-1,0,1]
 
 // Мій варіант
 var parseNumbers = function (intStrs) {
-    return intStrs.map((elem) => parseInt(elem));
+  return intStrs.map((elem) => parseInt(elem));
 };
 // Цікаві варіанти з Codewars
 
@@ -559,9 +559,9 @@ var parseNumbers = function (intStrs) {
 
 // Мій варіант
 function calculateTotal(team1, team2) {
-    var t1s = team1.reduce((t, c) => (t += c), 0);
-    var t2s = team2.reduce((t, c) => (t += c), 0);
-    return t1s > t2s;
+  var t1s = team1.reduce((t, c) => (t += c), 0);
+  var t2s = team2.reduce((t, c) => (t += c), 0);
+  return t1s > t2s;
 }
 // Цікаві варіанти з Codewars
 
@@ -576,21 +576,21 @@ function calculateTotal(team1, team2) {
 
 // Мій варіант
 function deleteValues(array, pred) {
-    for (var i = array.length - 1; i >= 0; i--) {
-        if (pred(array[i])) {
-            array.splice(i, 1);
-        }
+  for (var i = array.length - 1; i >= 0; i--) {
+    if (pred(array[i])) {
+      array.splice(i, 1);
     }
-    return array;
+  }
+  return array;
 }
 // Цікаві варіанти з Codewars
 function deleteValues_(array, pred) {
-    for (var i = 0; i < array.length; i++) {
-        if (pred(array[i])) {
-            array.splice(i--, 1);
-        }
+  for (var i = 0; i < array.length; i++) {
+    if (pred(array[i])) {
+      array.splice(i--, 1);
     }
-    return array;
+  }
+  return array;
 }
 // ================================================================================================
 // ================================================================================================
