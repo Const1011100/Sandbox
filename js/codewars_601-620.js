@@ -277,6 +277,35 @@ function isItBugged_(date) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1770шт
+//*-Task №609 Who let the dogs out? (7kyu)
+/*
+Я хотів написати кілька уроків для собак. У моїй моделі собаки або гавкають, або сплять.
+Я знаю, що це популярна практика встановлювати значення за замовчуванням, як це
+var value = value || DEFAULT_VALUE
+І так я зробив. Але щось не так, і я не знаю чому. Ви можете мені допомогти?
+*/
+
+// Мій варіант
+var BARK = 'woof woof';
+var SLEEP = 'zzzzzzzzz....';
+
+function dog_bark_by_default(bark = true) {
+  return bark ? BARK : SLEEP;
+}
+
+function dog_bark_only_if_told_so(bark = false) {
+  return bark ? BARK : SLEEP;
+}
+function dog_dont_bark_by_default(dont_bark = true) {
+  return !dont_bark ? BARK : SLEEP;
+}
+function dog_dont_bark_only_if_told_so(dont_bark = false) {
+  return !dont_bark ? BARK : SLEEP;
+}
+// Цікаві варіанти з Codewars
+
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1769шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
