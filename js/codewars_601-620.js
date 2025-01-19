@@ -514,6 +514,72 @@ function menFromBoys_(arr) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №617 Char Code Calculation (7kyu)
+/*
+Дано рядок, перетворите кожен символ на його код ASCII символу та об’єднайте їх разом,
+щоб створити число – давайте назвемо це число total1:
+
+'ABC' --> 'A' = 65, 'B' = 66, 'C' = 67 --> 656667
+Потім замініть будь-який випадок числа 7 на число 1 і назвіть це число 'total2':
+total1 = 656667
+              ^
+total2 = 656661
+              ^
+Потім поверніть різницю між сумою цифр у total1 і total2:
+ (6 + 5 + 6 + 6 + 6 + 7)
+- (6 + 5 + 6 + 6 + 6 + 1)
+------------------------
+ 6
+*/
+
+// Мій варіант
+function calc(x) {
+  return total1(x) - total2(x);
+}
+
+function total1(x) {
+  let nums = [];
+  for (let i = 0; i < x.length; i++) {
+    nums.push(x.charCodeAt(i));
+  }
+
+  let total = nums
+    .join('')
+    .split('')
+    .map((el) => Number(el))
+    .reduce((a, b) => a + b);
+
+  return total;
+}
+
+function total2(x) {
+  let nums = [];
+  for (let i = 0; i < x.length; i++) {
+    nums.push(x.charCodeAt(i));
+  }
+
+  const numbers = nums
+    .join('')
+    .split('')
+    .map((el) => Number(el))
+    .map((el) => {
+      if (el === 7) {
+        return 1;
+      } else return el;
+    })
+    .reduce((a, b) => a + b);
+
+  return numbers;
+}
+// Цікаві варіанти з Codewars
+function calc(x) {
+  let sum = (n) => [...n].reduce((a, b) => +a + +b);
+  let total1 = x.replace(/./g, (x) => x.charCodeAt(0));
+  let total2 = total1.replace(/7/g, '1');
+  return sum(total1) - sum(total2);
+}
+// ================================================================================================
+// ================================================================================================
 //*-залишилось 1762шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
