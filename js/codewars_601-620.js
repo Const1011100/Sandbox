@@ -580,6 +580,52 @@ function calc(x) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1762шт
+//*-Task №618 Algorithmic predicament- Bug Fixing #9 (7kyu)
+/*
+Ваше завдання — виправити алгоритм Тіммі, щоб він повертав назву групи з найвищим загальним віком.
+
+Ви отримаєте дві групи об’єктів `people` з двома властивостями `name` і `age`.
+Властивість name — це рядок, а властивість age — число.
+
+Ваша мета — обчислити загальний вік усіх людей з однаковими іменами в обох групах і повернути
+ім’я людини з найвищим загальним віком. Якщо два імені мають однаковий загальний вік, поверніть
+перше ім’я в алфавітному порядку.
+*/
+
+// Мій варіант
+function highestAge(group1, group2) {
+  var highestName = { name: '', age: -1 },
+    newGroup = [],
+    combGroup = group1.concat(group2);
+
+  for (var i = 0; i < combGroup.length; i++) {
+    let index = newGroup.indexOfProp('name', combGroup[i].name);
+    if (index == -1) {
+      newGroup.push(combGroup[i]);
+    } else {
+      newGroup[index].age += combGroup[i].age;
+    }
+  }
+
+  newGroup.sort((p, c) => p.name.localeCompare(c.name));
+
+  for (var i = 0; i < newGroup.length; i++) {
+    if (newGroup[i].age > highestName.age) highestName = newGroup[i];
+  }
+
+  return highestName.name;
+}
+
+Array.prototype.indexOfProp = function (prop, value) {
+  for (var i = 0; i < this.length; i++) {
+    if (this[i][prop] == value) return i;
+  }
+  return -1;
+};
+// Цікаві варіанти з Codewars
+
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1761шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
