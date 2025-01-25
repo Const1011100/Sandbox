@@ -56,6 +56,33 @@ function collatz_(n) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1757шт
+//*-Task №623 (7kyu)
+/*
+Виконайте функцію, яка поверне площу кола із заданим радіусом. Очікується, що повернене значення
+буде точним із допустимим відхиленням 0,01. Якщо радіус не додатний, видати помилку.
+circleArea(43.2673);     // returns 5881.248  (± 0.01)
+circleArea(68);          // returns 14526.724 (± 0.01)
+circleArea(0);           // throws Error
+circleArea(-1);          // throws Error
+*/
+
+// Мій варіант
+function circleArea(radius) {
+  if (radius <= 0) {
+    throw new Error('Radius must be greater than zero');
+  }
+  return Number((Math.PI * radius ** 2).toFixed(2));
+}
+// Цікаві варіанти з Codewars
+function circleArea_(radius) {
+  if (radius <= 0) {
+    throw new Error('Radius must be positive');
+  }
+  const area = Math.PI * radius * radius;
+  return Math.round(area * 100) / 100;
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1756шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
