@@ -271,6 +271,39 @@ Array.prototype.remove___ = function (integer_list, values_list) {
 };
 // ================================================================================================
 // ================================================================================================
+//*-Task №631 Check three and two (7kyu)
+/*
+Дано масив із рівно 5 рядками «a», «b» або «c», перевірте, чи містить масив три і два однакових значення.
+
+Приклади
+["a", "a", "a", "b", "b"] ==> true  // 3x "a" and 2x "b"
+["a", "b", "c", "b", "c"] ==> false // 1x "a", 2x "b" and 2x "c"
+["a", "a", "a", "a", "a"] ==> false // 5x "a"
+*/
+
+// Мій варіант
+function checkThreeAndTwo(array) {
+  let count = {};
+
+  for (let i = 0; i < array.length; i++) {
+    if (count[array[i]]) {
+      count[array[i]]++;
+    } else {
+      count[array[i]] = 1;
+    }
+  }
+  let counts = Object.values(count);
+  return counts.includes(3) && counts.includes(2);
+}
+// Цікаві варіанти з Codewars
+function checkThreeAndTwo_(array) {
+  let counts = Object.values(
+    array.reduce((acc, el) => ((acc[el] = (acc[el] || 0) + 1), acc), {})
+  );
+  return counts.includes(3) && counts.includes(2);
+}
+// ================================================================================================
+// ================================================================================================
 //*-залишилось 1749шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
