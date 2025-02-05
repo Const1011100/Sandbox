@@ -321,6 +321,43 @@ function args_count() {
 const args_count_ = (...args) => args.length;
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1748шт
+//*-Task №633 Initialize my name (7kyu)
+/*
+Деякі люди мають лише ім’я; деякі люди мають ім’я та прізвище, а деякі люди мають ім’я,
+по батькові та прізвище.
+Ваше завдання - ініціалізувати по батькові (якщо воно є).
+
+Приклади
+'Jack Ryan'                   => 'Jack Ryan'
+'Lois Mary Lane'              => 'Lois M. Lane'
+'Dimitri'                     => 'Dimitri'
+'Alice Betty Catherine Davis' => 'Alice B. C. Davis'
+*/
+
+// Мій варіант
+function initializeNames(name) {
+  const elements = name.split(' ');
+  if (elements.length < 3) {
+    return name;
+  }
+  const middleNames = [];
+  for (let i = 1; i < elements.length - 1; i++) {
+    middleNames.push(`${elements[i][0]}.`);
+  }
+  const middleNamesStr = middleNames.join(' ');
+  return `${elements[0]} ${middleNamesStr} ${elements[elements.length - 1]}`;
+}
+// Цікаві варіанти з Codewars
+function initializeNames_(name) {
+  var n = name.split(' ');
+  if (n.length < 3) return name;
+  for (i = 1; i < n.length - 1; i++) {
+    n[i] = n[i][0] + '.';
+  }
+  return n.join(' ');
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1747шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
