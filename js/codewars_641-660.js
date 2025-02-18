@@ -179,6 +179,29 @@ const growingPlant_ = (upSpeed, downSpeed, desiredHeight) =>
     : Math.ceil((desiredHeight - upSpeed) / (upSpeed - downSpeed)) + 1;
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1740шт
+//*-Task №645 Sum of a Beach (5kyu)
+/*
+Пляжі наповнені піском, водою, рибою та сонцем. Дано рядок, обчисліть, скільки разів слова
+"Sand", "Water", "Fish", and "Sun"  з’являються без накладання (незалежно від регістру).
+
+Приклади
+"WAtErSlIde"                    ==>  1
+"GolDeNSanDyWateRyBeaChSuNN"    ==>  3
+"gOfIshsunesunFiSh"             ==>  4
+"cItYTowNcARShoW"               ==>  0
+*/
+
+// Мій варіант
+function sumOfABeach(beach) {
+  let regex = /sand|water|fish|sun/gi;
+  let matches = beach.match(regex);
+  return matches ? matches.length : 0;
+}
+// Цікаві варіанти з Codewars
+const sumOfABeach_ = (beach) =>
+  (beach.match(/sand|water|fish|sun/gi) || []).length;
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1738шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
