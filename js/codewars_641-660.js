@@ -308,6 +308,38 @@ function getMinMax(arr) {
 const getMinMax_ = (arr) => [Math.min(...arr), Math.max(...arr)];
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1735шт
+//*-Task №649 Length and two values. (7kyu)
+/*
+Дано ціле число n і два інших значення, побудуйте масив розміром n, заповнений цими двома значеннями по черзі.
+
+Приклади
+5, true, false     -->  [true, false, true, false, true]
+10, "blue", "red"  -->  ["blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red"]
+0, "one", "two"    -->  []
+*/
+
+// Мій варіант
+function alternate(n, firstValue, secondValue) {
+  const result = [];
+  while (result.length !== n) {
+    if (result.length % 2 === 0) {
+      result.push(firstValue);
+    } else {
+      result.push(secondValue);
+    }
+  }
+  return result;
+}
+// Цікаві варіанти з Codewars
+function alternate_(n, firstValue, secondValue) {
+  const array = [];
+  for (let i = 0; i < n; i++) {
+    array.push(i % 2 === 0 ? firstValue : secondValue);
+  }
+  return array;
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1733шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
