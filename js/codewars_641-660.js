@@ -360,6 +360,37 @@ function average_(scores) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №651 Number Of Occurrences (7kyu)
+/*
+Напишіть функцію, яка повертає кількість входжень елемента в масив.
+
+Ця функція буде визначена як властивість Array за допомогою методу Object.defineProperty, який
+дозволяє визначити новий метод безпосередньо на об’єкті.
+arr.numberOfOccurrences(0) === 1;
+arr.numberOfOccurrences(4) === 0;
+arr.numberOfOccurrences(2) === 2;
+arr.numberOfOccurrences(3) === 1;
+*/
+
+// Мій варіант
+Array.prototype.numberOfOccurrences = function (element) {
+  var counter = 0;
+  for (var i = 0; i < this.length; i++) {
+    if (this[i] == element) {
+      counter++;
+    }
+  }
+
+  return counter;
+};
+// Цікаві варіанти з Codewars
+Array.prototype.numberOfOccurrences_ = function (search) {
+  return this.filter(function (num) {
+    return search === num;
+  }).length;
+};
+// ================================================================================================
+// ================================================================================================
 //*-залишилось 1732шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
