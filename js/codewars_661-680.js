@@ -220,6 +220,45 @@ function elimination_(arr) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №668 Dictionary from two lists (7kyu)
+/*
+Є два списки, можливо, різної довжини. Перший складається з ключів, другий складається зі значень.
+Напишіть функцію createDict(keys, values), яка повертає словник, створений із ключів і значень.
+Якщо значень недостатньо, решта ключів має мати значення null. Якщо ключів недостатньо,
+просто проігноруйте решту значень.
+keys = ['a', 'b', 'c', 'd']
+values = [1, 2, 3]
+createDict(keys, values) // returns {'a': 1, 'b': 2, 'c': 3, 'd': null}
+
+keys = ['a', 'b', 'c']
+values = [1, 2, 3, 4]
+createDict(keys, values) // returns {'a': 1, 'b': 2, 'c': 3}
+*/
+
+// Мій варіант
+function createDict(keys, values) {
+  let dictionary = {};
+  for (let i = 0; i < keys.length; i++) {
+    if (values[i] === undefined) {
+      dictionary[keys[i]] = null;
+    } else {
+      dictionary[keys[i]] = values[i];
+    }
+  }
+  return dictionary;
+}
+// Цікаві варіанти з Codewars
+function createDict_(keys, values) {
+  var obj = {};
+
+  for (var i = 0; i < keys.length; i++) {
+    obj[keys[i]] = i < values.length ? values[i] : null;
+  }
+
+  return obj;
+}
+// ================================================================================================
+// ================================================================================================
 //*-залишилось 1713шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
