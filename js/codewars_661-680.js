@@ -305,6 +305,26 @@ function capMe_(names) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №671 [BUG] XCOM-141: Koko always gets treats (7kyu)
+/*
+
+*/
+
+// Мій варіант
+function applyFeedback_(s, e, p) {
+  return [...s][p] === e ? DISPENSE_TREAT : RELEASE_NITROGEN_SHOWER;
+}
+// Цікаві варіанти з Codewars
+function applyFeedback(battlescape, enemy, position) {
+  if (
+    [...new Intl.Segmenter().segment(battlescape)][position].segment === enemy
+  ) {
+    return DISPENSE_TREAT;
+  }
+  return RELEASE_NITROGEN_SHOWER;
+}
+// ================================================================================================
+// ================================================================================================
 //*-залишилось 1709шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
