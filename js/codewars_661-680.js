@@ -325,6 +325,38 @@ function applyFeedback(battlescape, enemy, position) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1709шт
+//*-Task №672 Exclamation marks series #7: Remove words from the sentence if it contains one exclamation mark (7kyu)
+/*
+Вилучіть із речення слова, які містять рівно один знак оклику. Слова розділені одним пробілом,
+без пробілів на початку та в кінці.
+remove("Hi!") === ""
+remove("Hi! Hi!") === ""
+remove("Hi! Hi! Hi!") === ""
+remove("Hi Hi! Hi!") === "Hi"
+remove("Hi! !Hi Hi!") === ""
+remove("Hi! Hi!! Hi!") === "Hi!!"
+remove("Hi! !Hi! Hi!") === "!Hi!"
+*/
+
+// Мій варіант
+function remove(string) {
+  return string
+    .split(' ')
+    .filter((word) => (word.match(/!/g) || []).length !== 1)
+    .join(' ');
+}
+// Цікаві варіанти з Codewars
+function remove_(s) {
+  return s
+    .split(' ')
+    .filter((i) => i.split('!').length != 2)
+    .join(' ');
+}
+function remove__(s) {
+  return s.replace(/((\s|^)!\w+\b(?!!))|((\s|^)\w+!(?!!))/g, '').trim();
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1705шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
