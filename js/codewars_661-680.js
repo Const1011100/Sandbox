@@ -357,6 +357,23 @@ function remove__(s) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №673 [BUG] XCOM-409: Flight distance of Interceptor planes is miscalculated (7kyu)
+/*
+
+*/
+
+// Мій варіант
+function travelDistance(avgSpeedKnots, travelTimeMinutes) {
+  const KM_PER_KNOT = 1.852;
+  const travelTimeHours = travelTimeMinutes / 60;
+  const traveledKnots = avgSpeedKnots * travelTimeHours;
+  const traveledKms = traveledKnots * KM_PER_KNOT;
+  return traveledKms;
+}
+// Цікаві варіанти з Codewars
+
+// ================================================================================================
+// ================================================================================================
 //*-залишилось 1705шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
