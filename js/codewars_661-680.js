@@ -476,6 +476,26 @@ function roundToFive(numbers) {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1701шт
+//*-Task №678 Filter Long Words (7kyu)
+/*
+Напишіть функцію, яка приймає рядок і ціле число n як параметри та повертає список усіх слів,
+які довші за n.
+приклад:
+* With input "The quick brown fox jumps over the lazy dog", 4
+* Return ['quick', 'brown', 'jumps']
+*/
+
+// Мій варіант
+function filterLongWords(sentence, n) {
+  const words = sentence.split(' ');
+  return words.filter((word) => word.length > n);
+}
+// Цікаві варіанти з Codewars
+function filterLongWords_(sentence, n) {
+  return sentence.split(' ').filter((x) => x.length > n);
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1698шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
