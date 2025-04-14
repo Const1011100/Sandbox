@@ -288,6 +288,63 @@ function foldTo_(distance) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1689шт
+//*-Task №688 All Inclusive? (7kyu)
+/*
+введення:
+
+рядок strng
+масив рядків обр
+Вихід функції contain_all_rots(strng, arr) (або containAllRots або contain-all-rots):
+
+логічне значення true, якщо всі повороти strng включені в arr
+false інакше
+приклади:
+contain_all_rots(
+ "bsjq", ["bsjq", "qbsj", "sjqb", "twZNsslC", "jqbs"]) -> правда
+
+contain_all_rots(
+ "Ajylvpy", ["Ajylvpy", "ylvpyAj", "jylvpyA", "lvpyAjy", "pyAjylv", "vpyAjyl", "ipywee"]) -> false)
+Примітка:
+Хоча некоректно в математичному сенсі
+
+будемо вважати, що поворотів strng == "" немає
+і для будь-якого масиву arr: contain_all_rots("", arr) --> true
+*/
+
+// Мій варіант
+function containAllRots(strng, arr) {
+  if (strng === '') {
+    return true;
+  }
+
+  let rotations = [];
+  // Генеруємо всі можливі повороти рядка strng
+  for (let i = 0; i < strng.length; i++) {
+    let rotated = strng.slice(i) + strng.slice(0, i);
+    rotations.push(rotated);
+  }
+
+  // Перевіряємо, чи всі згенеровані повороти є в масиві arr
+  for (let rotation of rotations) {
+    if (!arr.includes(rotation)) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// Цікаві варіанти з Codewars
+function containAllRots_(str, arr) {
+  for (var i = 0; i < str.length; i++) {
+    if (arr.indexOf(str.slice(i) + str.slice(0, i)) === -1) {
+      return false;
+    }
+  }
+  return true;
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1688шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
