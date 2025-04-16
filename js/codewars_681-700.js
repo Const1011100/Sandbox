@@ -384,6 +384,32 @@ function productArray_(numbers) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1687шт
+//*-Task №690 [BUG] XCOM-388: Mass spectrometer crashes (7kyu)
+/*
+
+*/
+
+// Мій варіант
+const Spectrometer = {
+  getHeaviest: function (atomicMasses) {
+    return atomicMasses.reduce((a, b) => Math.max(a, b), +0);
+  },
+};
+// Цікаві варіанти з Codewars
+const Spectrometer_ = {
+  getHeaviest: function (atomicMasses) {
+    if (atomicMasses.length == 0) {
+      return 0;
+    }
+    var re = 292;
+    while (!atomicMasses.includes(re)) {
+      re--;
+    }
+    return re;
+  },
+};
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1686шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
