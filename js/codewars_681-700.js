@@ -410,6 +410,26 @@ const Spectrometer_ = {
 };
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1686шт
+//*-Task №691 [BUG] XCOM-401: Hand-held scanner does not recognize hazardous materials (7kyu)
+/*
+
+*/
+
+// Мій варіант
+const HazardScanner = {
+  isHazardous: function (A_elerium, A_dilithium) {
+    return A_dilithium < A_elerium && (A_dilithium - A_elerium) % 2 !== 0;
+  },
+  getLedColor: function (A_elerium, A_dilithium) {
+    return HazardScanner.isHazardous(A_elerium, A_dilithium)
+      ? '#FF0000'
+      : '#00FF00';
+  },
+};
+// Цікаві варіанти з Codewars
+
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1685шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
