@@ -512,6 +512,34 @@ function encode_(str, n) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1683шт
+//*-Task №694 Coding Meetup #6 - Higher-Order Functions Series - Can they code in the same language? (7kyu)
+/*
+Ваше завдання - повернутися або:
+
+true, якщо всі розробники в списку кодують одну мову; або
+false інакше.
+Наприклад, задано наступний масив введення:
+var list1 = [
+  { firstName: 'Daniel', lastName: 'J.', country: 'Aruba', continent: 'Americas', age: 42, language: 'JavaScript' },
+  { firstName: 'Kseniya', lastName: 'T.', country: 'Belarus', continent: 'Europe', age: 22, language: 'JavaScript' },
+  { firstName: 'Hanna', lastName: 'L.', country: 'Hungary', continent: 'Europe', age: 65, language: 'JavaScript' },
+];
+*/
+
+// Мій варіант
+function isSameLanguage(list) {
+  // Отримуємо масив унікальних мов програмування
+  let languages = list.map((elem) => elem.language);
+
+  // Перевіряємо, чи всі елементи масиву мають однакову мову програмування
+  return languages.every((lang, i, arr) => lang === arr[0]);
+}
+// Цікаві варіанти з Codewars
+function isSameLanguage_(list) {
+  return list.every((e) => e.language === list[0].language);
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1682шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
