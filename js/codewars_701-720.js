@@ -124,6 +124,48 @@ function pattern_(n) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1678шт
+//*-Task №704 Jumping Number (Special Numbers Series #4) (7kyu)
+/*
+Стрибкове число — це число, всі сусідні цифри якого відрізняються на 1.
+Дано число. Знайдіть, чи воно стрибає, чи ні.
+
+Передане число завжди додатне.
+Повернути результат у вигляді рядка (String).
+Різниця між «9» та «0» не вважається 1.
+Усі одноцифрові числа вважаються числами зі стрибками.
+
+jumpingNumber(9) ==> return "Jumping!!"
+jumpingNumber(79) ==> return "Not!!"
+jumpingNumber(23) ==> return "Jumping!!"
+jumpingNumber(556847) ==> return "Not!!"
+jumpingNumber(4343456) ==> return "Jumping!!"
+jumpingNumber(89098) ==> return "Not!!"
+jumpingNumber(32) ==> return "Jumping!!"
+*/
+
+// Мій варіант
+function jumpingNumber(n) {
+  if (n < 10) {
+    return 'Jumping!!';
+  }
+
+  const arr = `${n}`.split('').map(Number);
+
+  for (let i = 1; i < arr.length; i++) {
+    if (Math.abs(arr[i] - arr[i - 1]) !== 1) {
+      return 'Not!!';
+    }
+  }
+
+  return 'Jumping!!';
+}
+// Цікаві варіанти з Codewars
+const jumpingNumber_ = (n) =>
+  n.toString().split``.every((e, i, a) => i < 1 || Math.abs(e - a[i - 1]) === 1)
+    ? 'Jumping!!'
+    : 'Not!!';
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1676шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
