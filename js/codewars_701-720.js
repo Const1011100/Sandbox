@@ -258,6 +258,50 @@ const nthChar_ = (words) => words.map((word, index) => word[index]).join('');
 const nthChar__ = (words) => words.reduce((a, b, index) => a + b[index], '');
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1673шт
+//*-Task №708 Sum a list but ignore any duplicates (7kyu)
+/*
+Будь ласка, напишіть функцію, яка підсумовує список, але ігнорує будь-які дубліковані елементи у списку.
+
+Наприклад, для списку [3, 4, 3, 6] функція повинна повертати 10,
+а для списку [1, 10, 3, 10, 10] функція повинна повертати 4.
+*/
+
+// Мій варіант
+function sumNoDuplicates(numList) {
+  const counts = {};
+
+  // Рахуємо кількість кожного елемента
+  for (const num of numList) {
+    counts[num] = (counts[num] || 0) + 1;
+  }
+
+  // Підсумовуємо лише ті, які трапляються лише один раз
+  return numList
+    .filter((num) => counts[num] === 1)
+    .reduce((sum, num) => sum + num, 0);
+}
+
+// Цікаві варіанти з Codewars
+function sumNoDuplicates_(arr) {
+  let uniqueArr = [];
+  let sum = 0;
+  arr.forEach((num) => {
+    if (arr.indexOf(num) === arr.lastIndexOf(num)) {
+      uniqueArr.push(num);
+      sum += num;
+    }
+  });
+  return sum;
+}
+//
+function sumNoDuplicates__(numList) {
+  return numList.reduce(
+    (a, b) => (numList.indexOf(b) === numList.lastIndexOf(b) ? a + b : a),
+    0
+  );
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1671шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
