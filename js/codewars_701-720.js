@@ -282,23 +282,45 @@ function sumNoDuplicates(numList) {
 }
 
 // Цікаві варіанти з Codewars
-function sumNoDuplicates_(arr) {
-  let uniqueArr = [];
-  let sum = 0;
-  arr.forEach((num) => {
-    if (arr.indexOf(num) === arr.lastIndexOf(num)) {
-      uniqueArr.push(num);
-      sum += num;
-    }
-  });
-  return sum;
-}
-//
 function sumNoDuplicates__(numList) {
   return numList.reduce(
     (a, b) => (numList.indexOf(b) === numList.lastIndexOf(b) ? a + b : a),
     0
   );
+}
+// ================================================================================================
+// ================================================================================================
+//*-Task №709 Return a string's even characters. (7kyu)
+/*
+Напишіть функцію, яка повертає послідовність (індекс починається з 1) усіх парних символів з рядка.
+Якщо рядок коротший за два символи або довший за 100 символів,
+функція повинна повернути "недійсний рядок".
+
+Наприклад:
+"abcdefghijklm" --> ["b", "d", "f", "h", "j", "l"]
+"a"             --> "invalid string"
+*/
+
+// Мій варіант
+function evenChars(string) {
+  if (string.length < 2 || string.length > 100) {
+    return 'invalid string';
+  }
+  const result = string
+    .split('')
+    .slice(1)
+    .filter((e, i, a) => {
+      if (i % 2 === 0) {
+        return e;
+      }
+    });
+  return result;
+}
+// Цікаві варіанти з Codewars
+function evenChars_(string) {
+  return string.length < 2 || string.length > 100
+    ? 'invalid string'
+    : [...string].filter((_, i) => i % 2);
 }
 // ================================================================================================
 // ================================================================================================
