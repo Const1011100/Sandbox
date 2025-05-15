@@ -358,8 +358,34 @@ function lastSurvivor_(letters, coords) {
   coords.map((el, i, ar) => arr.splice(el, 1));
   return arr[0];
 }
+//*-Task №711 Special Number (Special Numbers Series #5)(7kyu)
+/*
+Число є спеціальним числом, якщо його цифри складаються лише з 0, 1, 2, 3, 4 або 5.
+Враховуючи число, визначте, чи є воно спеціальним числом чи ні.
+
+Передане число буде додатним (N > 0)
+Усі одноцифрові числа в інтервалі [1:5] вважаються спеціальними числами.
+*/
+
+// Мій варіант
+function specialNumber(n) {
+  const specialDigits = new Set(['0', '1', '2', '3', '4', '5']);
+  const digits = String(n).split('');
+
+  for (const digit of digits) {
+    if (!specialDigits.has(digit)) {
+      return 'NOT!!';
+    }
+  }
+
+  return 'Special!!';
+}
+// Цікаві варіанти з Codewars
+function specialNumber_(n) {
+  return /[6-9]/.test(n) ? 'NOT!!' : 'Special!!';
+}
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1670шт
+//*-залишилось 1669шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
