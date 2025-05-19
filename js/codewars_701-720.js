@@ -516,6 +516,41 @@ function minimumSteps__(numbers, value) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1666шт
+//*-Task №715 How many are smaller than me? (7kyu)
+/*
+Напишіть функцію, яка за заданим масивом arr повертає масив, що містить у кожному індексі i
+кількість чисел, менших за arr[i] праворуч.
+
+Наприклад:
+* Input [5, 4, 3, 2, 1] => Output [4, 3, 2, 1, 0]
+* Input [1, 2, 0] => Output [1, 1, 0]
+*/
+
+// Мій варіант
+function smaller(nums) {
+  const result = [];
+  for (let i = 0; i < nums.length; i++) {
+    let count = 0;
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] > nums[j]) {
+        count++;
+      }
+    }
+    result.push(count);
+  }
+  return result;
+}
+// Цікаві варіанти з Codewars
+const smaller_ = (nums) =>
+  nums.map((x, i) => nums.slice(i).filter((y) => x > y).length);
+//
+function smaller__(nums) {
+  return nums.map((n, i) => {
+    return nums.slice(i).filter((v) => v < n).length;
+  });
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1665шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
