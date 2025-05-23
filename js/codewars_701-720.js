@@ -673,6 +673,43 @@ function fireFight(s) {
 
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1663шт
+//*-Task №719 Unique string characters (7kyu)
+/*
+У цьому ката вам буде дано два рядки a та b, і вашим завданням буде повернути символи, які не є
+спільними в цих двох рядках.
+
+Наприклад:
+solve("xyab","xzca") = "ybzc" 
+--The first string has 'yb' which is not in the second string. 
+--The second string has 'zc' which is not in the first string. 
+
+Зверніть також увагу, що ви повертаєте символи з першого рядка, об'єднані із символами з другого рядка.
+*/
+
+// Мій варіант
+function solve(a, b) {
+  const arrA = a.split('');
+  const arrB = b.split('');
+  const uniqueA = arrA.filter((e) => !arrB.includes(e));
+  const uniqueB = arrB.filter((e) => !arrA.includes(e));
+  const result = uniqueA.concat(uniqueB);
+  return result.join('');
+}
+// Цікаві варіанти з Codewars
+function solve_(a, b) {
+  return (a + b)
+    .split('')
+    .filter((c) => !a.includes(c) || !b.includes(c))
+    .join('');
+}
+//
+function solve__(a, b) {
+  let setA = new Set(a);
+  let setB = new Set(b);
+  return [...(a + b)].filter((c) => setA.has(c) ^ setB.has(c)).join('');
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1662шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
