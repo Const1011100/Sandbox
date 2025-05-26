@@ -31,6 +31,71 @@ function stantonMeasure_(arr) {
 }
 // ================================================================================================
 // ================================================================================================
-//*-залишилось 1662шт
+//*-Task №722 Create Phone Number (6kyu)
+/*
+Напишіть функцію, яка приймає масив із 10 цілих чисел (від 0 до 9) та повертає рядок цих чисел
+у вигляді номера телефону.
+
+Приклад
+createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) // => повертає "(123) 456-7890"
+Повернений формат має бути правильним для виконання цього завдання.
+
+Не забудьте пробіли після закриваючих дужок!
+*/
+
+// Мій варіант
+function createPhoneNumber(numbers) {
+  return `${
+    '(' +
+    numbers[0] +
+    numbers[1] +
+    numbers[2] +
+    ')' +
+    ' ' +
+    '' +
+    numbers[3] +
+    numbers[4] +
+    numbers[5] +
+    '-' +
+    '' +
+    numbers[6] +
+    numbers[7] +
+    numbers[8] +
+    numbers[9]
+  }`;
+}
+// Цікаві варіанти з Codewars
+function createPhoneNumber_(numbers) {
+  var format = '(xxx) xxx-xxxx';
+
+  for (var i = 0; i < numbers.length; i++) {
+    format = format.replace('x', numbers[i]);
+  }
+
+  return format;
+}
+//
+function createPhoneNumber__(numbers) {
+  numbers = numbers.join('');
+  return (
+    '(' +
+    numbers.substring(0, 3) +
+    ') ' +
+    numbers.substring(3, 6) +
+    '-' +
+    numbers.substring(6)
+  );
+}
+//
+function createPhoneNumber___(numbers) {
+  return numbers.reduce((p, c) => p.replace('x', c), '(xxx) xxx-xxxx');
+}
+//
+function createPhoneNumber____(numbers) {
+  return numbers.join('').replace(/(...)(...)(.*)/, '($1) $2-$3');
+}
+// ================================================================================================
+// ================================================================================================
+//*-залишилось 1661шт
 // console.time('timer_1');
 // console.timeEnd('timer_1');
