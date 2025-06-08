@@ -510,6 +510,12 @@ function toLeetSpeak(str) {
   return result;
 }
 // Цікаві варіанти з Codewars
+// !!!:
+/*
+str.replace(searchValue, newValue);
+Гарне рішення використати функцію як newValue. Функція яка на вхід ЗАВЖДИ отримує результат пошуку searchValue (в нашій функції 
+позначено як с) та підставляємо це значення як ім'я властивості в наш словник -> D[c] та повертає його.
+*/
 const toLeetSpeak = (s) => s.replace(/[ABCEGHILOSTZ]/g, (c) => D[c]);
 
 const D = {
@@ -526,6 +532,55 @@ const D = {
   T: '7',
   Z: '2',
 };
+// ================================================================================================
+// ================================================================================================
+//*-Task №732 Split In Parts (7kyu)
+/*
+Мета цього ката — розділити заданий рядок на різні рядки однакового розміру
+(розмір рядків передається методу).
+
+Приклад:
+Розділіть наведений нижче рядок на інші рядки розміром #3
+'supercalifragilisticexpialidocious'
+
+Поверне новий рядок
+'sup erc ali fra gil ist ice xpi ali doc iou s'
+
+Припущення:
+Довжина рядка завжди більша за 0
+Рядок не містить пробілів
+Розмір завжди додатний
+*/
+
+// Мій варіант
+const splitInParts = function (s, partLength) {
+  if (s.length === partLength) {
+    return s;
+  }
+  const parts = s.split('');
+  let step = partLength;
+  for (let i = 0; i < Math.round(s.length / partLength); i += 1) {
+    parts.splice(step, 0, ' ');
+    step += partLength + 1;
+  }
+  return parts.join('').trim();
+};
+// Цікаві варіанти з Codewars
+// !!!:
+/*
+Гарне рішення з while (array.length){} виходячи з того що array.splice(0, partLength) буде відрізати шматки і зменшувати array
+*/
+var splitInParts_ = function (s, partLength) {
+  var parts = [];
+  var array = s.split('');
+  while (array.length) {
+    parts.push(array.splice(0, partLength).join(''));
+  }
+  return parts.join(' ');
+};
+//
+const splitInParts__ = (s, partLength) =>
+  s.match(new RegExp(`.{1,${partLength}}`, 'g')).join(' ');
 // ================================================================================================
 // ================================================================================================
 // console.time('timer_1');
