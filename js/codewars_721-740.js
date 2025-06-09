@@ -583,5 +583,54 @@ const splitInParts__ = (s, partLength) =>
   s.match(new RegExp(`.{1,${partLength}}`, 'g')).join(' ');
 // ================================================================================================
 // ================================================================================================
+//*-Task №733 Basic Math (Add or Subtract) (7kyu)
+/*
+У цьому ката ви будете виконувати додавання та віднімання заданого рядка.
+Повернене значення також має бути рядком.
+Примітка: вхідні дані не будуть порожніми.
+
+Приклади
+"1plus2plus3plus4"  --> "10"
+"1plus2plus3minus4" -->  "2"
+*/
+
+// Мій варіант
+function calculate(str) {
+  const newStr = str.replace(/plus/g, '+').replace(/minus/g, '-');
+  const numbers = str.match(/-?\d+/g).map((e) => parseInt(e));
+  const operarions = newStr.split('').filter((e) => e === '+' || e === '-');
+  let result = numbers[0];
+  let length = 0;
+  numbers.length === operarions.length
+    ? (length = operarions.length - 1)
+    : (length = operarions.length);
+
+  for (let i = 0; i < length; i++) {
+    if (operarions[i] === '+') {
+      result += numbers[i + 1];
+    }
+    if (operarions[i] === '-') {
+      result -= numbers[i + 1];
+    }
+  }
+  return `${result}`;
+}
+// Цікаві варіанти з Codewars
+function calculate_(str) {
+  const sum = (arr) => (arr || [0]).reduce((acc, x) => acc + +x, 0);
+
+  return (
+    sum(str.match(/^\d+|(?<=plus)\d+/g)) - sum(str.match(/(?<=minus)\d+/g)) + ''
+  );
+}
+//
+function calculate__(str) {
+  const positive = str.match(/(?<=^|plus)\d+/g) || [];
+  const negative = str.match(/(?<=minus)\d+/g) || [];
+  const sum = (arr) => arr.reduce((acc, item) => acc + Number(item), 0);
+  return `${sum(positive) - sum(negative)}`;
+}
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
