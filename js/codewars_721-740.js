@@ -813,5 +813,39 @@ function validSpacing_(s) {
 const validSpacing__ = (s) => s.replace(/\s+/g, ' ').trim() == s;
 // ================================================================================================
 // ================================================================================================
+//*-Task №738 Remove consecutive duplicate words (7kyu)
+/*
+Ваше завдання — видалити всі послідовні дублікати слів з рядка, залишивши лише перші слова. Наприклад:
+
+"alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta"
+--> "alpha beta gamma delta alpha beta gamma delta"
+
+Слова будуть розділені одним пробілом. У рядку не буде початкових або кінцевих пробілів.
+Порожній рядок (0 слів) є дійсним вхідним значенням.
+*/
+
+// Мій варіант
+function removeConsecutiveDuplicates(string) {
+  // Перетворюємо рядок на массив слів
+  const words = string.split(' ');
+  // Створюємо масив для зберігання слів які відповідають умові
+  const result = [words[0]];
+  for (let i = 1; i < words.length; i++) {
+    // Проходимо по всім словам та відправляємо в result ті які відповідають умові
+    if (words[i] !== words[i - 1]) {
+      result.push(words[i]);
+    }
+  }
+  // Масив перетворюємо на рядок та повертаємо як результат
+  return result.join(' ');
+}
+// Цікаві варіанти з Codewars
+const removeConsecutiveDuplicates_ = (s) =>
+  s
+    .split(' ')
+    .filter((x, i, arr) => x != arr[i - 1])
+    .join(' ');
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
