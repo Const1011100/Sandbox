@@ -321,5 +321,41 @@ function numObj(s) {
 const numObj_ = ($) => $.map((el) => ({ [el]: String.fromCodePoint(el) }));
 // ================================================================================================
 // ================================================================================================
+//*-Task №751 Who is the killer? (7kyu)
+/*
+Хто вбивця? Деяких людей убито! Вам вдалося звузити коло підозрюваних до кількох.
+На щастя, ви знаєте кожну людину, яку ці підозрювані бачили в день убивств.
+
+Завдання.
+Вам надано словник з усіма іменами підозрюваних та всіх, кого вони бачили в той день,
+який може виглядати так:
+{'James': ['Jacob', 'Bill', 'Lucas'],
+ 'Johnny': ['David', 'Kyle', 'Lucas'],
+ 'Peter': ['Lucy', 'Kyle']}
+
+ а також список імен загиблих:
+ ['Lucas', 'Bill']
+
+ повернути ім'я одного вбивці, у нашому випадку «Джеймс», оскільки він єдина людина,
+ яка бачила і 'Lucas', і 'Bill'
+ */
+
+// Мій варіант
+function killer(suspectInfo, dead) {
+  return Object.keys(suspectInfo).find((suspect) =>
+    dead.every((victim) => suspectInfo[suspect].includes(victim))
+  );
+}
+// Цікаві варіанти з Codewars
+function killer_(suspectInfo, dead) {
+  //your code here...
+  for (let name in suspectInfo) {
+    if (dead.every((deadPerson) => suspectInfo[name].includes(deadPerson))) {
+      return name;
+    }
+  }
+}
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
