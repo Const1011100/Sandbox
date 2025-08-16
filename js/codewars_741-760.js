@@ -357,5 +357,34 @@ function killer_(suspectInfo, dead) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №752 Help Bob count letters and digits. (7kyu)
+/*
+Боб — лінивець.
+Йому потрібно, щоб ви створили метод, який може визначити, скільки літер (як великих, так і малих ASCII)
+та цифр міститься в заданому рядку.
+
+Приклад:
+"hel2!lo" --> 6
+"wicked .. !" --> 6
+"!?..A" --> 1
+ */
+
+// Мій варіант
+function countLettersAndDigits(input) {
+  return input.match(/[a-zA-Z0-9]/g) === null
+    ? 0
+    : input.match(/[a-zA-Z0-9]/g).length;
+}
+// Цікаві варіанти з Codewars
+function countLettersAndDigits_(s) {
+  return s.replace(/[^a-z\d]/gi, '').length;
+}
+//
+function countLettersAndDigits__(input) {
+  let o = input.match(/[a-z\d]/gi);
+  return o !== null ? o.length : 0;
+}
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
