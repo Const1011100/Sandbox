@@ -508,5 +508,37 @@ const isNice__ = (arr) =>
   arr.every((e) => arr.includes(e - 1) || arr.includes(e + 1));
 // ================================================================================================
 // ================================================================================================
+//*-Task №756 Convert Hash To An Array (7kyu)
+/*
+Перетворити хеш на масив. Ні більше, ні менше.
+
+{name: 'Jeremy', age: 24, role: 'Software Engineer'}
+слід перетворити на
+
+[["age", 24], ["name", "Jeremy"], ["role", "Software Engineer"]]
+Удачі!
+ */
+
+// Мій варіант
+function convertHashToArray(hash) {
+  const keys = Object.keys(hash);
+  const values = Object.values(hash);
+  const result = keys.map((e, i, a) => {
+    return [keys[i], values[i]];
+  });
+  return result;
+}
+// Цікаві варіанти з Codewars
+const convertHashToArray_ = (o) => Object.entries(o).sort();
+//
+function convertHashToArray__(hash) {
+  let result = [];
+  Object.keys(hash)
+    .sort()
+    .map((item) => result.push([item, hash[item]]));
+  return result;
+}
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
