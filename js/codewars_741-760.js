@@ -626,5 +626,44 @@ function diagonalSum_(matrix) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №760 Scrolling Text (7kyu)
+/*
+Давайте створимо текст, що прокручується!
+
+Ваше завдання — виконати функцію, яка приймає рядок і повертає масив з усіма можливими
+обертаннями заданого рядка, у верхньому регістрі.
+
+Приклад
+scrollingText("codewars") має повернути:
+[ "CODEWARS",
+  "ODEWARSC",
+  "DEWARSCO",
+  "EWARSCOD",
+  "WARSCODE",
+  "ARSCODEW"
+  "RSCODEWA",
+  "SCODEWAR" ]
+ */
+
+// Мій варіант
+function scrollingText(text) {
+  const result = [];
+  const upperText = text.toUpperCase();
+
+  for (let i = 0; i < text.length; i++) {
+    const rotated = upperText.slice(i) + upperText.slice(0, i);
+    result.push(rotated);
+  }
+
+  return result;
+}
+// Цікаві варіанти з Codewars
+function scrollingText_(text) {
+  text = text.toUpperCase();
+
+  return [...text].map((_, i) => text.slice(i) + text.slice(0, i));
+}
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
