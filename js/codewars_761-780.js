@@ -177,5 +177,36 @@ function modifyMultiply_(str, i, n) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №768 Return substring instance count (7kyu)
+/*
+Напишіть функцію, яка приймає два рядкові параметри search_text та full_text і повертає кількість
+разів, коли search_text знайдено в full_text.
+
+Перекриття не допускається: "aaa" містить 1 екземпляр "aa", а не 2.
+search_text ніколи не буде порожнім.
+Приклади:
+full_text = "aa_bb_cc_dd_bb_e", search_text = "bb"
+--> should return 2 since "bb" shows up twice
+
+full_text = "aaabbbcccc", search_text = "bbb"
+--> should return 1
+ */
+
+// Мій варіант
+function solution(fullText, search) {
+  const regExp = new RegExp(`${search}`, 'g');
+  const result = fullText.match(regExp);
+  return result !== null ? result.length : 0;
+}
+// Цікаві варіанти з Codewars
+function solution_(fullText, searchText) {
+  return fullText.split(searchText).length - 1;
+}
+//
+function solution__(fullText, searchText) {
+  return (fullText.match(new RegExp(searchText, 'g')) || []).length;
+}
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
