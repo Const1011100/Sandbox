@@ -336,5 +336,38 @@ function computerToPhone_(numbers) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №772 Geometry Basics: Triangle Perimeter in 2D (7kyu)
+/*
+Точки мають атрибути x, y.
+Трикутники мають атрибути a, b, c, що описують їхні кути, кожен з яких є точкою.
+Напишіть функцію, яка обчислює периметр трикутника, визначеного таким чином.
+ */
+
+// Мій варіант
+function trianglePerimeter(triangle) {
+  // Функція для обчислення відстані між двома точками
+  function distance(point1, point2) {
+    const dx = point2.x - point1.x;
+    const dy = point2.y - point1.y;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  // Обчислюємо довжини всіх сторін трикутника
+  const sideAB = distance(triangle.a, triangle.b);
+  const sideBC = distance(triangle.b, triangle.c);
+  const sideCA = distance(triangle.c, triangle.a);
+
+  // Повертаємо суму довжин сторін (периметр)
+  return sideAB + sideBC + sideCA;
+}
+// Цікаві варіанти з Codewars
+function trianglePerimeter_(ᐃ) {
+  let ab = Math.hypot(ᐃ.a.x - ᐃ.b.x, ᐃ.a.y - ᐃ.b.y);
+  let bc = Math.hypot(ᐃ.b.x - ᐃ.c.x, ᐃ.b.y - ᐃ.c.y);
+  let ca = Math.hypot(ᐃ.c.x - ᐃ.a.x, ᐃ.c.y - ᐃ.a.y);
+  return ab + bc + ca;
+}
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
