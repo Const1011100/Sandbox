@@ -452,5 +452,45 @@ function reverse(n) {
 
 // ================================================================================================
 // ================================================================================================
+//*-Task №776 Count strings in objects (7kyu)
+/*
+Створіть функцію strCount (приймає об'єкт як аргумент), яка рахуватиме всі рядкові значення
+всередині об'єкта.
+Наприклад:
+strCount({
+  first: "1",
+  second: "2",
+  third: false,
+  fourth: ["anytime",2,3,4],
+  fifth:  null
+  })
+  //returns 3
+ */
+
+// Мій варіант
+function strCount(obj) {
+  if (typeof obj === 'string') {
+    return 1;
+  }
+
+  if (typeof obj === 'object' && obj !== null) {
+    return Object.values(obj).reduce((count, value) => {
+      return count + strCount(value);
+    }, 0);
+  }
+
+  return 0;
+}
+// Цікаві варіанти з Codewars
+function strCount_(obj) {
+  let count = 0;
+  for (key in obj) {
+    if (typeof obj[key] == 'string') count++;
+    if (typeof obj[key] == 'object') count += strCount_(obj[key]);
+  }
+  return count;
+}
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
