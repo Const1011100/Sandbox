@@ -533,5 +533,44 @@ function houseNumbersSum_(inputArray) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №778 Count the number of exclamation marks and question marks, return the product (7kyu)
+/*
+Підрахуйте кількість знаків оклику та знаків питання, поверніть товар.
+Приклади
+"" ---> 0
+"!" ---> 0
+"!ab? ?" ---> 2
+"!!" ---> 0
+"!??" ---> 2
+"!???" ---> 3
+"!!!??" ---> 6
+"!!!???" ---> 9
+"!???!!" ---> 9
+"!??????!!!?" ---> 20
+ */
+
+// Мій варіант
+function product(string) {
+  let exclamationCount = 0;
+  let questionCount = 0;
+
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === '!') {
+      exclamationCount++;
+    } else if (string[i] === '?') {
+      questionCount++;
+    }
+  }
+
+  return exclamationCount * questionCount;
+}
+// Цікаві варіанти з Codewars
+function product_(s) {
+  excs = s.split('!').length - 1;
+  ques = s.split('?').length - 1;
+  return excs * ques;
+}
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
