@@ -173,5 +173,43 @@ function catchSignChange_(arr) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №786 Extending JavaScript Objects: Get First & Last Array Element (7kyu)
+/*
+Ваше завдання — розширити об'єкт JavaScript Array методами .first() та .last(), щоб отримати перший
+та останній елемент масиву.
+
+var a = [2, 5, 7, 3 ,4];
+
+a.first(); // 2
+a.last(); // 4
+Примітки
+У випадку порожнього масиву, методи повинні повертати undefined.
+Методи не повинні змінювати свої вхідні дані.
+*/
+
+// Мій варіант
+Array.prototype.first = function () {
+  if (this.length === 0) {
+    return undefined;
+  }
+  return this[0];
+};
+Array.prototype.last = function () {
+  if (this.length === 0) {
+    return undefined;
+  }
+  return this[this.length - 1];
+};
+// Цікаві варіанти з Codewars
+Object.assign(Array.prototype, {
+  first() {
+    return this[0];
+  },
+  last() {
+    return this[this.length - 1];
+  },
+});
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
