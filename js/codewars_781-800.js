@@ -498,5 +498,35 @@ Foo_.prototype.valueOf = function () {
 };
 // ================================================================================================
 // ================================================================================================
+//*-Task №795 Wordsearch (7kyu)
+/*
+Створіть функцію wordSearch(word,text), яка шукає, чи присутнє слово word у заданій текстовій змінній.
+
+Зверніть увагу, що це має бути повне слово, тобто воно має бути оточене межею слова
+(пробіли, кінець/початок рядка, різні розділові знаки тощо).
+
+Example:
+Text - "what makes the desert beautiful, said the little prince is that somewhere it hides a well";
+
+wordSearch("prince",text)--> true
+wordSearch("beautiful",text)--> true
+wordSearch("clown",text)--> false
+wordSearch("yellow",text)--> false
+wordSearch("akes the",text)--> false
+*/
+
+// Мій варіант
+function wordSearch(word, text) {
+  return text
+    .toLowerCase()
+    .split(/\W+/) // розбиває текст по будь-яких неалфавітних символах (пробіли, коми, крапки тощо).
+    .some((w) => w === word.toLowerCase());
+}
+// Цікаві варіанти з Codewars
+function wordsearch_(n) {
+  return text.search('\\b' + n + '\\b') > -1;
+}
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
