@@ -566,5 +566,51 @@ function fib_(num, current = 0, next = 1) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №797 Counting in the Amazon (7kyu)
+/*
+Арара - це ізольоване плем'я, яке живе в Амазонці і рахує парами. Наприклад, один до восьми
+виглядає так:
+
+1 = anane
+2 = adak
+3 = adak anane
+4 = adak adak
+5 = adak adak anane
+6 = adak adak adak
+7 = adak adak adak anane
+8 = adak adak adak adak
+Візьміть задане число та поверніть еквівалент Арари.
+
+напр.
+
+3 --> "adak anane"
+
+8 --> "adak adak adak adak"
+*/
+
+// Мій варіант
+function countArara(n) {
+  if (n < 1) return '';
+  if (n === 1) return 'anane';
+  return (
+    new Array(Math.floor(n / 2)).fill('adak').join(' ') +
+    (n % 2 === 0 ? '' : ' anane')
+  );
+}
+// Цікаві варіанти з Codewars
+function countArara_(n) {
+  switch (n) {
+    case 0:
+      return '';
+    case 1:
+      return 'anane';
+    case 2:
+      return 'adak';
+    default:
+      return 'adak ' + countArara_(n - 2);
+  }
+}
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
