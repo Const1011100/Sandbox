@@ -659,5 +659,45 @@ function root_(x, n) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №800 Add property to every object in array (7kyu)
+/*
+Ваше завдання — додати нову властивість usersAnswer до кожного об'єкта в масиві questions.
+Значення usersAnswer має бути встановлене на null. Розв'язок має працювати для масиву будь-якої довжини.
+
+Наприклад:
+var questions = [{
+    question: "What's the currency of the USA?",
+    choices: ["US dollar", "Ruble", "Horses", "Gold"],
+    corAnswer: 0
+}, {
+    question: "Where was the American Declaration of Independence signed?",
+    choices: ["Philadelphia", "At the bottom", "Frankie's Pub", "China"],
+    corAnswer: 0
+}];
+
+Після додавання властивості результат має бути таким:
+var questions = [{
+    question: "What's the currency of the USA?",
+    choices: ["US dollar", "Ruble", "Horses", "Gold"],
+    corAnswer: 0,
+    usersAnswer: null
+}, {
+    question: "Where was the American Declaration of Independence signed?",
+    choices: ["Philadelphia", "At the bottom", "Frankie's pub", "China"],
+    corAnswer: 0,
+    usersAnswer: null
+}];
+
+Масив запитань вже визначено для вас і не такий самий, як у прикладі.
+*/
+
+// Мій варіант
+questions.forEach((q) => (q.usersAnswer = null));
+// Цікаві варіанти з Codewars
+questions_.forEach(function (i) {
+  i.usersAnswer = null;
+});
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
