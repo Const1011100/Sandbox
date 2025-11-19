@@ -371,5 +371,25 @@ function paintLetterboxes__(start, end) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №811 Only one (7kyu)
+/*
+Завдання: Написати функцію only_one, яка повертає True, якщо ЛИШЕ ОДИН з логічних прапорців має
+значення True, інакше повертає False. Якщо логічних прапорців немає, повертає False
+
+onlyOne() --> false
+onlyOne(true, false, false) --> true
+onlyOne(true, false, false, true) --> false
+onlyOne(false, false, false, false) --> false
+*/
+
+// Мій варіант
+function onlyOne(...args) {
+  if (args.length < 1) return false;
+  return args.filter((element) => element === true).length === 1;
+}
+// Цікаві варіанти з Codewars
+const onlyOne_ = (...args) => args.filter(Boolean).length === 1;
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
