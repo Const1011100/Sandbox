@@ -391,5 +391,56 @@ function onlyOne(...args) {
 const onlyOne_ = (...args) => args.filter(Boolean).length === 1;
 // ================================================================================================
 // ================================================================================================
+//*-Task №812 Fruit string calculator (7kyu)
+/*
+Вам задано рядок слів і чисел. Витягніть вираз, включаючи:
+
+оператор: додавання ("gains") або віднімання ("loses")
+два числа, над якими ми працюємо
+Поверніть результат обчислення.
+
+Примітки:
+
+"loses" та "gains" - єдині два слова, що описують оператори
+Ні фруктових боргів, ні надкушених яблук = Числа є цілими числами та без від'ємних чисел
+Приклади
+"Панда має 48 яблук і програє 4" --> 44
+"Джеррі має 34 яблука і виграє 6" --> 40
+Має бути гарненьке невелике ката для вас :)
+*/
+
+// Мій варіант
+function calculate(string) {
+  const words = string.split(' ');
+  let numbers = words
+    .filter((e) => {
+      return !isNaN(Number(e));
+    })
+    .map((e) => Number(e));
+
+  if (words.includes('gains')) {
+    return numbers[0] + numbers[1];
+  }
+  if (words.includes('loses')) {
+    return numbers[0] - numbers[1];
+  }
+}
+// Цікаві варіанти з Codewars
+function calculate_(string) {
+  return eval(
+    string
+      .replace('loses', '-')
+      .replace('gains', '+')
+      .replace(/[a-zA-Z]/g, '')
+  );
+}
+//
+function calculate__(str) {
+  // Add your code here:
+  let [op1, op2] = str.match(/\d+/gm);
+  return /loses/.test(str) ? +op1 - +op2 : +op1 + +op2;
+}
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
