@@ -460,5 +460,51 @@ function filterEvenLengthWords(words) {
 
 // ================================================================================================
 // ================================================================================================
+//*-Task №814 Compare Strings by Sum of Chars (7kyu)
+/*
+Порівняйте два рядки, порівнюючи суму їхніх значень (код символу ASCII).
+
+Для порівняння всі літери розглядаються як верхній регістр.
+null слід розглядати як порожні рядки.
+Якщо рядок містить інші символи, окрім літер, весь рядок розглядається як порожній.
+Ваш метод повинен повертати true, якщо рядки рівні, та false, якщо вони не рівні.
+
+Приклади:
+"AD", "BC"  -> equal
+"AD", "DD"  -> not equal
+"gf", "FG"  -> equal
+"zz1", ""   -> equal (both are considered empty)
+"ZzZz", "ffPFF" -> equal
+"kl", "lz"  -> not equal
+null, ""    -> equal
+*/
+
+// Мій варіант
+function compare(s1, s2) {
+  function sum(s) {
+    let a = (s || '').toUpperCase().split('');
+    return a.every((v) => /[A-Z]/.test(v))
+      ? a.reduce((r, v) => r + v.codePointAt(0), 0)
+      : 0;
+  }
+  return sum(s1) === sum(s2);
+}
+// Цікаві варіанти з Codewars
+function compare_(s1, s2) {
+  if (/^\D+$/gi.test(s1) && /^\D+$/gi.test(s2))
+    return (
+      s1
+        .split('')
+        .map((n) => n.toUpperCase().charCodeAt())
+        .reduce((a, b) => a + b) ===
+      s2
+        .split('')
+        .map((n) => n.toUpperCase().charCodeAt())
+        .reduce((a, b) => a + b)
+    );
+  return true;
+}
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
