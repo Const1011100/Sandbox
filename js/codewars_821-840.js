@@ -101,5 +101,66 @@ const makeBackronym_ = (string) =>
   [...string].map((val) => dict[val.toUpperCase()]).join(` `);
 // ================================================================================================
 // ================================================================================================
+//*-Task №824 (7kyu)
+/*
+Проблема
+Джеймс — діджей на місцевій радіостанції. Оскільки наближається кінець години, йому потрібно знайти
+пісню, яка буде достатньо короткою, щоб поміститися перед новинним блоком.
+У нього є база даних пісень, які він хотів би, щоб ви допомогли йому відфільтрувати для цього.
+
+Що робити
+Створіть допоміжну функцію longestPossible, яка приймає 1 цілочисельний аргумент, що є максимальною
+тривалістю пісні в секундах.
+
+songs — це масив об'єктів, відформатованих наступним чином:
+
+{artist: 'Artist', title: 'Title String', playback: '04:30'}
+Ви можете очікувати, що значення playback буде відформатовано точно так само, як і вище.
+
+Вивід має бути назвою найдовшої пісні з бази даних, яка відповідає критерію не довшої за заданим часом.
+Якщо в базі даних немає пісень, що відповідають критеріям, поверніть false.
+*/
+
+// Мій варіант
+function longestPossible(playback) {
+  if (!songs || songs.length === 0) return false;
+
+  // // Конвертируем в секунды
+  function toSeconds(time) {
+    const [m, s] = time.split(':').map((n) => Number(n));
+    return m * 60 + s;
+  }
+
+  let resultLength = 0;
+  let resultTitle = false;
+  songs.forEach((song) => {
+    let songLength = toSeconds(song.playback);
+
+    if (songLength < playback && songLength > resultLength) {
+      resultLength = songLength;
+      resultTitle = song.title;
+    }
+  });
+  return resultTitle;
+}
+// Цікаві варіанти з Codewars
+function longestPossible_(playback) {
+  function getTime(song) {
+    return song.playback.substr(0, 2) * 60 + +song.playback.substr(3, 2);
+  }
+
+  var song = {};
+  song.playback = '00:00';
+
+  songs.forEach(function (val, index) {
+    if (playback >= getTime(val) && getTime(val) > getTime(song)) {
+      song = val;
+    }
+  });
+
+  return getTime(song) ? song.title : false;
+}
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
