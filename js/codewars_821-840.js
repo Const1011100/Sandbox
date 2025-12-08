@@ -237,5 +237,45 @@ function validParentheses_(a) {
 }
 // ================================================================================================
 // ================================================================================================
+//*-Task №827 Coding Meetup #12 - Higher-Order Functions Series - Find GitHub admins (7kyu)
+/*
+Вам буде надано масив об'єктів, що представляють дані про розробників, які зареєструвалися для
+участі в наступній зустрічі з програмування, яку ви організовуєте.
+
+Враховуючи наступний вхідний масив:
+var list1 = [
+  { firstName: 'Harry', lastName: 'K.', country: 'Brazil', continent: 'Americas', age: 22, language: 'JavaScript', githubAdmin: 'yes' },
+  { firstName: 'Kseniya', lastName: 'T.', country: 'Belarus', continent: 'Europe', age: 49, language: 'Ruby', githubAdmin: 'no' },
+  { firstName: 'Jing', lastName: 'X.', country: 'China', continent: 'Asia', age: 34, language: 'JavaScript', githubAdmin: 'yes' },
+  { firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128, language: 'JavaScript', githubAdmin: 'no' }
+];
+
+напишіть функцію, яка при виконанні як findAdmin(list1, 'JavaScript') повертає лише розробників JavaScript,
+які є адміністраторами GitHub:
+[
+  { firstName: 'Harry', lastName: 'K.', country: 'Brazil', continent: 'Americas', age: 22, language: 'JavaScript', githubAdmin: 'yes' },
+  { firstName: 'Jing', lastName: 'X.', country: 'China', continent: 'Asia', age: 34, language: 'JavaScript', githubAdmin: 'yes' }
+]
+
+Примітки:
+
+Початковий порядок слід зберегти.
+Якщо для певної мови немає розробників-адміністраторів GitHub, тоді повертається порожній масив [].
+Вхідний масив завжди буде дійсним та відформатованим, як у наведеному вище прикладі.
+Рядки, що вказують на те, чи є хтось адміністратором GitHub, завжди будуть відформатовані як «так» та «ні» (усі у нижньому регістрі).
+Рядки, що представляють певну мову, завжди будуть відформатовані однаково
+(наприклад, «JavaScript» завжди буде відформатовано з використанням великих літер «J» та «S».
+*/
+
+// Мій варіант
+function findAdmin(list, lang) {
+  return list.filter(
+    (obj) => obj.language === lang && obj.githubAdmin === 'yes'
+  );
+}
+// Цікаві варіанти з Codewars
+
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
