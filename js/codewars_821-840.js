@@ -507,5 +507,50 @@ const elapsedSeconds_ = (sDate, eDate) =>
   (eDate.getTime() - sDate.getTime()) / 1000;
 // ================================================================================================
 // ================================================================================================
+//*-Task №835 Vampire Numbers (7kyu)
+/*
+Числа вампірів
+Наше загальне визначення Чисел вампірів можна описати так:
+
+6 * 21 = 126
+# 6 та 21 будуть дійсними «іклами» для числа вампіра, оскільки
+# цифри 6, 1 та 2 присутні як у добутку, так і в множниках
+
+10 * 11 = 110
+# 110 не є числом вампіра, оскільки в
+# множниках є три одиниці, але лише дві одиниці в добутку
+Створіть функцію, яка може отримати два «ікла» та визначити, чи є добуток цих двох дійсним числом вампіра.
+*/
+
+// Мій варіант
+function vampireTest(a, b) {
+  const product = a * b;
+  const productStr = product.toString();
+  const fangsStr = a.toString() + b.toString();
+
+  // Перевіряємо довжину: якщо кількість цифр не співпадає, не може бути числом-вампіром
+  if (productStr.length !== fangsStr.length) {
+    return false;
+  }
+
+  // Сортуємо цифри для порівняння
+  const sortedProduct = productStr.split('').sort().join('');
+  const sortedFangs = fangsStr.split('').sort().join('');
+
+  // Порівнюємо відсортовані набори цифр
+  return sortedProduct === sortedFangs;
+}
+// Цікаві варіанти з Codewars
+var vampire_test_ = function (a, b) {
+  var origDigits = String(a) + String(b),
+    prodDigits = String(a * b);
+
+  origDigits = origDigits.split('').sort().join('');
+  prodDigits = prodDigits.split('').sort().join('');
+
+  return prodDigits === origDigits ? true : false;
+};
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
