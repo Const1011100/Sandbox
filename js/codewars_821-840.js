@@ -552,5 +552,35 @@ var vampire_test_ = function (a, b) {
 };
 // ================================================================================================
 // ================================================================================================
+//*-Task №836 Exclamation marks series #8: Move all exclamation marks to the end of the sentence (7kyu)
+/*
+Опис:
+Перемістити всі знаки оклику в кінець речення
+
+Приклади
+"Hi!"          ---> "Hi!"
+"Hi! Hi!"      ---> "Hi Hi!!"
+"Hi! Hi! Hi!"  ---> "Hi Hi Hi!!!"
+"Hi! !Hi Hi!"  ---> "Hi Hi Hi!!!"
+"Hi! Hi!! Hi!" ---> "Hi Hi Hi!!!!"
+*/
+
+// Мій варіант
+function remove(string) {
+  // Знайти всі оклики
+  const exclamations = (string.match(/!/g) || []).join('');
+
+  // Видалити всі оклики з оригінального рядка
+  const withoutExclamations = string.replace(/!/g, '');
+
+  // Додати всі оклики в кінець
+  return withoutExclamations + exclamations;
+}
+// Цікаві варіанти з Codewars
+function remove_(s) {
+  return s.replace(/!/g, '') + s.replace(/[^!]/g, '');
+}
+// ================================================================================================
+// ================================================================================================
 // console.time('timer_1');
 // console.timeEnd('timer_1');
